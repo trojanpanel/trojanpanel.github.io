@@ -1,0 +1,17 @@
+{
+  "name": "trojan-panel-doc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:trojanpanel/trojan-panel-doc.git",
+  "author": "jonssonyan <yz808@outlook.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "docs:dev": "vuepress dev vpress",
+    "docs:build": "vuepress build vpress"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.9.7",
+    "vuepress": "^1.9.7"
+  }
+}
