@@ -1,4 +1,10 @@
 module.exports = {
+    head: [
+        [
+            'link',
+            {rel: 'icon', href: 'logo.png'}
+        ]
+    ],
     title: 'Trojan Panel',
     description: '支持多用户的Trojan可视化管理面板',
     plugins: ['@vuepress/back-to-top'],
