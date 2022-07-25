@@ -8,21 +8,20 @@
 
 内存要求: ≥1G
 
-## 准备
+## 安装前准备
 
 1. 一台未被墙的**国外VPS**
 2. 一个解析到VPS的**二级域名**
+3. 开放端口
 
-## 开放端口
-
-端口|描述
----|---
-80|伪装Web
-443|HTTPS/Trojan/Hysteria(UDP)等
-8863|Caddy转发
-8888|Trojan Panel管理后台Web
-9507|MariaDB
-6378|Redis
+| 端口   | 描述                          |
+|------|-----------------------------|
+| 80   | 伪装Web                       |
+| 443  | HTTPS/Trojan/Hysteria(UDP)等 |
+| 8863 | Caddy转发                     |
+| 8888 | Trojan Panel管理后台Web         |
+| 9507 | MariaDB                     |
+| 6378 | Redis                       |
 
 使用Trojan Panel需开放以下端口: `80` `443` `8863` `8888`，如果节点和Trojan Panel不在一台服务器上，Trojan Panel服务器需要再开放: `9507`
 。反之，为了安全起见，不建议开启该端口。
@@ -31,7 +30,7 @@
 
 如果使用的服务器控制面板有防火墙设置需要自己在控制面板自行开放以上端口。
 
-## 使用前的建议
+## 安装建议
 
 1. 控制面板和节点都推荐部署在**国外服务器**上，否则会由于网络问题使用一键安装脚本会因为远程下载文件超时报错。
 
@@ -128,7 +127,7 @@ source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_
 2. 安装成功后，Trojan Panel管理面板地址: `你的域名:8888`
    系统管理员 默认用户名: `sysadmin` 默认密码: `123456` 请及时登陆管理面板修改密码。
 
-## 安装Trojan-go(以数据库版为例)
+## 安装Trojan-go
 
 **注意:** 如果你使用的是Websocket+CDN的方式，请提前将解析到本机的域名配置好CDN，建议使用国外的CDN厂商。除非服务器IP被墙，否则不建议使用此方式。
 
@@ -200,7 +199,9 @@ source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_
 
     输入一个你能记得住且较为复杂的密码。
 
-## 安装Hysteria(以数据库版为例)
+## 安装Hysteria
+
+**注意：** 目前支持的hysteria协议处于测试阶段，只支持认证不支持流量控制，需要流量控制的请使用trojan-go协议。
 
 1. 请输入Hysteria的模式(默认:1)
 
@@ -221,7 +222,3 @@ source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_
 5. 请输入Trojan Panel的地址(默认:本机)
 
    默认即可，除非Hysteria节点和面板不在一台服务器上，此处填写Trojan Panel的域名地址（没有http/https前缀）
-
-**注意**
-
-1. 目前支持的hysteria协议处于测试阶段，只支持认证不支持流量控制，需要流量控制的请使用trojan-go协议。
