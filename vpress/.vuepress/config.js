@@ -30,7 +30,7 @@ module.exports = {
             {text: '教程', link: '/tutorial/installation'},
             {text: '用户手册', link: '/manual/performance-testing'},
             {text: '工具推荐', link: '/recommend/client'},
-            {text: 'GitHub', link: 'https://github.com/trojanpanel/install-script'}
+            {text: 'GitHub', link: 'https://github.com/trojanpanel'}
         ],
     },
     dest: 'docs'
