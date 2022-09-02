@@ -6,10 +6,10 @@
     <title>手动安装教程 | Trojan Panel</title>
     <meta name="generator" content="VuePress 1.9.7">
     <link rel="icon" href="logo.png">
-    <meta name="description" content="支持多用户的Trojan可视化管理面板">
+    <meta name="description" content="支持多用户多协议的可视化管理面板">
     
-    <link rel="preload" href="/assets/css/0.styles.8658ffd6.css" as="style"><link rel="preload" href="/assets/js/app.f2657849.js" as="script"><link rel="preload" href="/assets/js/2.cdf4008d.js" as="script"><link rel="preload" href="/assets/js/15.2c702e1f.js" as="script"><link rel="prefetch" href="/assets/js/10.8584cb6e.js"><link rel="prefetch" href="/assets/js/11.3fde07bc.js"><link rel="prefetch" href="/assets/js/12.7c2d9cbf.js"><link rel="prefetch" href="/assets/js/13.1831bf20.js"><link rel="prefetch" href="/assets/js/14.d2dd8d6e.js"><link rel="prefetch" href="/assets/js/16.08d7f4c3.js"><link rel="prefetch" href="/assets/js/17.b01e6ea0.js"><link rel="prefetch" href="/assets/js/3.df8a55cd.js"><link rel="prefetch" href="/assets/js/4.2846bd18.js"><link rel="prefetch" href="/assets/js/5.f45bec18.js"><link rel="prefetch" href="/assets/js/6.f3aaa547.js"><link rel="prefetch" href="/assets/js/7.81c0c1c2.js"><link rel="prefetch" href="/assets/js/8.8e0ec7d3.js"><link rel="prefetch" href="/assets/js/9.f2492a15.js">
-    <link rel="stylesheet" href="/assets/css/0.styles.8658ffd6.css">
+    <link rel="preload" href="/assets/css/0.styles.4d92b5b7.css" as="style"><link rel="preload" href="/assets/js/app.00fafcfc.js" as="script"><link rel="preload" href="/assets/js/2.f801e877.js" as="script"><link rel="preload" href="/assets/js/15.3c447fa4.js" as="script"><link rel="prefetch" href="/assets/js/10.ba0074e5.js"><link rel="prefetch" href="/assets/js/11.73d1da21.js"><link rel="prefetch" href="/assets/js/12.a2929a1a.js"><link rel="prefetch" href="/assets/js/13.ffda2bb6.js"><link rel="prefetch" href="/assets/js/14.53597c78.js"><link rel="prefetch" href="/assets/js/16.72d1f3ac.js"><link rel="prefetch" href="/assets/js/17.e4258602.js"><link rel="prefetch" href="/assets/js/3.6963471d.js"><link rel="prefetch" href="/assets/js/4.b3411148.js"><link rel="prefetch" href="/assets/js/5.8cd12da4.js"><link rel="prefetch" href="/assets/js/6.7bf30387.js"><link rel="prefetch" href="/assets/js/7.8cf90eeb.js"><link rel="prefetch" href="/assets/js/8.646844b2.js"><link rel="prefetch" href="/assets/js/9.ffef58b0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4d92b5b7.css">
   </head>
   <body>
     <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="Trojan Panel" class="logo"> <span class="site-name can-hide">Trojan Panel</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/start/introduce.html" class="nav-link">
@@ -97,7 +97,7 @@ p4gefau1t/trojan-go
 -v <span class="token variable">${HYSTERIA_CONFIG}</span>:/etc/hysteria.json <span class="token punctuation">\</span>
 -v <span class="token variable">${CADDY_ACME}</span><span class="token builtin class-name">:</span><span class="token variable">${CADDY_ACME}</span> <span class="token punctuation">\</span>
 tobyxdd/hysteria -c /etc/hysteria.json server
-</code></pre></div><p>参数解释：</p> <ul><li><code>--name trojan-panel-ui</code>：定义容器名称</li> <li><code>--restart always</code>：容器随着Docker启动而启动</li> <li><code>--network=trojan-panel-network</code>：使用桥接网络</li> <li><code>-p ${hysteria_port}:${hysteria_port}/udp</code>：映射Hysteria端口</li> <li><code>-p 8801:8801</code>：映射Hysteria Prometheus 流量统计端口</li> <li><code>-v ${HYSTERIA_CONFIG}:/etc/hysteria.json</code>：映射Hysteria文件</li> <li><code>-v ${CADDY_ACME}:${CADDY_ACME}</code>：映射证书文件夹</li></ul> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>以下是所有容器运行的状态：</p> <p><img src="/docker-ps.png" alt=""></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">8/2/2022, 11:28:20 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div><p>参数解释：</p> <ul><li><code>--name trojan-panel-ui</code>：定义容器名称</li> <li><code>--restart always</code>：容器随着Docker启动而启动</li> <li><code>--network=trojan-panel-network</code>：使用桥接网络</li> <li><code>-p ${hysteria_port}:${hysteria_port}/udp</code>：映射Hysteria端口</li> <li><code>-p 8801:8801</code>：映射Hysteria Prometheus 流量统计端口</li> <li><code>-v ${HYSTERIA_CONFIG}:/etc/hysteria.json</code>：映射Hysteria文件</li> <li><code>-v ${CADDY_ACME}:${CADDY_ACME}</code>：映射证书文件夹</li></ul> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>以下是所有容器运行的状态：</p> <p><img src="/docker-ps.png" alt=""></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">8/31/2022, 11:06:35 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/tutorial/installation.html" class="prev">
         安装教程
@@ -106,6 +106,6 @@ tobyxdd/hysteria -c /etc/hysteria.json server
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"><!----></div></div>
-    <script src="/assets/js/app.f2657849.js" defer></script><script src="/assets/js/2.cdf4008d.js" defer></script><script src="/assets/js/15.2c702e1f.js" defer></script>
+    <script src="/assets/js/app.00fafcfc.js" defer></script><script src="/assets/js/2.f801e877.js" defer></script><script src="/assets/js/15.3c447fa4.js" defer></script>
   </body>
 </html>

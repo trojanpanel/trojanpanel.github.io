@@ -6,7 +6,7 @@ module.exports = {
         ]
     ],
     title: 'Trojan Panel',
-    description: '支持多用户的Trojan可视化管理面板',
+    description: '支持多用户多协议的可视化管理面板',
     plugins: ['@vuepress/back-to-top'],
     themeConfig: {
         logo: '/logo.png',

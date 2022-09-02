@@ -6,7 +6,7 @@ heroImage: /logo.png
 
 heroText: Trojan Panel
 
-tagline: 支持多用户的Trojan可视化管理面板
+tagline: 支持多用户多协议的可视化管理面板
 
 actionText: 快速上手 →
 
