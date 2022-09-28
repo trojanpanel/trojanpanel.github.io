@@ -16,20 +16,12 @@ module.exports = {
                 'introduce', 'system-structure', 'related-video'
             ],
             '/tutorial/': [
-                'installation', 'custom-installation', 'performance-tuning'
+                'installation', 'custom-installation', 'performance-tuning', 'performance-testing', 'recommend-tool'
             ],
-            '/manual/': [
-                'performance-testing'
-            ],
-            '/recommend/': [
-                'client', 'apply-cert'
-            ]
         },
         nav: [
             {text: '新手起步', link: '/start/introduce'},
-            {text: '教程', link: '/tutorial/installation'},
-            {text: '用户手册', link: '/manual/performance-testing'},
-            {text: '工具推荐', link: '/recommend/client'},
+            {text: '使用教程', link: '/tutorial/installation'},
             {text: '关于', link: '/about/about'},
             {text: 'GitHub', link: 'https://github.com/trojanpanel'}
         ],
