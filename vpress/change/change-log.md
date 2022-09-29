@@ -21,9 +21,11 @@
 3. 优化逻辑
 4. 修复已知Bug
 
-## v1.1.2
+### Trojan Panel
 
 1. 修复已知Bug
+
+## v1.1.2
 
 ### Install Script
 
@@ -45,7 +47,7 @@
 1. 添加Hysteria协议单客户端最大上传/下载速度
 2. 修复已知Bug
 
-## v1.1.0（朱雀）
+## v1.1.0（青龙）
 
 ### Install Script
 
