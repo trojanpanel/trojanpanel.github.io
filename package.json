@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:trojanpanel/trojan-panel-doc.git",
-  "author": "jonssonyan <yz808@outlook.com>",
+  "author": "jonssonyan <https://jonssonyan.com>",
   "private": true,
   "scripts": {
     "docs:dev": "vuepress dev vpress",
