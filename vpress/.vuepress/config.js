@@ -27,7 +27,7 @@ module.exports = {
         },
         nav: [
             {text: '新手起步', link: '/start/introduce'},
-            {text: '使用教程', link: '/tutorial/installation'},
+            {text: '相关教程', link: '/tutorial/installation'},
             {text: '常见问题', link: '/problem/common-problem'},
             {text: '更新日志', link: '/change/change-log'},
             {text: '关于', link: '/about/about'},
