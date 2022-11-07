@@ -12,14 +12,14 @@ Thread(s) per core:    1
 Core(s) per socket:    1
 Socket(s):             1
 NUMA node(s):          1
-Vendor ID:             AuthenticAMD
-CPU family:            23
-Model:                 49
-Model name:            AMD EPYC 7K62 48-Core Processor
-Stepping:              0
-CPU MHz:               2595.124
-BogoMIPS:              5190.24
-Hypervisor vendor:     KVM
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 61
+Model name:            Intel Core Processor (Broadwell, no TSX, IBRS)
+Stepping:              2
+CPU MHz:               2394.454
+BogoMIPS:              4788.90
+Hypervisor vendor:     Microsoft
 Virtualization type:   full
 L1d cache:             32K
 L1i cache:             32K
