@@ -6,7 +6,7 @@ module.exports = {
         ]
     ],
     title: 'Trojan Panel',
-    description: '支持Trojan-Go/Hysteria的多用户Web管理面板',
+    description: '支持Xray/Trojan-Go/Hysteria的多用户Web管理面板',
     plugins: ['@vuepress/back-to-top'],
     themeConfig: {
         logo: '/logo.png',
