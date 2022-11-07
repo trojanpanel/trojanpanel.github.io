@@ -5,9 +5,9 @@
 有以下几个方案，可以按照顺序依次尝试，修复力度逐层递增。
 
 1. 重启服务器。
-2. 运行脚本内选项**18故障检测**，对出现运行异常的应用进行单独地卸载重装。
-3. 通过命令`docker logs [容器id]`查询容器内运行日志，从而定位问题，另外trojan-panel后端日志文件位置: `/tpdata/trojan-panel/logs/trojan-panel.log`。
-4. 有时候搭建失败可能是服务器系统不纯洁导致，可以尝试DD系统。
+2. 运行一键安装脚本选择故障检测的选项，对出现运行异常的应用进行单独地卸载重装。
+3. 通过命令`docker logs [容器id]`查询容器内运行日志，从而定位问题，例如Trojan Panel后端日志文件位置: `/tpdata/trojan-panel/logs/trojan-panel.log`。
+4. 有时候搭建失败可能是服务器系统不纯净导致，可以尝试DD系统。
 
 ## Trojan Go限速功能支持
 
@@ -15,7 +15,7 @@ Trojan Go官方限速api存在Bug，[官方仓库issue](https://github.com/p4gef
 
 ## 登录报错50000
 
-运行一键安装脚本选择刷新Redis缓存的选项
+运行一键安装脚本选择刷新Redis缓存的选项。
 
 ## 在线支付功能支持
 

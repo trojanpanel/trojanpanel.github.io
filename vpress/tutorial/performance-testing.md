@@ -28,11 +28,11 @@ L3 cache:              16384K
 NUMA node0 CPU(s):     0
 ```
 
-一共安装7个服务，运行一个星期，实际使用内存不到600M
+一共安装6个服务，运行一个星期，实际使用内存不到400M
 
 ![linux-memory](/linux-memory.png)
 
 以下时所有服务的性能监控，内存消耗(MEM USAGE)
-从小到大依次为：`trojan-panel-ui < trojan-panel-redis < trojan-panel-caddy < trojan-panel-hysteria < trojan-panel < trojan-panel-trojanGO < trojan-panel-mariadb`
+从小到大依次为：`trojan-panel-redis > trojan-panel-ui < trojan-panel-caddy < trojan-panel < trojan-panel-mariadb < trojan-panel-core`
 
 ![docker-memory](/docker-memory.png)

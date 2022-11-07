@@ -16,7 +16,7 @@ module.exports = {
                 'introduce', 'system-structure', 'related-video'
             ],
             '/tutorial/': [
-                'installation', 'custom-installation', 'performance-tuning', 'recommend-tool', 'performance-testing'
+                'installation', 'custom-installation', 'using-tutorials', 'performance-tuning', 'recommend-tool', 'performance-testing'
             ],
             '/problem/': [
                 'common-problem'
