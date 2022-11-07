@@ -1,5 +1,36 @@
 # 更新日志
 
+## v1.2.0（饕餮）pre-release
+
+### Install Script
+
+1. 修改Docker网络模式为Host
+2. 将单机版一键安装脚本从主脚本中分离
+3. 支持一键安装Trojan Panel Core
+4. 支持自定义Trojan Panel前端端口
+5. 支持刷新Redis缓存功能
+6. 修复已知Bug
+
+### Trojan Panel
+
+1. 支持Trojan Panel Core，支持远程自动化部署和管理节点
+2. 支持Xray节点类型
+3. 支持Clash订阅
+4. 修改用户密码加密方式，账户更加安全
+5. 修改日志输出级别
+6. 优化UI界面
+7. 修复已知Bug
+
+### Trojan Panel Core
+
+1. 支持Xray/TrojanGo/Hysteria
+
+### 版本对应关系
+
+| Trojan Panel | Trojan Panel Core | Xray   | Trojan Go | Hysteria |
+|--------------|-------------------|--------|-----------|----------|
+| v1.2.0       | v1.2.0            | v1.6.0 | v0.10.6   | v1.2.1   |
+
 ## v1.1.4
 
 ### Install Script

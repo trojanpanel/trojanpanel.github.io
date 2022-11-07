@@ -13,13 +13,9 @@
 
 Trojan Go官方限速api存在Bug，[官方仓库issue](https://github.com/p4gefau1t/trojan-go/issues/216)，不在本项目范围内，Trojan Go什么时候修复什么时候支持。
 
-## Clash订阅导出功能支持
+## 登录报错50000
 
-已经有计划，正在开发。
-
-## Xray支持
-
-已经有计划，正在开发，v1.2.0版本会支持。
+运行一键安装脚本选择刷新Redis缓存的选项
 
 ## 在线支付功能支持
 
