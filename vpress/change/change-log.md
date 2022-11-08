@@ -1,6 +1,6 @@
 # 更新日志
 
-## v1.2.0（饕餮）pre-release
+## v1.2.0（饕餮）
 
 ### Install Script
 
