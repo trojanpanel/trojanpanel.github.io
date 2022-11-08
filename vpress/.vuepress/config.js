@@ -6,7 +6,7 @@ module.exports = {
     themeConfig: {
         logo: '/logo.png', lastUpdated: 'Last Updated', sidebar: {
             '/start/': ['introduce', 'system-structure', 'related-video'],
-            '/tutorial/': ['installation', 'custom-installation', 'des-of-related-doc', 'using-tutorials', 'performance-tuning', 'recommend-tool', 'performance-testing'],
+            '/tutorial/': ['installation', 'custom-installation', 'des-of-related-doc', 'using-tutorials', 'recommend-tool', 'performance-tuning', 'performance-testing'],
             '/problem/': ['common-problem'],
             '/change/': ['change-log']
         }, nav: [{text: '新手起步', link: '/start/introduce'}, {text: '相关教程', link: '/tutorial/installation'}, {
