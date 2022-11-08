@@ -1,12 +1,12 @@
 # 手动安装教程
 
-## 前言
+## 准备
 
-以下安装过程大致如下：
+#### 安装流程
 
 Docker -> Caddy -> MariaDB -> Redis -> Trojan Panel -> Trojan Panel UI -> Trojan Panel Core
 
-以下是各应用的版本对应关系：
+#### 版本对应关系
 
 | 名称                | 版本     |
 |-------------------|--------|
@@ -17,8 +17,6 @@ Docker -> Caddy -> MariaDB -> Redis -> Trojan Panel -> Trojan Panel UI -> Trojan
 | Trojan Panel UI   | latest |
 | Trojan Panel      | latest |
 | Trojan Panel Core | latest |
-
-![docker-images](/docker-images.png)
 
 ## 安装Docker
 
@@ -208,7 +206,9 @@ docker pull jonssonyan/trojan-panel-core
 ```shell
 docker run -d --name trojan-panel-core --restart always \
 --network=host \
--v ${TROJAN_PANEL_CORE_DATA}bin:${TROJAN_PANEL_CORE_DATA}bin \
+-v ${TROJAN_PANEL_CORE_DATA}bin/xray/config:${TROJAN_PANEL_CORE_DATA}bin/xray/config \
+-v ${TROJAN_PANEL_CORE_DATA}bin/trojango/config:${TROJAN_PANEL_CORE_DATA}bin/trojango/config \
+-v ${TROJAN_PANEL_CORE_DATA}bin/hysteria/config:${TROJAN_PANEL_CORE_DATA}bin/hysteria/config \
 -v ${TROJAN_PANEL_CORE_LOGS}:${TROJAN_PANEL_CORE_LOGS} \
 -v ${CADDY_ACME}:${CADDY_ACME} \
 -v /etc/localtime:/etc/localtime \
@@ -231,7 +231,9 @@ jonssonyan/trojan-panel-core
 - `--name trojan-panel-core`：定义容器名称
 - `--restart always`：容器随着Docker启动而启动
 - `--network=host`：使用Host网络模式
-- `-v ${TROJAN_PANEL_CORE_DATA}bin:${TROJAN_PANEL_CORE_DATA}bin`：映射配置文件夹
+- `-v ${TROJAN_PANEL_CORE_DATA}bin/xray/config:${TROJAN_PANEL_CORE_DATA}bin/xray/config`：映射Xray配置文件夹
+- `-v ${TROJAN_PANEL_CORE_DATA}bin/trojango/config:${TROJAN_PANEL_CORE_DATA}bin/trojango/config`：映射TrojanGo配置文件夹
+- `-v ${TROJAN_PANEL_CORE_DATA}bin/hysteria/config:${TROJAN_PANEL_CORE_DATA}bin/hysteria/config`：映射Hysteria配置文件夹
 - `-v ${TROJAN_PANEL_CORE_LOGS}:${TROJAN_PANEL_CORE_LOGS}`：映射日志文件夹
 - `-v ${CADDY_ACME}:${CADDY_ACME}`：映射证书文件夹
 - `-v /etc/localtime:/etc/localtime`：同步宿主机和容器的时区
@@ -244,9 +246,3 @@ jonssonyan/trojan-panel-core
 - `-e "redis_pass=${redis_pass}"`：`${redis_pass}`为 Redis 的密码(默认:123456)
 - `-e "crt_path=${CADDY_ACME}${domain}/${domain}.crt"`：自定义证书.crt文件路径
 - `-e "key_path=${CADDY_ACME}${domain}/${domain}.key"`：自定义证书.key文件路径
-
-## 总结
-
-以下是所有容器运行的状态：
-
-![](/docker-ps.png)

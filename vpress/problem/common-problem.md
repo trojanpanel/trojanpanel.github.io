@@ -6,7 +6,7 @@
 
 1. 重启服务器。
 2. 运行一键安装脚本选择故障检测的选项，对出现运行异常的应用进行单独地卸载重装。
-3. 通过命令`docker logs [容器id]`查询容器内运行日志，从而定位问题，例如Trojan Panel后端日志文件位置: `/tpdata/trojan-panel/logs/trojan-panel.log`。
+3. 通过命令`docker logs [容器id]`查询容器内运行日志，从而定位问题，也可以查看日志文件，例如Trojan Panel后端日志文件位置: `/tpdata/trojan-panel/logs/trojan-panel.log`。
 4. 有时候搭建失败可能是服务器系统不纯净导致，可以尝试DD系统。
 
 ## Trojan Go限速功能支持
