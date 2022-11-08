@@ -2,6 +2,10 @@
 
 ## 客户端
 
+### Xray
+
+[Xray客户端](https://xtls.github.io/links.html#%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%AE%A2%E6%88%B7%E7%AB%AF)
+
 ### Trojan-gfw
 
 **客户端推荐**
@@ -20,7 +24,7 @@
 
 ### Hysteria
 
-[下载安装](https://github.com/HyNetwork/hysteria/wiki/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85)
+[Hysteria客户端](https://hysteria.network/zh/docs/installation/)
 
 ## 申请免费证书
 
