@@ -1,6 +1,6 @@
 # 更新日志
 
-## v1.2.0（饕餮）
+## 2022.11.08 饕餮<Badge type="tip" text="v1.2.0" vertical="top" />
 
 ### Install Script
 
@@ -31,7 +31,7 @@
 |--------------|-------------------|--------|-----------|----------|
 | v1.2.0       | v1.2.0            | v1.6.0 | v0.10.6   | v1.2.1   |
 
-## v1.1.4
+## 2022.07.21<Badge type="tip" text="v1.1.4" vertical="top" />
 
 ### Install Script
 
@@ -42,7 +42,7 @@
 
 1. 修复已知Bug
 
-## v1.1.3
+## 2022.06.26<Badge type="tip" text="v1.1.3" vertical="top" />
 
 ### Install Script
 
@@ -56,7 +56,7 @@
 
 1. 修复已知Bug
 
-## v1.1.2
+## 2022.06.15<Badge type="tip" text="v1.1.2" vertical="top" />
 
 ### Install Script
 
@@ -67,7 +67,7 @@
 1. 支持arm64架构
 2. 修复已知Bug
 
-## v1.1.1
+## 2022.05.17<Badge type="tip" text="v1.1.1" vertical="top" />
 
 ### Install Script
 
@@ -78,7 +78,7 @@
 1. 添加Hysteria协议单客户端最大上传/下载速度
 2. 修复已知Bug
 
-## v1.1.0（伏羲）
+## 2022.05.16 伏羲<Badge type="tip" text="v1.1.0" vertical="top" />
 
 ### Install Script
 
@@ -100,8 +100,10 @@
 10. 优化Trojan-Go节点生成的URL
 11. 修复已知Bug
 
-**注意: 目前支持的Hysteria协议处于测试阶段，只支持认证不支持流量统计，需要流量控制的请使用Trojan-Go节点。**
+::: danger 注意
+目前支持的Hysteria协议处于测试阶段，只支持用户认证不支持流量统计。
+:::
 
-## v1.0.0（盘古）
+## 2022.02.10 盘古<Badge type="tip" text="v1.0.0" vertical="top" />
 
 Hello Trojan Panel
