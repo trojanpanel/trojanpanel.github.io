@@ -25,7 +25,7 @@ Trojan Panel Web管理面板地址在安装好之后会打印在控制台。
 ## 节点管理
 
 节点列表->添加，支持远程自动化管理节点，**前提条件是，节点服务器已经安装了Trojan Panel Core，并且只需要安装一次**
-。在面板中添加完节点之后就可以直接扫描二维码或者Clash订阅地址使用了。节点类型支持Xray、TrojanGo、Hysteria。
+。在面板中添加完节点之后就可以直接扫描二维码或者Clash订阅地址使用了。节点类型支持Xray、Trojan-Go、Hysteria。
 
 ![using-7](/using/using-7.png)
 

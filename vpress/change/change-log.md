@@ -23,11 +23,11 @@
 
 ### Trojan Panel Core
 
-1. 支持Xray/TrojanGo/Hysteria
+1. 支持Xray/Trojan-Go/Hysteria
 
 ### 版本对应关系
 
-| Trojan Panel | Trojan Panel Core | Xray   | Trojan Go | Hysteria |
+| Trojan Panel | Trojan Panel Core | Xray   | Trojan-Go | Hysteria |
 |--------------|-------------------|--------|-----------|----------|
 | v1.2.0       | v1.2.0            | v1.6.0 | v0.10.6   | v1.2.1   |
 
@@ -92,15 +92,15 @@
 2. 增加黑名单管理
 3. 增加邮件管理
 4. 增加流量排行
-5. 增加Trojan GO节点 Websocket+SS配置
+5. 增加Trojan-Go节点 Websocket+SS配置
 6. 支持国际化
 7. 支持设置系统字体大小
 8. 支持全屏显示
 9. 移除Trojan GFW协议，支持Hysteria协议
-10. 优化Trojan Go节点生成的URL
+10. 优化Trojan-Go节点生成的URL
 11. 修复已知Bug
 
-**注意: 目前支持的Hysteria协议处于测试阶段，只支持认证不支持流量统计，需要流量控制的请使用Trojan Go节点。**
+**注意: 目前支持的Hysteria协议处于测试阶段，只支持认证不支持流量统计，需要流量控制的请使用Trojan-Go节点。**
 
 ## v1.0.0（盘古）
 

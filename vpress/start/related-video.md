@@ -2,8 +2,8 @@
 
 Trojan Panel搭建和使用：
 
-[Trojan Panel搭建教程](https://www.youtube.com/watch?v=gaIMvfQfvVQ)
+[Trojan Panel视频教程](https://www.youtube.com/watch?v=53Io8JTlKPQ)
 
 客户端安装和使用：
 
-[Qv2ray使用教程](https://www.youtube.com/watch?v=Jvop08QLrY4)
+[Qv2ray视频教程](https://www.youtube.com/watch?v=Jvop08QLrY4)

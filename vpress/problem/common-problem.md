@@ -9,9 +9,9 @@
 3. 通过命令`docker logs [容器id]`查询容器内运行日志，从而定位问题，也可以查看日志文件，例如Trojan Panel后端日志文件位置: `/tpdata/trojan-panel/logs/trojan-panel.log`。
 4. 有时候搭建失败可能是服务器系统不纯净导致，可以尝试DD系统。
 
-## Trojan Go限速功能支持
+## Trojan-Go限速功能支持
 
-Trojan Go官方限速api存在Bug，[官方仓库issue](https://github.com/p4gefau1t/trojan-go/issues/216)，不在本项目范围内，Trojan Go什么时候修复什么时候支持。
+Trojan-Go限速api存在Bug，[仓库issue](https://github.com/p4gefau1t/trojan-go/issues/216)，不在本项目范围内，Trojan-Go什么时候修复什么时候支持。
 
 ## 登录报错50000
 

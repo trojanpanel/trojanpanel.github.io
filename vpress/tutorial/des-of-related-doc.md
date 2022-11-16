@@ -1,9 +1,9 @@
 # 相关文件说明
 
-Xray/TrojanGo/Hysteria配置文件位置如下
+Xray/Trojan-Go/Hysteria配置文件位置如下
 
 - Xray：`/tpdata/trojan-panel-core/bin/xray/config/`
-- TrojanGo：`/tpdata/trojan-panel-core/bin/trojango/config/`
+- Trojan-Go：`/tpdata/trojan-panel-core/bin/trojango/config/`
 - Hysteria：`/tpdata/trojan-panel-core/bin/hysteria/config/`
 
 Trojan Panel日志文件位置如下
