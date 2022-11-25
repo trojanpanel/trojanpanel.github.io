@@ -43,8 +43,16 @@ Trojan Panel服务器需开放以下端口: `80` `8863` `8888`，Trojan Panel Co
 
 ## 一键安装脚本
 
+1. 联机版（推荐）
+
 ```shell
 source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_script.sh)
+```
+
+2. 单机版
+
+```shell
+source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_script_standalone.sh)
 ```
 
 ## 安装Trojan Panel

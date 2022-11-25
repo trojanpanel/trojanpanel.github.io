@@ -32,8 +32,16 @@ footer: Copyright © 2021-2022 Trojan Panel
 
 ## 🚀 Quick installation
 
+1. 联机版（推荐）
+
 ```shell
 source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_script.sh)
+```
+
+2. 单机版
+
+```shell
+source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_script_standalone.sh)
 ```
 
 ## 🔍 Issues
@@ -43,7 +51,6 @@ source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_
 ## ✨ Community
 
 - Telegram Channel: [Trojan Panel](https://t.me/TrojanPanel)
-- Telegram Group: [Trojan Panel交流群](https://t.me/TrojanPanelGroup)
 
 ## 💞 Thanks
 
