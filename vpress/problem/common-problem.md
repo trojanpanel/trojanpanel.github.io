@@ -25,6 +25,12 @@ Caddy内置[acme](https://acme.sh)
 
 Trojan-Go限速api存在Bug [issue](https://github.com/p4gefau1t/trojan-go/issues/216)，不在本项目范围内，Trojan-Go什么时候修复什么时候支持。
 
+## 联机版和单机版区别
+
+联机版：可以使用面板管理多个服务器上的节点，支持多用户，支持流量控制，功能强大，适合多人使用。
+
+单机版：只有一个用户，功能简单，适合自用。
+
 ## 登录报错50000
 
 运行一键安装脚本选择刷新Redis缓存的选项。
