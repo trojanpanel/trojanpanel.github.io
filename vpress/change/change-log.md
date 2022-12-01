@@ -75,7 +75,7 @@
 
 ### Trojan Panel
 
-1. 添加Hysteria协议单客户端最大上传/下载速度
+1. 添加Hysteria单客户端最大上传/下载速度
 2. 修复已知Bug
 
 ## 2022.05.16 伏羲<Badge type="tip" text="v1.1.0" vertical="top" />
@@ -96,12 +96,12 @@
 6. 支持国际化
 7. 支持设置系统字体大小
 8. 支持全屏显示
-9. 移除Trojan GFW协议，支持Hysteria协议
+9. 移除Trojan GFW，支持Hysteria
 10. 优化Trojan-Go节点生成的URL
 11. 修复已知Bug
 
 ::: danger 注意
-目前支持的Hysteria协议处于测试阶段，只支持用户认证不支持流量统计。
+目前支持的Hysteria处于测试阶段，只支持用户认证不支持流量统计。
 :::
 
 ## 2022.02.10 盘古<Badge type="tip" text="v1.0.0" vertical="top" />
