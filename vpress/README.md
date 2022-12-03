@@ -6,7 +6,7 @@ heroImage: /logo.png
 
 heroText: Trojan Panel
 
-tagline: 支持Xray/Trojan-Go/Hysteria的多用户Web管理面板
+tagline: 支持Xray/Trojan-Go/Hysteria/NaiveProxy的多用户Web管理面板
 
 actionText: 快速上手 →
 
@@ -18,7 +18,7 @@ features:
   - title: 国际化
     details: 系统语言支持中文/英文
   - title: 多代理支持
-    details: 节点类型支持Xray/Trojan-Go/Hysteria
+    details: 节点类型支持Xray/Trojan-Go/Hysteria/NaiveProxy
   - title: 分布式
     details: 前后端分离开发，减少模块之间耦合度，可以自由组合部署在多个服务器
   - title: 功能强大

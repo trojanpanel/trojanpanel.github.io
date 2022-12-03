@@ -1,10 +1,11 @@
 # 相关文件说明
 
-Xray/Trojan-Go/Hysteria配置文件位置如下
+Xray/Trojan-Go/Hysteria/NaiveProxy配置文件位置如下
 
 - Xray：`/tpdata/trojan-panel-core/bin/xray/config/`
 - Trojan-Go：`/tpdata/trojan-panel-core/bin/trojango/config/`
 - Hysteria：`/tpdata/trojan-panel-core/bin/hysteria/config/`
+- NaiveProxy：`/tpdata/trojan-panel-core/bin/naiveproxy/config/`
 
 Trojan Panel日志文件位置如下
 
