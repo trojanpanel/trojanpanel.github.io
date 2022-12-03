@@ -1,5 +1,25 @@
 # 更新日志
 
+## 2022.12.03 麒麟<Badge type="tip" text="v1.3.0" vertical="top" />
+
+### Install Script
+
+1. 支持自定义数据库和Redis端口
+2. 修复已知Bug
+
+### Trojan Panel
+
+1. 支持重设用户下载和上传流量
+2. 支持关闭流量排行功能
+3. 新增naiveproxy节点类型
+4. 订阅链接支持导出hysteria
+5. 修复已知Bug
+
+### Trojan Panel Core
+
+1. 支持naiveproxy
+2. 修复已知Bug
+
 ## 2022.11.08 饕餮<Badge type="tip" text="v1.2.0" vertical="top" />
 
 ### Install Script
