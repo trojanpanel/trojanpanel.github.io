@@ -20,6 +20,12 @@
 1. 支持naiveproxy
 2. 修复已知Bug
 
+### 版本对应关系
+
+| Trojan Panel | Trojan Panel Core | Xray   | Trojan Go | Hysteria | Caddy（NaiveProxy） |
+|--------------|-------------------|--------|-----------|----------|-------------------|
+| v1.3.0       | v1.3.0            | v1.6.0 | v0.10.6   | v1.2.1   | v2.6.2            |
+
 ## 2022.11.08 饕餮<Badge type="tip" text="v1.2.0" vertical="top" />
 
 ### Install Script
