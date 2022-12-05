@@ -76,6 +76,7 @@ docker run -d --name trojan-panel-mariadb --restart always \
 -e MYSQL_ROOT_PASSWORD="${mariadb_pas}" \
 -e TZ=Asia/Shanghai \
 mariadb:10.7.3
+--port ${mariadb_port}
 ```
 
 参数解释：
@@ -87,6 +88,7 @@ mariadb:10.7.3
 - `-e MYSQL_DATABASE="trojan_panel_db"`：容器启动时创建一个默认的`trojan_panel_db`库
 - `-e MYSQL_ROOT_PASSWORD="${mariadb_pas}"`：设置MariaDB密码为`${mariadb_pas}`
 - `-e TZ=Asia/Shanghai"`：设置时区为上海
+- `--port ${mariadb_port}`：自定义数据库端口（默认:3306）
 
 注意：
 
@@ -108,7 +110,7 @@ docker pull redis:6.2.7
 docker run -d --name trojan-panel-redis --restart always \
 --network=host \
 -v ${REDIS_DATA}:/data redis:6.2.7 \
-redis-server --requirepass "${redis_pass}"
+redis-server --requirepass "${redis_pass}" --port ${redis_port}
 ```
 
 参数解释：
@@ -117,7 +119,7 @@ redis-server --requirepass "${redis_pass}"
 - `--restart always`：容器随着Docker启动而启动
 - `--network=host`：使用Host网络模式
 - `-v ${REDIS_DATA}:/data`：映射Redis数据文件夹
-- `redis-server --requirepass "${redis_pass}"`：设置Redis密码为`${redis_pass}`
+- `redis-server --requirepass "${redis_pass}" --port ${redis_port}`：设置Redis密码为`${redis_pass}` 设置Redis端口为`${redis_port}`（默认:6379）
 
 ## 安装Trojan Panel
 
