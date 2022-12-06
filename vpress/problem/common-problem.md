@@ -41,7 +41,7 @@ Trojan-Go限速api存在Bug [issue](https://github.com/p4gefau1t/trojan-go/issue
 
 ## 会收费么
 
-不会收费，点个Star支持一下就行了。
+不会收费，[点个Star](https://github.com/trojanpanel)支持一下就行了。
 
 ## 开源计划
 
