@@ -1,6 +1,6 @@
 # 常见问题
 
-## 搭建失败
+## 搭建失败或系统报错的常见解决方案
 
 有以下几个方案，可以按照顺序依次尝试，修复力度逐层递增。
 
@@ -21,9 +21,9 @@ Caddy内置[acme](https://acme.sh)
 进行证书申请，且每天申请次数有限制，通常每天超过2次就有很大概率会申请失败，如果申请失败，可以尝试重启Caddy容器或者重启服务器，Caddy就会重新申请，但是不保证100%申请成功。
 如果一直申请失败，可以等第二天重试或者在搭建之前提前准备好证书并上传至服务器，在安装的时候选择手动设置证书路径选项指定证书的绝对路径。
 
-## Trojan-Go限速功能支持
+## 限速功能和IP数限制支持
 
-Trojan-Go限速api存在Bug [issue](https://github.com/p4gefau1t/trojan-go/issues/216)，不在本项目范围内，Trojan-Go什么时候修复什么时候支持。
+代理软件支持后Trojan Panel才能支持，目前只有Trojan-Go支持，但是还存在一些[Bug](https://github.com/p4gefau1t/trojan-go/issues/216)，Xray/Hysteria/NaiveProxy还没有支持。
 
 ## 联机版和单机版区别
 
@@ -31,13 +31,9 @@ Trojan-Go限速api存在Bug [issue](https://github.com/p4gefau1t/trojan-go/issue
 
 单机版：只有一个用户，功能简单，适合自用。
 
-## 登录报错50000
+## 商业化功能支持
 
-运行一键安装脚本选择刷新Redis缓存的选项。
-
-## 在线支付功能支持
-
-暂时不考虑商业化功能。
+暂时不考虑。
 
 ## 会收费么
 
