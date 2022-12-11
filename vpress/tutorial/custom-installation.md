@@ -193,6 +193,89 @@ jonssonyan/trojan-panel-ui
 - `-v ${NGINX_CONFIG}:/etc/nginx/conf.d/default.conf`：映射Nginx配置文件
 - `-v ${CADDY_ACME}"${domain}":${CADDY_ACME}"${domain}"`：映射证书文件夹
 
+Nginx 配置举例
+
+1. 使用 https
+
+```
+server {
+    listen       ${trojan_panel_ui_port} ssl;
+    server_name  ${domain};
+
+    #强制ssl
+    ssl on;
+    ssl_certificate      ${CADDY_ACME}${domain}/${domain}.crt;
+    ssl_certificate_key  ${CADDY_ACME}${domain}/${domain}.key;
+    #缓存有效期
+    ssl_session_timeout  5m;
+    #安全链接可选的加密协议
+    ssl_protocols  TLSv1 TLSv1.1 TLSv1.2;
+    #加密算法
+    ssl_ciphers  ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+    #使用服务器端的首选算法
+    ssl_prefer_server_ciphers  on;
+
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    location / {
+        root   ${TROJAN_PANEL_UI_DATA};
+        index  index.html index.htm;
+    }
+
+    location /api {
+        proxy_pass http://127.0.0.1:8081;
+    }
+
+    #error_page  404              /404.html;
+    #497 http->https
+    error_page  497              https://\$host:${trojan_panel_ui_port}\$uri?\$args;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+```
+
+参数解释：
+
+- `${trojan_panel_ui_port}`：Trojan Panel 端口
+- `${domain}`：你的域名
+- `${CADDY_ACME}`：证书文件夹
+- `${TROJAN_PANEL_UI_DATA}`：前端编译文件所在的文件夹
+
+2. 使用 http
+
+```
+server {
+    listen       ${trojan_panel_ui_port};
+    server_name  localhost;
+
+    location / {
+        root   ${TROJAN_PANEL_UI_DATA};
+        index  index.html index.htm;
+    }
+
+    location /api {
+        proxy_pass http://127.0.0.1:8081;
+    }
+
+    error_page  497              http://\$host:${trojan_panel_ui_port}\$uri?\$args;
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+```
+
+参数解释：
+
+- `{trojan_panel_ui_port}`：Trojan Panel 端口
+- `${TROJAN_PANEL_UI_DATA}`：前端编译文件所在的文件夹
+
 ## 安装Trojan Panel Core
 
 > Docker Hub：https://hub.docker.com/r/jonssonyan/trojan-panel-core
