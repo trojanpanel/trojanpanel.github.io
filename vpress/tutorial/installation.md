@@ -125,6 +125,10 @@ source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_
 
 默认即可，除非有自定义Trojan Panel前端端口的需求。
 
+18. 请选择Trojan Panel前端是否开启https?(0/关闭 1/开启 默认:1/开启)
+
+默认即可，除非有自定义择Trojan Panel前端是否开启https的需求。
+
 **提示**
 
 1. 安装结束后，访问**你的域名**如果是一个静态网页，说明已经安装成功。
