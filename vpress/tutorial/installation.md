@@ -127,7 +127,7 @@ source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_
 
 18. 请选择Trojan Panel前端是否开启https?(0/关闭 1/开启 默认:1/开启)
 
-默认即可，除非有自定义择Trojan Panel前端是否开启https的需求。
+默认即可，除非有自定义择Trojan Panel前端是否开启https的需求。如果开启https，则管理面板地址为`https://你的域名:端口`，如果未开启https，则管理面板地址为`http://你的域名:端口`。
 
 **提示**
 
