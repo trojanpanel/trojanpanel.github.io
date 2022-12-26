@@ -58,6 +58,7 @@ source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_
 - [trojan-go](https://github.com/p4gefau1t/trojan-go)
 - [Xray-core](https://github.com/XTLS/Xray-core)
 - [hysteria](https://github.com/HyNetwork/hysteria)
+- [naiveproxy](https://github.com/klzgrad/naiveproxy)
 
 ## 🌟 Stargazers over time
 
