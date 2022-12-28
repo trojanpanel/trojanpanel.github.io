@@ -1,6 +1,6 @@
 # 更新日志
 
-## 2022.12.03 麒麟<Badge type="tip" text="v1.3.0" vertical="top" />
+## 2022.12.03 麒麟<Badge type="tip" text="v1.3" vertical="top" />
 
 1. 新增NaiveProxy节点类型
 2. 新增自定义数据库和Redis端口
