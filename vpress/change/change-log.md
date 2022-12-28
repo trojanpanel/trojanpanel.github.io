@@ -24,9 +24,9 @@
 
 ### 版本对应关系
 
-| Trojan Panel | Trojan Panel Core | Xray   | Trojan Go | Hysteria | Caddy（NaiveProxy） |
-|--------------|-------------------|--------|-----------|----------|-------------------|
-| v1.3.0       | v1.3.0            | v1.6.1 | v0.10.6   | v1.3.2   | v2.6.2            |
+| Trojan Panel | Trojan Panel Core |  Xray  | Trojan Go | Hysteria | Caddy（NaiveProxy） |
+|:------------:|:-----------------:|:------:|:---------:|:--------:|:-----------------:|
+|    v1.3.0    |      v1.3.0       | v1.6.1 |  v0.10.6  |  v1.3.2  |      v2.6.2       |
 
 ::: danger 注意 
 目前支持的NaiveProxy处于测试阶段，只支持用户认证不支持流量统计。
@@ -47,9 +47,9 @@
 
 ### 版本对应关系
 
-| Trojan Panel | Trojan Panel Core | Xray   | Trojan-Go | Hysteria |
-|--------------|-------------------|--------|-----------|----------|
-| v1.2.0       | v1.2.0            | v1.6.0 | v0.10.6   | v1.2.1   |
+| Trojan Panel | Trojan Panel Core |  Xray  | Trojan-Go | Hysteria |
+|:------------:|:-----------------:|:------:|:---------:|:--------:|
+|    v1.2.0    |      v1.2.0       | v1.6.0 |  v0.10.6  |  v1.2.1  |
 
 ## 2022.07.21<Badge type="tip" text="v1.1.4" vertical="top" />
 
