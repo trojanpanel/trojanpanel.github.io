@@ -1,6 +1,6 @@
 # 更新日志
 
-## 2022.12.03 麒麟<Badge type="tip" text="v1.3" vertical="top" />
+## 2022.12.29 麒麟<Badge type="tip" text="v1.3" vertical="top" />
 
 1. 新增NaiveProxy节点类型
 2. 新增自定义数据库和Redis端口
@@ -33,7 +33,7 @@
 目前支持的NaiveProxy处于测试阶段，只支持用户认证不支持流量统计。
 :::
 
-## 2022.11.08 饕餮<Badge type="tip" text="v1.2.0" vertical="top" />
+## 2022.11.08 饕餮<Badge type="tip" text="v1.2" vertical="top" />
 
 1. 新增一键安装Trojan Panel Core，远程自动化部署和管理节点
 2. 新增自定义Trojan Panel前端端口
@@ -52,27 +52,7 @@
 |:------------:|:-----------------:|:------:|:---------:|:--------:|
 |    v1.2.0    |      v1.2.0       | v1.6.0 |  v0.10.6  |  v1.2.1  |
 
-## 2022.07.21<Badge type="tip" text="v1.1.4" vertical="top" />
-
-1. 新增一键卸载Caddy TLS
-2. 新增一键卸载MariaDB
-3. 新增一键卸载Redis
-
-## 2022.06.26<Badge type="tip" text="v1.1.3" vertical="top" />
-
-1. 使用Docker Hub镜像：[Trojan Panel UI](https://hub.docker.com/r/jonssonyan/trojan-panel-ui)
-   & [Trojan Panel](https://hub.docker.com/r/jonssonyan/trojan-panel)
-2. 新增一键故障检测
-
-## 2022.06.15<Badge type="tip" text="v1.1.2" vertical="top" />
-
-1. 支持arm64架构
-
-## 2022.05.17<Badge type="tip" text="v1.1.1" vertical="top" />
-
-1. 优化Hysteria，新增单客户端最大上传/下载速度
-
-## 2022.05.16 伏羲<Badge type="tip" text="v1.1.0" vertical="top" />
+## 2022.05.16 伏羲<Badge type="tip" text="v1.1" vertical="top" />
 
 1. 新增一键安装Redis
 2. 新增一键安装Hysteria
@@ -82,15 +62,24 @@
 6. 新增国际化，中/英文切换
 7. 新增系统字体大小设置
 8. 新增全屏显示
-9. 移除Trojan GFW，支持Hysteria
-10. 优化Trojan-Go，新增Websocket+SS配置
-11. 优化Trojan-Go节点生成的URL
-12. 引入Redis作为缓存
+9. 新增一键卸载Caddy TLS
+10. 新增一键卸载MariaDB
+11. 新增一键卸载Redis
+12. 新增一键故障检测
+13. 移除Trojan GFW，支持Hysteria
+14. 优化Trojan-Go，新增Websocket+SS配置
+15. 优化Trojan-Go节点生成的URL
+16. 优化Hysteria，新增单客户端最大上传/下载速度
+17. 引入Redis作为缓存
+18. 支持arm64架构
+19. 使用Docker Hub镜像：[Trojan Panel UI](https://hub.docker.com/r/jonssonyan/trojan-panel-ui)
+    & [Trojan Panel](https://hub.docker.com/r/jonssonyan/trojan-panel)
+
 
 ::: danger 注意 
 目前支持的Hysteria处于测试阶段，只支持用户认证不支持流量统计。
 :::
 
-## 2022.02.10 盘古<Badge type="tip" text="v1.0.0" vertical="top" />
+## 2022.02.10 盘古<Badge type="tip" text="v1.0" vertical="top" />
 
 Hello Trojan Panel
