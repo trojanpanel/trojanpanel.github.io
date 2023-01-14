@@ -16,7 +16,7 @@ features:
   - title: 极速搭建
     details: 一键安装脚本，降低部署门槛，快速搭建系统
   - title: 国际化
-    details: 系统语言支持中文/英文
+    details: 系统语言支持中文/英文/韩文
   - title: 多代理支持
     details: 节点类型支持Xray/Trojan-Go/Hysteria/NaiveProxy
   - title: 分布式
