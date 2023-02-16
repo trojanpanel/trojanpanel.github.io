@@ -1,4 +1,6 @@
-# 相关文件说明
+# 相关说明
+
+## 文件路径
 
 Xray/Trojan-Go/Hysteria/NaiveProxy配置文件位置如下
 
@@ -26,3 +28,14 @@ Caddy证书文件位置如下
 伪装网站文件位置如下
 
 `/tpdata/caddy/srv/`
+
+## Xray
+
+1. [xtls-rprx-vision仅支持TLS](vhttps://github.com/XTLS/Xray-core/issues/1562)
+2. [fallbacks仅支持TCP+TLS](https://xtls.github.io/config/features/fallback.html#fallbacks-%E9%85%8D%E7%BD%AE)
+3. [Xray配置](https://xtls.github.io/config/#%E6%A6%82%E8%BF%B0)
+4. [Xray配置举例](https://github.com/XTLS/Xray-examples)
+
+## Clash
+
+1. [Clash规则](https://github.com/Loyalsoldier/clash-rules)

@@ -209,7 +209,7 @@ server {
     #缓存有效期
     ssl_session_timeout  5m;
     #安全链接可选的加密协议
-    ssl_protocols  TLSv1 TLSv1.1 TLSv1.2;
+    ssl_protocols  TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;
     #加密算法
     ssl_ciphers  ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
     #使用服务器端的首选算法
@@ -309,6 +309,7 @@ docker run -d --name trojan-panel-core --restart always \
 -e "redis_pass=${redis_pass}" \
 -e "crt_path=${CADDY_ACME}${domain}/${domain}.crt" \
 -e "key_path=${CADDY_ACME}${domain}/${domain}.key" \
+-e "grpc_port=${grpc_port}" \
 jonssonyan/trojan-panel-core
 ```
 
@@ -333,3 +334,4 @@ jonssonyan/trojan-panel-core
 - `-e "redis_pass=${redis_pass}"`：`${redis_pass}`为 Redis 的密码(默认:123456)
 - `-e "crt_path=${CADDY_ACME}${domain}/${domain}.crt"`：自定义证书.crt文件路径
 - `-e "key_path=${CADDY_ACME}${domain}/${domain}.key"`：自定义证书.key文件路径
+- `-e "grpc_port=${grpc_port}"`：自定义证书通讯端口
