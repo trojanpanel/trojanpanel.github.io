@@ -31,7 +31,7 @@ Caddy证书文件位置如下
 
 ## Xray
 
-1. [xtls-rprx-vision仅支持TLSv1.3](https://github.com/XTLS/Xray-core/issues/1562)
+1. [xtls-rprx-vision仅支持TLS](https://github.com/XTLS/Xray-core/issues/1562)
 2. [fallbacks仅支持TCP+TLS](https://xtls.github.io/config/features/fallback.html#fallbacks-%E9%85%8D%E7%BD%AE)
 3. [Xray配置](https://xtls.github.io/config/#%E6%A6%82%E8%BF%B0)
 4. [Xray配置举例](https://github.com/XTLS/Xray-examples)

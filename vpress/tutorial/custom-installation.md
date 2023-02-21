@@ -296,7 +296,9 @@ docker run -d --name trojan-panel-core --restart always \
 -v ${TROJAN_PANEL_CORE_DATA}bin/hysteria/config:${TROJAN_PANEL_CORE_DATA}bin/hysteria/config \
 -v ${TROJAN_PANEL_CORE_DATA}bin/naiveproxy/config:${TROJAN_PANEL_CORE_DATA}bin/naiveproxy/config \
 -v ${TROJAN_PANEL_CORE_LOGS}:${TROJAN_PANEL_CORE_LOGS} \
--v ${CADDY_ACME}:${CADDY_ACME} \
+-v ${TROJAN_PANEL_CORE_SQLITE}:${TROJAN_PANEL_CORE_SQLITE} \
+-v ${CADDY_CERT}:${CADDY_CERT} \
+-v ${CADDY_SRV}:${CADDY_SRV} \
 -v /etc/localtime:/etc/localtime \
 -e "mariadb_ip=${mariadb_ip}" \
 -e "mariadb_port=${mariadb_port}" \
@@ -307,8 +309,8 @@ docker run -d --name trojan-panel-core --restart always \
 -e "redis_host=${redis_host}" \
 -e "redis_port=${redis_port}" \
 -e "redis_pass=${redis_pass}" \
--e "crt_path=${CADDY_ACME}${domain}/${domain}.crt" \
--e "key_path=${CADDY_ACME}${domain}/${domain}.key" \
+-e "crt_path=${CADDY_CERT}${domain}.crt" \
+-e "key_path=${CADDY_CERT}${domain}.key" \
 -e "grpc_port=${grpc_port}" \
 jonssonyan/trojan-panel-core
 ```
@@ -323,12 +325,16 @@ jonssonyan/trojan-panel-core
 - `-v ${TROJAN_PANEL_CORE_DATA}bin/hysteria/config:${TROJAN_PANEL_CORE_DATA}bin/hysteria/config`：映射Hysteria配置文件夹
 - `-v ${TROJAN_PANEL_CORE_DATA}bin/naiveproxy/config:${TROJAN_PANEL_CORE_DATA}bin/naiveproxy/config`：映射NaiveProxy配置文件夹
 - `-v ${TROJAN_PANEL_CORE_LOGS}:${TROJAN_PANEL_CORE_LOGS}`：映射日志文件夹
+- `-v ${TROJAN_PANEL_CORE_SQLITE}:${TROJAN_PANEL_CORE_SQLITE}`：映射SQLite文件夹
 - `-v ${CADDY_ACME}:${CADDY_ACME}`：映射证书文件夹
+- `-v ${CADDY_SRV}:${CADDY_SRV}`：映射回落资源文件夹
 - `-v /etc/localtime:/etc/localtime`：同步宿主机和容器的时区
 - `-e "mariadb_ip=${mariadb_ip}"`：`${mariadb_ip}`为 MariaDB 数据库的 IP 地址(默认:本机数据库)
 - `-e "mariadb_port=${mariadb_port}"`：`${mariadb_port}`为 MariaDB 数据库的端口(默认:本机数据库端口)
 - `-e "mariadb_user=${mariadb_user}"`：`${mariadb_user}`为 MariaDB 数据库的用户名(默认:root)
 - `-e "mariadb_pas=${mariadb_pas}"`：`${mariadb_pas}`为 MariaDB 数据库密码(默认:123456)
+- `-e "database=${database}"`：`${database}`为数据库名称
+- `-e "account-table=${account_table}"`：`${account_table}`为用户表名称
 - `-e "redis_host=${redis_host}"`：`${redis_host}`为 Redis 的 IP 地址(默认:本机 Redis)
 - `-e "redis_port=${redis_port}"`：`${redis_port}`为 Redis 的端口(默认:本机 Redis 端口)
 - `-e "redis_pass=${redis_pass}"`：`${redis_pass}`为 Redis 的密码(默认:123456)

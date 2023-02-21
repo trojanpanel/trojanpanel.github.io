@@ -44,6 +44,8 @@ source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_
 source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_script_standalone.sh)
 ```
 
+3. [安装旧版](https://github.com/trojanpanel/install-script/tree/main/archive)
+
 ## 🔍 Issues
 
 [Issues](https://github.com/trojanpanel/install-script/issues)
