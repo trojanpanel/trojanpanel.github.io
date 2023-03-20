@@ -619,6 +619,8 @@ jonssonyan/trojan-panel-core
 
 ## Docker Compose
 
+### 准备
+
 1. 新建Caddy配置文件
 
 路径：`/tpdata/caddy/config.json`
@@ -635,7 +637,7 @@ jonssonyan/trojan-panel-core
 
 文件夹路径：`/tpdata/caddy/srv`
 
-## 配置文件
+### 配置文件
 
 ```yml
 version: '3'
