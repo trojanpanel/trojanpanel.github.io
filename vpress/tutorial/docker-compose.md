@@ -6,13 +6,13 @@
 
 文件路径：`/tpdata/caddy/config.json`
 
-[文件参考](custom-installation.html#安装caddy)
+[Caddy配置举例](custom-installation.html#caddy配置举例)
 
 2. 新建Nginx配置文件
 
 文件路径：`/tpdata/nginx/default.conf`
 
-[文件参考](custom-installation.html#安装trojan-panel-ui)
+[Nginx配置举例](custom-installation.html#nginx配置举例)
 
 3. 上传**静态**伪装网站
 

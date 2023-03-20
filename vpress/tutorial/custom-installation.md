@@ -59,9 +59,9 @@ caddy:2.6.2 caddy run --config ${CADDY_Config}
 - `-v ${CADDY_LOG}:${CADDY_LOG}`：日志文件夹
 - `caddy run --config ${CADDY_Config}`：指定配置文件运行
 
-Caddy配置举例
+### Caddy配置举例
 
-1. 自动申请续签
+- acme自动申请和续签
 
 ```
 {
@@ -196,7 +196,7 @@ Caddy配置举例
 - `${caddy_remote_port}`：Caddy转发的端口
 - `${CADDY_SRV}`：伪装网站文件夹
 
-3. 手动设置自定义证书
+- 手动设置自定义证书
 
 ```
 {
@@ -468,9 +468,9 @@ jonssonyan/trojan-panel-ui
 - `-v "${NGINX_CONFIG}":"/etc/nginx/conf.d/default.conf"`：映射Nginx配置文件
 - `-v ${CADDY_CERT}:${CADDY_CERT}`：映射证书文件夹
 
-Nginx 配置举例
+### Nginx配置举例
 
-1. 使用 https
+- 使用 https
 
 ```
 server {
@@ -521,7 +521,7 @@ server {
 - `${domain}`：你的域名
 - `${TROJAN_PANEL_UI_DATA}`：前端编译文件所在的文件夹
 
-2. 使用 http
+- 使用 http
 
 ```
 server {
