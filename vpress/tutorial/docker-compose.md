@@ -2,21 +2,362 @@
 
 ## 准备
 
-1. 新建Caddy配置文件
+### 设置伪装网站
+
+将静态网站文件上传至伪装网站文件夹：`/tpdata/caddy/srv/`
+
+### 新建Caddy配置文件
 
 文件路径：`/tpdata/caddy/config.json`
 
-[Caddy配置举例](custom-installation.html#caddy配置举例)
+Caddy配置举例
 
-2. 新建Nginx配置文件
+1. acme自动申请和续签
+
+```
+{
+    "admin": {
+        "disabled": true
+    },
+    "logging": {
+        "logs": {
+            "default": {
+                "writer": {
+                    "output": "file",
+                    "filename": "/tpdata/caddy/logs/error.log"
+                },
+                "level": "ERROR"
+            }
+        }
+    },
+    "storage": {
+        "module": "file_system",
+        "root": "/tpdata/caddy/cert/"
+    },
+    "apps": {
+        "http": {
+            "http_port": 80,
+            "servers": {
+                "srv0": {
+                    "listen": [
+                        ":80"
+                    ],
+                    "routes": [
+                        {
+                            "match": [
+                                {
+                                    "host": [
+                                        "${domain}"
+                                    ]
+                                }
+                            ],
+                            "handle": [
+                                {
+                                    "handler": "static_response",
+                                    "headers": {
+                                        "Location": [
+                                            "https://{http.request.host}:8863{http.request.uri}"
+                                        ]
+                                    },
+                                    "status_code": 301
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "srv1": {
+                    "listen": [
+                        ":8863"
+                    ],
+                    "routes": [
+                        {
+                            "handle": [
+                                {
+                                    "handler": "subroute",
+                                    "routes": [
+                                        {
+                                            "match": [
+                                                {
+                                                    "host": [
+                                                        "${domain}"
+                                                    ]
+                                                }
+                                            ],
+                                            "handle": [
+                                                {
+                                                    "handler": "file_server",
+                                                    "root": "/tpdata/caddy/srv/",
+                                                    "index_names": [
+                                                        "index.html",
+                                                        "index.htm"
+                                                    ]
+                                                }
+                                            ],
+                                            "terminal": true
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "tls_connection_policies": [
+                        {
+                            "match": {
+                                "sni": [
+                                    "${domain}"
+                                ]
+                            }
+                        }
+                    ],
+                    "automatic_https": {
+                        "disable": true
+                    }
+                }
+            }
+        },
+        "tls": {
+            "certificates": {
+                "automate": [
+                    "${domain}"
+                ]
+            },
+            "automation": {
+                "policies": [
+                    {
+                        "issuers": [
+                            {
+                                "module": "acme",
+                                "email": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+参数解释
+
+- `${domain}`：你的域名
+
+2. 手动设置自定义证书
+
+```
+{
+    "admin": {
+        "disabled": true
+    },
+    "logging": {
+        "logs": {
+            "default": {
+                "writer": {
+                    "output": "file",
+                    "filename": "/tpdata/caddy/logs/error.log"
+                },
+                "level": "ERROR"
+            }
+        }
+    },
+    "storage": {
+        "module": "file_system",
+        "root": "/tpdata/caddy/cert/"
+    },
+    "apps": {
+        "http": {
+            "http_port": 80,
+            "servers": {
+                "srv0": {
+                    "listen": [
+                        ":80"
+                    ],
+                    "routes": [
+                        {
+                            "match": [
+                                {
+                                    "host": [
+                                        "${domain}"
+                                    ]
+                                }
+                            ],
+                            "handle": [
+                                {
+                                    "handler": "static_response",
+                                    "headers": {
+                                        "Location": [
+                                            "https://{http.request.host}:8863{http.request.uri}"
+                                        ]
+                                    },
+                                    "status_code": 301
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "srv1": {
+                    "listen": [
+                        ":8863"
+                    ],
+                    "routes": [
+                        {
+                            "handle": [
+                                {
+                                    "handler": "subroute",
+                                    "routes": [
+                                        {
+                                            "match": [
+                                                {
+                                                    "host": [
+                                                        "${domain}"
+                                                    ]
+                                                }
+                                            ],
+                                            "handle": [
+                                                {
+                                                    "handler": "file_server",
+                                                    "root": "/tpdata/caddy/srv/",
+                                                    "index_names": [
+                                                        "index.html",
+                                                        "index.htm"
+                                                    ]
+                                                }
+                                            ],
+                                            "terminal": true
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "tls_connection_policies": [
+                        {
+                            "match": {
+                                "sni": [
+                                    "${domain}"
+                                ]
+                            }
+                        }
+                    ],
+                    "automatic_https": {
+                        "disable": true
+                    }
+                }
+            }
+        },
+        "tls": {
+            "certificates": {
+                "automate": [
+                    "${domain}"
+                ],
+                "load_files": [
+                    {
+                        "certificate": "/tpdata/caddy/cert/certificates/acme-v02.api.letsencrypt.org-directory/${domain}/${domain}.crt",
+                        "key": "/tpdata/caddy/cert/certificates/acme-v02.api.letsencrypt.org-directory/${domain}/${domain}.key"
+                    }
+                ]
+            },
+            "automation": {
+                "policies": [
+                    {
+                        "issuers": [
+                            {
+                                "module": "acme",
+                                "email": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+参数解释
+
+- `${domain}`：你的域名
+
+### 新建Nginx配置文件
 
 文件路径：`/tpdata/nginx/default.conf`
 
-[Nginx配置举例](custom-installation.html#nginx配置举例)
+1. 使用 https
 
-3. 上传**静态**伪装网站
+```
+server {
+    listen       8888 ssl;
+    server_name  ${domain};
 
-文件夹路径：`/tpdata/caddy/srv/`
+    #强制ssl
+    ssl on;
+    ssl_certificate      /tpdata/caddy/cert/${domain}.crt;
+    ssl_certificate_key  /tpdata/caddy/cert/${domain}.key;
+    #缓存有效期
+    ssl_session_timeout  5m;
+    #安全链接可选的加密协议
+    ssl_protocols  TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;
+    #加密算法
+    ssl_ciphers  ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+    #使用服务器端的首选算法
+    ssl_prefer_server_ciphers  on;
+
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    location / {
+        root   /tpdata/trojan-panel-ui/;
+        index  index.html index.htm;
+    }
+
+    location /api {
+        proxy_pass http://127.0.0.1:8081;
+    }
+
+    #error_page  404              /404.html;
+    #497 http->https
+    error_page  497              https://\$host:8888\$uri?\$args;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+```
+
+参数解释
+
+- `${domain}`：你的域名
+
+2. 使用 http
+
+```
+server {
+    listen       8888;
+    server_name  localhost;
+
+    location / {
+        root   /tpdata/trojan-panel-ui/;
+        index  index.html index.htm;
+    }
+
+    location /api {
+        proxy_pass http://127.0.0.1:8081;
+    }
+
+    error_page  497              http://\$host:8888\$uri?\$args;
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+```
+
+参数解释
+
+- `${domain}`：你的域名
 
 ## 配置文件
 
@@ -116,3 +457,11 @@ services:
 - `${mariadb_pas}`：MariaDB 数据库密码
 - `${redis_pass}`：Redis 的密码
 - `${domain}`：你的域名
+
+## 部署
+
+在Docker Compose配置文件同一级目录下执行
+
+```shell
+docker compose up
+```
