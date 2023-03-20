@@ -2,17 +2,17 @@
 
 ## v2rayN
 
-[下载v2rayN](https://github.com/2dust/v2rayN/releases)
+[下载v2rayN-Core](https://github.com/2dust/v2rayN/releases)
 
 ### 配置Hysteria（Windows）
 
 1. [下载Hysteria](https://github.com/apernet/hysteria/releases)
 
-2. 将hysteria执行文件复制到v2rayN-Core目录下
+2. 将Hysteria执行文件复制到v2rayN-Core目录下
 
 ![](/client-config/hysteria/v2rayn-hysteria-win-1.png)
 
-3. 编辑hysteria配置文件
+3. 编辑Hysteria配置文件
 
 ```json
 {
@@ -36,6 +36,33 @@
 ![](/client-config/hysteria/v2rayn-hysteria-win-2.png)
 
 ![](/client-config/hysteria/v2rayn-hysteria-win-3.png)
+
+6. 将v2rayN的系统代理设置为自动配置系统代理
+
+7. 选中节点，点击Enter即可连接节点
+
+### 配置NaiveProxy（Windows）
+
+1. [下载NaiveProxy](https://github.com/klzgrad/naiveproxy/releases)
+
+2. 将NaiveProxy执行文件复制到v2rayN-Core目录下
+
+![](/client-config/naiveproxy/v2rayn-naiveproxy-win-1.png)
+
+3. 编辑NaiveProxy配置文件
+
+```json
+{
+  "listen": "socks://127.0.0.1:1080",
+  "proxy": "https://user:pass@example.com:port"
+}
+```
+
+4. 开启对应的tcp端口或者关闭防火墙
+
+5. 开v2rayN，添加自定义服务器
+
+![](/client-config/naiveproxy/v2rayn-naiveproxy-win-2.png)
 
 6. 将v2rayN的系统代理设置为自动配置系统代理
 
