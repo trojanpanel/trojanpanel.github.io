@@ -41,11 +41,11 @@ docker pull teddysun/caddy:1.0.5
 ```shell
 docker run -d --name trojan-panel-caddy --restart always \
 --network=host \
--v ${CADDY_Caddyfile}:"/etc/caddy/Caddyfile" \
--v ${CADDY_ACME}:"/root/.caddy/acme/acme-v02.api.letsencrypt.org/sites/" \
+-v "${CADDY_Config}":"${CADDY_Config}" \
+-v ${CADDY_CERT}:"/tpdata/caddy/cert/certificates/acme-v02.api.letsencrypt.org-directory/${domain}/" \
 -v ${CADDY_SRV}:${CADDY_SRV} \
 -v ${CADDY_LOG}:${CADDY_LOG} \
-teddysun/caddy:1.0.5
+caddy:2.6.2 caddy run --config ${CADDY_Config}
 ```
 
 参数解释：
@@ -53,10 +53,289 @@ teddysun/caddy:1.0.5
 - `--name trojan-panel-redis`：定义容器的名称
 - `--restart always`：容器随着Docker启动而启动
 - `--network=host`：使用Host网络模式
-- `-v ${CADDY_Caddyfile}:"/etc/caddy/Caddyfile"`：映射Caddyfile文件
-- `-v ${CADDY_ACME}:"/root/.caddy/acme/acme-v02.api.letsencrypt.org/sites/"`：映射证书文件夹
+- `-v "${CADDY_Config}":"${CADDY_Config}"`：映射Caddy配置文件
+- `-v ${CADDY_CERT}:"/tpdata/caddy/cert/certificates/acme-v02.api.letsencrypt.org-directory/${domain}/"`：映射证书文件夹
 - `-v ${CADDY_SRV}:${CADDY_SRV}`：映射伪装网站文件夹
 - `-v ${CADDY_LOG}:${CADDY_LOG}`：日志文件夹
+- `caddy run --config ${CADDY_Config}`：指定配置文件运行
+
+Caddy配置举例
+
+1. 自动申请续签
+
+```
+{
+    "admin":{
+        "disabled":true
+    },
+    "logging":{
+        "logs":{
+            "default":{
+                "writer":{
+                    "output":"file",
+                    "filename":"${CADDY_LOG}error.log"
+                },
+                "level":"ERROR"
+            }
+        }
+    },
+    "storage":{
+        "module":"file_system",
+        "root":"${CADDY_CERT}"
+    },
+    "apps":{
+        "http":{
+            "http_port": ${caddy_port},
+            "servers":{
+                "srv0":{
+                    "listen":[
+                        ":${caddy_port}"
+                    ],
+                    "routes":[
+                        {
+                            "match":[
+                                {
+                                    "host":[
+                                        "${domain}"
+                                    ]
+                                }
+                            ],
+                            "handle":[
+                                {
+                                    "handler":"static_response",
+                                    "headers":{
+                                        "Location":[
+                                            "https://{http.request.host}:${caddy_remote_port}{http.request.uri}"
+                                        ]
+                                    },
+                                    "status_code":301
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "srv1":{
+                    "listen":[
+                        ":${caddy_remote_port}"
+                    ],
+                    "routes":[
+                        {
+                            "handle":[
+                                {
+                                    "handler":"subroute",
+                                    "routes":[
+                                        {
+                                            "match":[
+                                                {
+                                                    "host":[
+                                                        "${domain}"
+                                                    ]
+                                                }
+                                            ],
+                                            "handle":[
+                                                {
+                                                    "handler":"file_server",
+                                                    "root":"${CADDY_SRV}",
+                                                    "index_names":[
+                                                        "index.html",
+                                                        "index.htm"
+                                                    ]
+                                                }
+                                            ],
+                                            "terminal":true
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "tls_connection_policies":[
+                        {
+                            "match":{
+                                "sni":[
+                                    "${domain}"
+                                ]
+                            }
+                        }
+                    ],
+                    "automatic_https":{
+                        "disable":true
+                    }
+                }
+            }
+        },
+        "tls":{
+            "certificates":{
+                "automate":[
+                    "${domain}"
+                ]
+            },
+            "automation":{
+                "policies":[
+                    {
+                        "issuers":[
+                            {
+                                "module":"acme",
+                                "email":""
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+参数解释：
+
+- `${CADDY_LOG}`：日志文件夹
+- `${CADDY_CERT}`：证书文件夹
+- `${caddy_port}`：Caddy端口
+- `${domain}`：你的域名
+- `${caddy_remote_port}`：Caddy转发的端口
+- `${CADDY_SRV}`：伪装网站文件夹
+
+3. 手动设置自定义证书
+
+```
+{
+    "admin":{
+        "disabled":true
+    },
+    "logging":{
+        "logs":{
+            "default":{
+                "writer":{
+                    "output":"file",
+                    "filename":"${CADDY_LOG}error.log"
+                },
+                "level":"ERROR"
+            }
+        }
+    },
+    "storage":{
+        "module":"file_system",
+        "root":"${CADDY_CERT}"
+    },
+    "apps":{
+        "http":{
+            "http_port": ${caddy_port},
+            "servers":{
+                "srv0":{
+                    "listen":[
+                        ":${caddy_port}"
+                    ],
+                    "routes":[
+                        {
+                            "match":[
+                                {
+                                    "host":[
+                                        "${domain}"
+                                    ]
+                                }
+                            ],
+                            "handle":[
+                                {
+                                    "handler":"static_response",
+                                    "headers":{
+                                        "Location":[
+                                            "https://{http.request.host}:${caddy_remote_port}{http.request.uri}"
+                                        ]
+                                    },
+                                    "status_code":301
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "srv1":{
+                    "listen":[
+                        ":${caddy_remote_port}"
+                    ],
+                    "routes":[
+                        {
+                            "handle":[
+                                {
+                                    "handler":"subroute",
+                                    "routes":[
+                                        {
+                                            "match":[
+                                                {
+                                                    "host":[
+                                                        "${domain}"
+                                                    ]
+                                                }
+                                            ],
+                                            "handle":[
+                                                {
+                                                    "handler":"file_server",
+                                                    "root":"${CADDY_SRV}",
+                                                    "index_names":[
+                                                        "index.html",
+                                                        "index.htm"
+                                                    ]
+                                                }
+                                            ],
+                                            "terminal":true
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "tls_connection_policies":[
+                        {
+                            "match":{
+                                "sni":[
+                                    "${domain}"
+                                ]
+                            }
+                        }
+                    ],
+                    "automatic_https":{
+                        "disable":true
+                    }
+                }
+            }
+        },
+        "tls":{
+            "certificates":{
+                "automate":[
+                    "${domain}"
+                ],
+                "load_files":[
+                    {
+                        "certificate":"/tpdata/caddy/cert/certificates/acme-v02.api.letsencrypt.org-directory/${domain}/${domain}.crt",
+                        "key":"/tpdata/caddy/cert/certificates/acme-v02.api.letsencrypt.org-directory/${domain}/${domain}.key"
+                    }
+                ]
+            },
+            "automation":{
+                "policies":[
+                    {
+                        "issuers":[
+                            {
+                                "module":"acme",
+                                "email":""
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+参数解释：
+
+- `${CADDY_LOG}`：日志文件夹
+- `${CADDY_CERT}`：证书文件夹
+- `${caddy_port}`：Caddy端口
+- `${domain}`：你的域名
+- `${caddy_remote_port}`：Caddy转发的端口
+- `${CADDY_SRV}`：伪装网站文件夹
 
 ## 安装MariaDB
 
@@ -73,28 +352,22 @@ docker pull mariadb:10.7.3
 ```shell
 docker run -d --name trojan-panel-mariadb --restart always \
 --network=host \
--v ${MARIA_DATA}:/var/lib/mysql \
 -e MYSQL_DATABASE="trojan_panel_db" \
 -e MYSQL_ROOT_PASSWORD="${mariadb_pas}" \
 -e TZ=Asia/Shanghai \
-mariadb:10.7.3
+mariadb:10.7.3 \
 --port ${mariadb_port}
 ```
 
 参数解释：
 
-- `--name trojan-panel-redis`：定义容器的名称
+- `--name trojan-panel-mariadb`：定义容器的名称
 - `--restart always`：容器随着Docker启动而启动
 - `--network=host`：使用Host网络模式
-- `-v ${MARIA_DATA}:/var/lib/mysql`：映射MariaDB数据文件夹
 - `-e MYSQL_DATABASE="trojan_panel_db"`：容器启动时创建一个默认的`trojan_panel_db`库
 - `-e MYSQL_ROOT_PASSWORD="${mariadb_pas}"`：设置MariaDB密码为`${mariadb_pas}`
-- `-e TZ=Asia/Shanghai"`：设置时区为上海
-- `--port ${mariadb_port}`：自定义数据库端口（默认:3306）
-
-注意：
-
-1. 容器启动时必须有一个默认的`trojan_panel_db`库，如果你是自己的数据库，需要自己手动创建一个`trojan_panel_db`库
+- `-e TZ=Asia/Shanghai`：设置时区为上海
+- `--port ${mariadb_port}`：自定义数据库端口（默认:9507）
 
 ## 安装Redis
 
@@ -111,7 +384,7 @@ docker pull redis:6.2.7
 ```shell
 docker run -d --name trojan-panel-redis --restart always \
 --network=host \
--v ${REDIS_DATA}:/data redis:6.2.7 \
+redis:6.2.7 \
 redis-server --requirepass "${redis_pass}" --port ${redis_port}
 ```
 
@@ -120,8 +393,8 @@ redis-server --requirepass "${redis_pass}" --port ${redis_port}
 - `--name trojan-panel-redis`：定义容器的名称
 - `--restart always`：容器随着Docker启动而启动
 - `--network=host`：使用Host网络模式
-- `-v ${REDIS_DATA}:/data`：映射Redis数据文件夹
-- `redis-server --requirepass "${redis_pass}" --port ${redis_port}`：设置Redis密码为`${redis_pass}` 设置Redis端口为`${redis_port}`（默认:6379）
+- `redis-server --requirepass "${redis_pass}" --port ${redis_port}`：设置Redis密码为`${redis_pass}` 设置Redis端口为`${redis_port}`
+  （默认:6378）
 
 ## 安装Trojan Panel
 
@@ -182,8 +455,8 @@ docker pull jonssonyan/trojan-panel-ui
 ```shell
 docker run -d --name trojan-panel-ui --restart always \
 --network=host \
--v ${NGINX_CONFIG}:/etc/nginx/conf.d/default.conf \
--v ${CADDY_ACME}"${domain}":${CADDY_ACME}"${domain}" \
+-v "${NGINX_CONFIG}":"/etc/nginx/conf.d/default.conf" \
+-v ${CADDY_CERT}:${CADDY_CERT} \
 jonssonyan/trojan-panel-ui
 ```
 
@@ -192,8 +465,8 @@ jonssonyan/trojan-panel-ui
 - `--name trojan-panel-ui`：定义容器名称
 - `--restart always`：容器随着Docker启动而启动
 - `--network=host`：使用Host网络模式
-- `-v ${NGINX_CONFIG}:/etc/nginx/conf.d/default.conf`：映射Nginx配置文件
-- `-v ${CADDY_ACME}"${domain}":${CADDY_ACME}"${domain}"`：映射证书文件夹
+- `-v "${NGINX_CONFIG}":"/etc/nginx/conf.d/default.conf"`：映射Nginx配置文件
+- `-v ${CADDY_CERT}:${CADDY_CERT}`：映射证书文件夹
 
 Nginx 配置举例
 
@@ -206,8 +479,8 @@ server {
 
     #强制ssl
     ssl on;
-    ssl_certificate      ${CADDY_ACME}${domain}/${domain}.crt;
-    ssl_certificate_key  ${CADDY_ACME}${domain}/${domain}.key;
+    ssl_certificate      ${CADDY_CERT}${domain}.crt;
+    ssl_certificate_key  ${CADDY_CERT}${domain}.key;
     #缓存有效期
     ssl_session_timeout  5m;
     #安全链接可选的加密协议
@@ -244,8 +517,8 @@ server {
 参数解释：
 
 - `${trojan_panel_ui_port}`：Trojan Panel 端口
+- `${CADDY_CERT}`：证书文件夹
 - `${domain}`：你的域名
-- `${CADDY_ACME}`：证书文件夹
 - `${TROJAN_PANEL_UI_DATA}`：前端编译文件所在的文件夹
 
 2. 使用 http
@@ -275,7 +548,7 @@ server {
 
 参数解释：
 
-- `{trojan_panel_ui_port}`：Trojan Panel 端口
+- `${trojan_panel_ui_port}`：Trojan Panel 端口
 - `${TROJAN_PANEL_UI_DATA}`：前端编译文件所在的文件夹
 
 ## 安装Trojan Panel Core
@@ -342,4 +615,4 @@ jonssonyan/trojan-panel-core
 - `-e "redis_pass=${redis_pass}"`：`${redis_pass}`为 Redis 的密码(默认:123456)
 - `-e "crt_path=${CADDY_ACME}${domain}/${domain}.crt"`：自定义证书.crt文件路径
 - `-e "key_path=${CADDY_ACME}${domain}/${domain}.key"`：自定义证书.key文件路径
-- `-e "grpc_port=${grpc_port}"`：自定义证书通讯端口
+- `-e "grpc_port=${grpc_port}"`：自定义服务器之间的通讯端口
