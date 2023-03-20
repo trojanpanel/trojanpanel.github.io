@@ -44,6 +44,7 @@ docker run -d --name trojan-panel-caddy --restart always \
 -v ${CADDY_Caddyfile}:"/etc/caddy/Caddyfile" \
 -v ${CADDY_ACME}:"/root/.caddy/acme/acme-v02.api.letsencrypt.org/sites/" \
 -v ${CADDY_SRV}:${CADDY_SRV} \
+-v ${CADDY_LOG}:${CADDY_LOG} \
 teddysun/caddy:1.0.5
 ```
 
@@ -55,6 +56,7 @@ teddysun/caddy:1.0.5
 - `-v ${CADDY_Caddyfile}:"/etc/caddy/Caddyfile"`：映射Caddyfile文件
 - `-v ${CADDY_ACME}:"/root/.caddy/acme/acme-v02.api.letsencrypt.org/sites/"`：映射证书文件夹
 - `-v ${CADDY_SRV}:${CADDY_SRV}`：映射伪装网站文件夹
+- `-v ${CADDY_LOG}:${CADDY_LOG}`：日志文件夹
 
 ## 安装MariaDB
 
