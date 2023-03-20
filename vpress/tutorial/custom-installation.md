@@ -619,11 +619,23 @@ jonssonyan/trojan-panel-core
 
 ## Docker Compose
 
-在使用Docker Compose之前需要先新建Caddy和Nginx的配置文件
+1. 新建Caddy配置文件
 
-[Caddy配置](#安装caddy)文件路径：`/tpdata/caddy/config.json`
+路径：`/tpdata/caddy/config.json`
 
-[Nginx配置](#安装trojan-panel-ui)文件路径：`/tpdata/nginx/default.conf`
+[文件参考](#安装caddy)
+
+2. 新建Nginx配置文件
+
+文件路径：`/tpdata/nginx/default.conf`
+
+[文件参考](#安装trojan-panel-ui)
+
+3. 上传**静态**伪装网站
+
+文件夹路径：`/tpdata/caddy/srv`
+
+## 配置文件
 
 ```yml
 version: '3'
