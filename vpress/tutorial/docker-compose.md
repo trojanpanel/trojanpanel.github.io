@@ -16,7 +16,7 @@
 
 3. 上传**静态**伪装网站
 
-文件夹路径：`/tpdata/caddy/srv`
+文件夹路径：`/tpdata/caddy/srv/`
 
 ## 配置文件
 
