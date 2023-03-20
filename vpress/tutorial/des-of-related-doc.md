@@ -23,7 +23,7 @@ Nginx配置文件位置如下
 
 Caddy证书文件位置如下
 
-`/tpdata/caddy/acme/`
+`/tpdata/caddy/cert/`
 
 伪装网站文件位置如下
 
