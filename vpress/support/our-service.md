@@ -6,4 +6,8 @@
 2. 集群搭建
 3. 技术运维/故障排查
 
-联系我们：[@jonssonyan](https://t.me/jonssonyan)
+# 联系我们
+
+Telegram: [@jonssonyan](https://t.me/jonssonyan)
+
+Email: [jonssonyan@outlook.com](mailto:jonssonyan@outlook.com)

@@ -12,4 +12,8 @@ Trojan Panel 使用**完全免费**。包含一键部署脚本、Trojan Panel前
 
 我们非常感谢您的支持，并期待与您合作！
 
-联系我们：[@jonssonyan](https://t.me/jonssonyan)
+# 联系我们
+
+Telegram: [@jonssonyan](https://t.me/jonssonyan)
+
+Email: [jonssonyan@outlook.com](mailto:jonssonyan@outlook.com)
