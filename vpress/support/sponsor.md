@@ -17,3 +17,12 @@ Trojan Panel 使用**完全免费**。包含一键部署脚本、Trojan Panel前
 Telegram: [@jonssonyan](https://t.me/jonssonyan)
 
 Email: [jonssonyan@outlook.com](mailto:jonssonyan@outlook.com)
+
+# 赞助者
+
+感谢以下赞助者，他们的支持使我们能够继续开发和改进该项目，排名不分前后。
+
+| 昵称     | 金额   |
+|--------|------|
+| Kuannz | ￥50  |
+| 南南     | 一个节点 |
