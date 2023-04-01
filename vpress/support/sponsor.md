@@ -22,7 +22,4 @@ Email: [jonssonyan@outlook.com](mailto:jonssonyan@outlook.com)
 
 感谢以下赞助者，他们的支持使我们能够继续开发和改进该项目，排名不分前后。
 
-| 昵称     | 金额   |
-|--------|------|
-| Kuannz | ￥50  |
-| 南南     | 一个节点 |
+<a target="_blank"><img style="width:36px;height:36px;border-radius: 50px;" src=""></a>
