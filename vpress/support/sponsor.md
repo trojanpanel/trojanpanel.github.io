@@ -22,5 +22,6 @@ Email: [jonssonyan@outlook.com](mailto:jonssonyan@outlook.com)
 
 感谢以下赞助者，他们的支持使我们能够继续开发和改进该项目，排名不分前后。
 
+<a target="_blank"><img style="width:36px;height:36px;border-radius: 50px;" src="https://user-images.githubusercontent.com/46235235/229360250-284acb5f-c21e-4dbc-9c30-2e03fa85f22c.png"></a>
 <a target="_blank"><img style="width:36px;height:36px;border-radius: 50px;" src="https://user-images.githubusercontent.com/46235235/229303924-0e97ada7-fa4d-489b-a0dc-28a7db0b4713.png"></a>
 <a target="_blank"><img style="width:36px;height:36px;border-radius: 50px;" src="https://user-images.githubusercontent.com/46235235/229304001-5860e3ec-6f00-4519-afdd-c83b19a2751e.png"></a>
