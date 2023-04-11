@@ -20,12 +20,6 @@ module.exports = {
             }]
         }, {
             text: '常见问题', link: '/problem/common-problem'
-        }, {
-            text: '支持我们', items: [{
-                text: '增值服务', link: '/support/our-service'
-            }, {
-                text: '赞助', link: '/support/sponsor'
-            }]
         }, {text: '更新日志', link: '/change/change-log'}, {
             text: 'GitHub', link: 'https://github.com/trojanpanel'
         }], sidebar: {
