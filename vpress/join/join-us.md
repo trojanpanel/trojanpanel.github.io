@@ -27,10 +27,10 @@ Trojan Panel 的发展。 如果你对网络安全和代理技术充满兴趣，
 
 1. **活跃的GitHub开源贡献者**，有自己独立开发的作品，并且有一定的Star，或者向知名开源项目提交过PR并生效
 2. **熟悉前后端开发**，技术栈最好是Vue.js、Golang、SQL、Redis，大厂开发优先
-3. **巨佬**请直接联系我
+3. **大佬**请直接联系我
 
 Talk is cheap. Show me your code.
 
 简历投递：[jonssonyan@outlook.com](mailto:jonssonyan@outlook.com)
 
-**请在简历中备注GitHub主页或者个人博客链接，以及你的联系方式，筛选通过后会主动联系你**。
+**请在简历中备注GitHub主页或者个人博客链接，以及你的联系方式，筛选通过后会主动联系你**
