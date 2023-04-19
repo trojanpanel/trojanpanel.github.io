@@ -13,14 +13,24 @@ Trojan Panel 的发展。 如果你对网络安全和代理技术充满兴趣，
 
 项目的数据（截止 2023 年 4 月 15 日）：
 
-1. 下载量：[Docker Hub](https://hub.docker.com/u/jonssonyan) 累计下载 300K+
-2. [社区](https://t.me/TrojanPanel)人数：1.4K+
-3. [GitHub](https://github.com/trojanpanel) Star：1.3K+
+1. [Docker Hub](https://hub.docker.com/u/jonssonyan) 累计下载 300K+
+2. [社区](https://t.me/TrojanPanel)人数 1.4K+
+3. [GitHub](https://github.com/trojanpanel) Star 1.3K+，Fork 300+，Followers 300+
 
-寻求合作，1~2 名全栈开发作为核心成员。实事求是评估是否适合自己，需要熟悉以下大部分的技能：
+项目技术栈：
 
-1. 前端：JavaScript、Vue.js、Element、组件化开发、（兼容性/自适应）
-2. 后端: Golang、Gin、MySQL、Redis、gRPC、并发编程、熟悉常见代理软件、（网络编程）
-3. 运维：Shell、Docker、（K8s）
+- 前端：JavaScript、Vue.js、Element、组件化开发
+- 后端: Golang、Gin、MariaDB、Redis、gRPC、并发编程、熟悉常见代理软件
+- 运维：Shell、Docker
 
-简历投递：[jonssonyan@outlook.com](mailto:jonssonyan@outlook.com)，请在邮件中备注你的联系方式，筛选通过后会主动联系你。
+寻求**全栈开发**作为核心成员。实事求是评估是否适合自己，要求如下：
+
+1. **活跃的GitHub开源贡献者**，有自己独立开发的作品，并且有一定的Star，或者向知名开源项目提交过PR并生效
+2. **熟悉前后端开发**，技术栈最好是Vue.js、Golang、SQL、Redis，大厂开发优先
+3. **巨佬**请直接联系我
+
+Talk is cheap. Show me your code.
+
+简历投递：[jonssonyan@outlook.com](mailto:jonssonyan@outlook.com)
+
+**请在简历中备注GitHub主页或者个人博客链接，以及你的联系方式，筛选通过后会主动联系你**。
