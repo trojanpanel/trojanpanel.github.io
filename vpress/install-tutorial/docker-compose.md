@@ -4,7 +4,7 @@
 
 ### 设置伪装网站
 
-将静态网站文件上传至伪装网站文件夹：`/tpdata/caddy/srv/`
+将静态网站文件上传至伪装网站文件夹：`/tpdata/web/`
 
 ### 新建Caddy配置文件
 
@@ -32,7 +32,7 @@ Caddy配置举例
     },
     "storage": {
         "module": "file_system",
-        "root": "/tpdata/caddy/cert/"
+        "root": "/tpdata/cert/"
     },
     "apps": {
         "http": {
@@ -86,7 +86,7 @@ Caddy配置举例
                                             "handle": [
                                                 {
                                                     "handler": "file_server",
-                                                    "root": "/tpdata/caddy/srv/",
+                                                    "root": "/tpdata/web/",
                                                     "index_names": [
                                                         "index.html",
                                                         "index.htm"
@@ -162,7 +162,7 @@ Caddy配置举例
     },
     "storage": {
         "module": "file_system",
-        "root": "/tpdata/caddy/cert/"
+        "root": "/tpdata/cert/"
     },
     "apps": {
         "http": {
@@ -216,7 +216,7 @@ Caddy配置举例
                                             "handle": [
                                                 {
                                                     "handler": "file_server",
-                                                    "root": "/tpdata/caddy/srv/",
+                                                    "root": "/tpdata/web/",
                                                     "index_names": [
                                                         "index.html",
                                                         "index.htm"
@@ -252,8 +252,8 @@ Caddy配置举例
                 ],
                 "load_files": [
                     {
-                        "certificate": "/tpdata/caddy/cert/certificates/acme-v02.api.letsencrypt.org-directory/${domain}/${domain}.crt",
-                        "key": "/tpdata/caddy/cert/certificates/acme-v02.api.letsencrypt.org-directory/${domain}/${domain}.key"
+                        "certificate": "/tpdata/cert/certificates/acme-v02.api.letsencrypt.org-directory/${domain}/${domain}.crt",
+                        "key": "/tpdata/cert/certificates/acme-v02.api.letsencrypt.org-directory/${domain}/${domain}.key"
                     }
                 ]
             },
@@ -274,7 +274,7 @@ Caddy配置举例
 }
 ```
 
-注意：需要将证书文件上传至证书文件夹：`/tpdata/caddy/cert/`，证书文件名称格式为`${domian}.crt`和`${domian}.key`。
+注意：需要将证书文件上传至证书文件夹：`/tpdata/cert/`，证书文件名称格式为`${domian}.crt`和`${domian}.key`。
 
 参数解释
 
@@ -282,43 +282,37 @@ Caddy配置举例
 
 ### 新建Nginx配置文件
 
-文件路径：`/tpdata/nginx/default.conf`
+文件路径：`/tpdata/trojan-panel-ui/nginx/default.conf`
 
 1. 使用 https
 
 ```
 server {
     listen       8888 ssl;
-    server_name  ${domain};
-
+    server_name  localhost;
     #强制ssl
     ssl on;
-    ssl_certificate      /tpdata/caddy/cert/${domain}.crt;
-    ssl_certificate_key  /tpdata/caddy/cert/${domain}.key;
+    ssl_certificate      /tpdata/cert/${domain}.crt;
+    ssl_certificate_key  /tpdata/cert/${domain}.key;
     #缓存有效期
     ssl_session_timeout  5m;
     #安全链接可选的加密协议
-    ssl_protocols  TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;
+    ssl_protocols  TLSv1.3;
     #加密算法
     ssl_ciphers  ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
     #使用服务器端的首选算法
     ssl_prefer_server_ciphers  on;
-
     #access_log  /var/log/nginx/host.access.log  main;
-
     location / {
         root   /tpdata/trojan-panel-ui/;
         index  index.html index.htm;
     }
-
     location /api {
         proxy_pass http://127.0.0.1:8081;
     }
-
     #error_page  404              /404.html;
     #497 http->https
-    error_page  497              https://\$host:8888\$uri?\$args;
-
+    error_page  497               https://\$host:8888\$request_uri;
     # redirect server error pages to the static page /50x.html
     #
     error_page   500 502 503 504  /50x.html;
@@ -338,28 +332,17 @@ server {
 server {
     listen       8888;
     server_name  localhost;
-
     location / {
         root   /tpdata/trojan-panel-ui/;
         index  index.html index.htm;
     }
-
-    location /api {
-        proxy_pass http://127.0.0.1:8081;
-    }
-
-    error_page  497              http://\$host:8888\$uri?\$args;
-
+    error_page  497               http://\$host:8888\$request_uri;
     error_page   500 502 503 504  /50x.html;
     location = /50x.html {
         root   /usr/share/nginx/html;
     }
 }
 ```
-
-参数解释
-
-- `${domain}`：你的域名
 
 ## 配置文件
 
@@ -374,8 +357,8 @@ services:
     network_mode: host
     volumes:
       - "/tpdata/caddy/config.json:/tpdata/caddy/config.json"
-      - "/tpdata/caddy/cert/:/tpdata/caddy/cert/certificates/acme-v02.api.letsencrypt.org-directory/${domain}/"
-      - "/tpdata/caddy/srv/:/tpdata/caddy/srv/"
+      - "/tpdata/cert/:/tpdata/cert/certificates/acme-v02.api.letsencrypt.org-directory/${domain}/"
+      - "/tpdata/web/:/tpdata/web/"
       - "/tpdata/caddy/logs/:/tpdata/caddy/logs/"
     command: caddy run --config /tpdata/caddy/config.json
 
@@ -403,10 +386,13 @@ services:
     restart: always
     network_mode: host
     volumes:
-      - "/tpdata/caddy/srv/:/tpdata/trojan-panel/webfile/"
+      - "/tpdata/web/:/tpdata/trojan-panel/webfile/"
       - "/tpdata/trojan-panel/logs/:/tpdata/trojan-panel/logs/"
+      - "/tpdata/trojan-panel/export:/tpdata/trojan-panel/export"
+      - "/tpdata/trojan-panel/template:/tpdata/trojan-panel/template"
       - "/etc/localtime:/etc/localtime"
     environment:
+      - "GIN_MODE=release"
       - "mariadb_ip=127.0.0.1"
       - "mariadb_port=9507"
       - "mariadb_user=root"
@@ -421,8 +407,8 @@ services:
     restart: always
     network_mode: host
     volumes:
-      - "/tpdata/nginx/default.conf:/etc/nginx/conf.d/default.conf"
-      - "/tpdata/caddy/cert/:/tpdata/caddy/cert/"
+      - "/tpdata/trojan-panel-ui/nginx/default.conf:/etc/nginx/conf.d/default.conf"
+      - "/tpdata/cert/:/tpdata/cert/"
 
   trojan-panel-core:
     image: jonssonyan/trojan-panel-core
@@ -436,10 +422,11 @@ services:
       - "/tpdata/trojan-panel-core/bin/naiveproxy/config:/tpdata/trojan-panel-core/bin/naiveproxy/config"
       - "/tpdata/trojan-panel-core/logs/:/tpdata/trojan-panel-core/logs/"
       - "/tpdata/trojan-panel-core/config/sqlite/:/tpdata/trojan-panel-core/config/sqlite/"
-      - "/tpdata/caddy/cert/:/tpdata/caddy/cert/"
-      - "/tpdata/caddy/srv/:/tpdata/caddy/srv/"
+      - "/tpdata/cert/:/tpdata/cert/"
+      - "/tpdata/web/:/tpdata/web/"
       - "/etc/localtime:/etc/localtime"
     environment:
+      - "GIN_MODE=release"
       - "mariadb_ip=127.0.0.1"
       - "mariadb_port=9507"
       - "mariadb_user=root"
@@ -449,8 +436,8 @@ services:
       - "redis_host=127.0.0.1"
       - "redis_port=6378"
       - "redis_pass=${redis_pass}"
-      - "crt_path=/tpdata/caddy/cert/${domain}.crt"
-      - "key_path=/tpdata/caddy/cert/${domain}.key"
+      - "crt_path=/tpdata/cert/${domain}.crt"
+      - "key_path=/tpdata/cert/${domain}.key"
       - "grpc_port=8100"
 ```
 
