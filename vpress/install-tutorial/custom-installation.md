@@ -29,7 +29,7 @@ Docker -> Caddy -> MariaDB -> Redis -> Trojan Panel -> Trojan Panel UI -> Trojan
 
 ## 安装Caddy
 
-> Docker Hub：https://hub.docker.com/r/teddysun/caddy
+> Docker Hub：https://hub.docker.com/_/caddy
 
 1. Pull the image
 
