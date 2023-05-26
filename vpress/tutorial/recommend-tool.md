@@ -10,7 +10,7 @@
 
 - Android: [igniter](https://github.com/trojan-gfw/igniter) / [trojan-go-android](https://github.com/p4gefau1t/trojan-go-android)
 - IOS: [Shadowrocket](https://apps.apple.com/us/app/shadowrocket/id932747118)
-- Windows/Mac/Linux: [Qv2ray（archive）](https://github.com/Qv2ray/Qv2ray) / [Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg)
+- Windows/Mac/Linux: [v2rayN](https://github.com/2dust/v2rayN) / [Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg) / [Qv2ray（archive）](https://github.com/Qv2ray/Qv2ray)
 
 ### Hysteria
 
