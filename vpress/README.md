@@ -26,7 +26,7 @@ features:
   - title: 所见即所得
     details: 支持多节点管理，自动化管理远程节点，自动化申请/续签证书，面板内编辑节点，远程服务实时修改节点配置
 
-footer: Copyright © 2021-2022 Trojan Panel
+footer: Copyright © 2021-2023 Trojan Panel
 
 ---
 
