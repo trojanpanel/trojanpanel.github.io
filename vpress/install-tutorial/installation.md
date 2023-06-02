@@ -12,14 +12,16 @@
 
 #### 相关端口
 
-| 端口   | 描述             |
-|------|----------------|
-| 80   | 伪装Web          |
-| 8863 | Caddy/Nginx转发  |
-| 8888 | Trojan Panel前端 |
-| 9507 | MariaDB        |
-| 6378 | Redis          |
-| 8100 | gRPC端口         |
+| 端口   | 描述                      |
+|------|-------------------------|
+| 80   | 伪装Web                   |
+| 8863 | Caddy/Nginx转发           |
+| 8888 | Trojan Panel前端          |
+| 8081 | Trojan Panel后端          |
+| 8082 | Trojan Panel Core       |
+| 9507 | MariaDB                 |
+| 6378 | Redis                   |
+| 8100 | Trojan Panel Core API端口 |
 
 Trojan Panel服务器需开放以下端口: `80` `8863` `8888`，Trojan Panel Core服务器需要开放：`8100`。
 
@@ -37,7 +39,8 @@ Trojan Panel服务器需开放以下端口: `80` `8863` `8888`，Trojan Panel Co
 
 4. 建议的安装顺序: [安装网络加速](../tutorial/performance-tuning.md#网络加速) > 安装Trojan Panel > 安装Trojan Panel Core
 
-   建议在脚本运行中需要手动输入的部分，如果没有特殊需求或者不知道这个选项是干什么的，**除数据库密码和Redis密码自定义以外，其他默认即可**。
+   建议在脚本运行中需要手动输入的部分，如果没有特殊需求或者不知道这个选项是干什么的，**除数据库密码和Redis密码自定义以外，其他默认即可
+   **。
 
 5. 如果是远程多节点的情况，**节点服务器只需要安装一次Trojan Panel Core**，在面板界面才可以操作远程服务器从而远程自动化管理节点。
 
@@ -143,7 +146,8 @@ source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_
 
 20. 请选择Trojan Panel前端是否开启https?(0/关闭 1/开启 默认:1/开启)
 
-默认即可，除非有自定义择Trojan Panel前端是否开启https的需求。如果开启https，则管理面板地址为`https://你的域名:端口`，如果未开启https，则管理面板地址为`http://你的域名:端口`。
+默认即可，除非有自定义择Trojan Panel前端是否开启https的需求。如果开启https，则管理面板地址为`https://你的域名:端口`
+，如果未开启https，则管理面板地址为`http://你的域名:端口`。
 
 **提示**
 
