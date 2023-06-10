@@ -14,28 +14,6 @@
 4. 重启服务器。
 5. 重装系统：有时候搭建失败可能是服务器系统不纯净导致，可以尝试DD系统。
 
-# 忘记密码
-
-如果忘记数据库或者Redis密码，则在Trojan Panel后端服务器上执行以下命令，即可打印配置信息
-
-```shell
-docker exec trojan-panel cat /tpdata/trojan-panel/confg/config.ini
-```
-
-如果忘记了管理面板的账号和密码，则在数据库服务器上执行以下命令，即可将超级管理员的账号和密码重设为sysadmin
-123456，登录后立刻修改默认密码。
-
-```shell
-docker exec trojan-panel-mariadb mysql -h"${mariadb_ip}" -P"${mariadb_port}" -u"${mariadb_user}" -p"${mariadb_pas}" -e "update account set username = 'sysadmin',pass = 'tFjD2X1F6i9FfWp2GDU5Vbi1conuaChDKIYbw9zMFrqvMoSz',hash='4366294571b8b267d9cf15b56660f0a70659568a86fc270a52fdc9e5' where id = 1 limit 1" &>/dev/null
-```
-
-参数解释：
-
-- `${mariadb_ip}`：数据库的IP地址
-- `${mariadb_port}`：数据库的端口
-- `${mariadb_user}`：数据库的用户名
-- `${mariadb_pas}`：数据库的密码
-
 ## 证书申请失败
 
 Caddy内置[acme](https://acme.sh)进行证书申请，使用Caddy自动申请/续签证书时，需要临时听在80端口，所以你的服务器需要开放80端口并且保证80端口没有被其他进程占用，
