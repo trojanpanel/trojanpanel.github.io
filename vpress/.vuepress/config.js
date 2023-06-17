@@ -23,7 +23,7 @@ module.exports = {
         }, {text: '更新日志', link: '/change/change-log'}, {
             text: 'GitHub', link: 'https://github.com/trojanpanel'
         }], sidebar: {
-            '/start/': ['introduce', 'system-structure', 'related-video'],
+            '/start/': ['introduce', 'system-structure'],
             '/tutorial/': ['using-tutorials', 'des-of-related-doc', 'common-problem', 'using-cdn', 'client-config', 'recommend-tool', 'performance-tuning', 'performance-testing'],
             '/install-tutorial/': ['installation', 'custom-installation', 'docker-compose'],
             '/Q&A/': ['Q&A'],
