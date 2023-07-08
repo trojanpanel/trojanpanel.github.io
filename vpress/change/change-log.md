@@ -1,5 +1,61 @@
 # 更新日志
 
+## 2023.07.08 帝江<Badge type="tip" text="v2.1" vertical="top" />
+
+1. 新增Nginx反代
+2. 新增Xray reality 移除xtls
+3. 新增修改用户名
+4. 新增验证码登录，增强账户安全
+5. 新增密码输入三次后账户锁定30分钟，增强账户安全
+6. 新增Hysteria混淆密码
+7. 新增vless reality随机生成publicKey/privateKey/shortIds/spiderX
+8. 新增验证码登录开启和关闭选项
+9. 新增批量创建账户和导出未使用账户
+10. 新增账户最后一次登录时间
+11. 新增Hysteria wechat-video
+12. 新增前端单独部署、更新、卸载
+13. 新增自定义前端指定后端的IP和端口
+14. 新增自定义后端IP和端口
+15. 新增自定义内核的IP和端口
+16. 新增不设置证书选项
+17. 新增将后端和内核配置文件夹挂载到宿主机
+18. 新增前端版本号
+19. 新增自定义后端的服务端口
+20. 新增自定义内核的服务端口
+21. 新增在线更换证书选项
+22. 新增忘记密码选项
+23. 新增节点优先级
+24. 新增管理员复制指定账户订阅地址
+25. 新增账户列表排序查询
+26. 新增Hysteria支持SNI 允许不安全 快速打开
+27. 修改证书文件目录至/tpdta/cert/
+28. 修改伪装Web目录至/tpdate/web/
+29. 修改用户和服务器导出csv格式修改为json，格式更加通用
+30. 修改Xray和Clash规则模板长度调整至10240
+31. 移除Xray trojan 流控选项
+32. 修复Shadowsocks加密方式名称
+33. 修复Xray Trojan传输层加密的问题
+34. 修复Copy URL失效的问题
+35. 修复后端和内核更新不用输入数据库和Redis等相关信息
+36. 修复docker compose部署文件
+37. 修复Clash模板字符串长度限制提升到102400
+38. 修复自动化更新数据结构未变化的问题
+39. 升级Xray至v1.8.0，升级Hysteria至v1.3.4
+40. 组件化开发重构前端节点模块代码，对后端和内核代码进行优化，错误处理和必要的资源释放
+41. 优化Clash订阅
+42. 优化Xray分享链接
+43. 优化服务器状态检测逻辑
+44. 优化Xray reality serverNames编辑确认效果
+45. 优化Caddy2故障检测
+46. 将锁换成分布式锁，支持部署多个后端
+47. 优化代码，并发处理，提升系统性能
+
+### 版本对应关系
+
+| Install Script | Trojan Panel UI | Trojan Panel | Trojan Panel Core | Core SDK |  Xray  | Trojan Go | Hysteria | Caddy（NaiveProxy） |
+|:--------------:|:---------------:|:------------:|:-----------------:|:--------:|:------:|:---------:|:--------:|:-----------------:|
+|     v2.1.8     |     v2.1.6      |    v2.1.5    |      v2.1.2       |  v0.0.1  | v1.8.0 |  v0.10.6  |  v1.3.4  |      v2.6.4       |
+
 ## 2023.03.31 穷奇<Badge type="tip" text="v2.0" vertical="top" />
 
 1. 新增自动化无损升级
@@ -70,7 +126,7 @@
 |:------------:|:-----------------:|:------:|:---------:|:--------:|:-----------------:|
 |    v1.3.1    |      v1.3.2       | v1.6.1 |  v0.10.6  |  v1.3.2  |      v2.6.2       |
 
-::: danger 注意 
+::: danger 注意
 目前支持的NaiveProxy处于测试阶段，只支持用户认证不支持流量统计。
 :::
 
@@ -116,8 +172,7 @@
 19. 使用Docker Hub镜像：[Trojan Panel UI](https://hub.docker.com/r/jonssonyan/trojan-panel-ui)
     & [Trojan Panel](https://hub.docker.com/r/jonssonyan/trojan-panel)
 
-
-::: danger 注意 
+::: danger 注意
 目前支持的Hysteria处于测试阶段，只支持用户认证不支持流量统计。
 :::
 
