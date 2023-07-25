@@ -12,20 +12,27 @@ module.exports = {
     description: '支持Xray/Trojan-Go/Hysteria/NaiveProxy的多用户Web管理面板',
     plugins: [['@vuepress/back-to-top'], ['vuepress-plugin-code-copy', true]],
     themeConfig: {
-        logo: '/logo.png', lastUpdated: 'Last Updated', nav: [{text: '新手起步', link: '/start/introduce'}, {
+        sidebarDepth: 3,
+        logo: '/logo.png',
+        lastUpdated: 'Last Updated',
+        nav: [{text: '新手起步', link: '/start/introduce'}, {
             text: '相关教程', items: [{
                 text: '安装教程', link: '/install-tutorial/installation'
             }, {
                 text: '使用教程', link: '/tutorial/using-tutorials'
             }]
         }, {
+            text: '开发文档', link: '/dev/api'
+        }, {
             text: 'Q&A', link: '/Q&A/Q&A'
         }, {text: '更新日志', link: '/change/change-log'}, {
             text: 'GitHub', link: 'https://github.com/trojanpanel'
-        }], sidebar: {
+        }],
+        sidebar: {
             '/start/': ['introduce', 'system-structure'],
             '/tutorial/': ['using-tutorials', 'des-of-related-doc', 'common-problem', 'using-cdn', 'client-config', 'recommend-tool', 'performance-tuning', 'performance-testing'],
             '/install-tutorial/': ['installation', 'custom-installation', 'docker-compose'],
+            '/dev/': ['api', 'sdk'],
             '/Q&A/': ['Q&A'],
             '/change/': ['change-log']
         },
