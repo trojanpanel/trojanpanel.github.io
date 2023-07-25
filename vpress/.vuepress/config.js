@@ -7,7 +7,11 @@ module.exports = {
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
-`]],
+`], ['script', {
+        async: true,
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9763379843362753',
+        crossorigin: 'anonymous'
+    }]],
     title: 'Trojan Panel',
     description: '支持Xray/Trojan-Go/Hysteria/NaiveProxy的多用户Web管理面板',
     plugins: [['@vuepress/back-to-top'], ['vuepress-plugin-code-copy', true]],
