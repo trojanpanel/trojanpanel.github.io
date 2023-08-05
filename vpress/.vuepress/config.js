@@ -28,7 +28,7 @@ module.exports = {
         }, {
             text: '开发文档', link: '/dev/api'
         }, {
-            text: 'Q&A', link: '/Q&A/Q&A'
+            text: 'FAQ', link: '/faq/faq'
         }, {text: '更新日志', link: '/change/change-log'}, {
             text: 'GitHub', link: 'https://github.com/trojanpanel'
         }],
@@ -37,7 +37,7 @@ module.exports = {
             '/tutorial/': ['using-tutorials', 'des-of-related-doc', 'common-problem', 'using-cdn', 'client-config', 'recommend-tool', 'performance-tuning', 'performance-testing'],
             '/install-tutorial/': ['installation', 'custom-installation', 'docker-compose'],
             '/dev/': ['api', 'sdk'],
-            '/Q&A/': ['Q&A'],
+            '/faq/': ['faq'],
             '/change/': ['change-log']
         },
     },
