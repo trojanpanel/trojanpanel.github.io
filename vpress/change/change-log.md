@@ -169,8 +169,8 @@
 16. 优化Hysteria，新增单客户端最大上传/下载速度
 17. 引入Redis作为缓存
 18. 支持arm64架构
-19. 使用Docker Hub镜像：[Trojan Panel UI](https://hub.docker.com/r/jonssonyan/trojan-panel-ui)
-    & [Trojan Panel](https://hub.docker.com/r/jonssonyan/trojan-panel)
+19. 使用Docker Hub镜像：[trojan-panel-ui](https://hub.docker.com/r/jonssonyan/trojan-panel-ui)
+    & [trojan-panel](https://hub.docker.com/r/jonssonyan/trojan-panel)
 
 ::: danger 注意
 目前支持的Hysteria处于测试阶段，只支持用户认证不支持流量统计。

@@ -30,37 +30,38 @@ footer: Copyright © 2021-2023 Trojan Panel
 
 ---
 
-## 🚀 Quick installation
+## 🚀 安装
 
-1. 联机版（推荐）
+1. 联机（推荐）
 
-```shell
-source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_script.sh)
-```
+    ```shell
+    source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_script.sh)
+    ```
 
-2. 单机版
+2. 单机
 
-```shell
-source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_script_standalone.sh)
-```
+    ```shell
+    source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_script_standalone.sh)
+    ```
 
-3. [安装旧版](https://github.com/trojanpanel/install-script/tree/main/archive)
-
-## 🔍 Issues
-
-[Issues](https://github.com/trojanpanel/install-script/issues)
+3. [安装旧版本](https://github.com/trojanpanel/install-script/tree/main/README_ZH.md)
 
 ## ✨ Community
 
-- Telegram Channel: [Trojan Panel](https://t.me/TrojanPanel)
+Telegram 频道: [Trojan Panel](https://t.me/TrojanPanel)
 
-## 💞 Thanks
+## 🔍 报告缺陷与问题
+
+[Issues](https://github.com/trojanpanel/install-script/issues)
+
+## 💞 支持
 
 - [trojan](https://github.com/trojan-gfw/trojan)
 - [trojan-go](https://github.com/p4gefau1t/trojan-go)
 - [Xray-core](https://github.com/XTLS/Xray-core)
 - [hysteria](https://github.com/HyNetwork/hysteria)
+- [naiveproxy](https://github.com/klzgrad/naiveproxy)
 
-## 🌟 Stargazers over time
+## 🌟 Star随时间变化
 
 [![Stargazers over time](https://starchart.cc/trojanpanel/install-script.svg)](https://github.com/trojanpanel/install-script)
