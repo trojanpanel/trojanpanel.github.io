@@ -11,10 +11,22 @@
 请求示例:
 
 ```json
-
+{
+  "username": "sysadmin",
+  "pass": "123456",
+  "captchaId": "123",
+  "captchaCode": "2"
+}
 ```
 
 参数说明:
+
+| 参数          | 必须  | 说明    |
+|-------------|-----|-------|
+| username    | 是   | 用户名   |
+| pass        | 是   | 密码    |
+| captchaId   | 否   | 验证码id |
+| captchaCode | 否   | 验证码值  |
 
 返回示例:
 
