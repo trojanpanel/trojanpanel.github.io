@@ -400,6 +400,7 @@ services:
       - "redis_host=127.0.0.1"
       - "redis_port=6378"
       - "redis_pass=${redis_pass}"
+      - "server_port=8081"
 
   trojan-panel-ui:
     image: jonssonyan/trojan-panel-ui
@@ -439,6 +440,7 @@ services:
       - "crt_path=/tpdata/cert/${domain}.crt"
       - "key_path=/tpdata/cert/${domain}.key"
       - "grpc_port=8100"
+      - "server_port=8082"
 ```
 
 参数解释：
