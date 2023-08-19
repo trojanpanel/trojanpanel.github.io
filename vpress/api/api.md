@@ -1532,36 +1532,36 @@ cover: 1
 
 ```json
 {
-   "nodeServerId": 1,
-   "nodeTypeId": 1,
-   "name": "vless-reality",
-   "domain": "trojanpanel.github.io",
-   "port": 443,
-   "priority": 100,
-   "xrayProtocol": "vless",
-   "xrayFlow": "xtls-rprx-vision",
-   "xraySSMethod": "aes-256-gcm",
-   "realityPbk": "JraCqHw8lrQ-YdgrBSpBVTA4fhqHLfTUpZiP45x5gRI",
-   "xraySettings": "{\"clients\":[],\"fallbacks\":[{\"name\":\"\",\"alpn\":\"\",\"dest\":\"80\",\"xver\":0}],\"network\":\"tcp\",\"decryption\":\"none\"}",
-   "xrayStreamSettings": "{\"network\":\"tcp\",\"security\":\"reality\",\"tlsSettings\":{\"serverName\":\"\",\"alpn\":[\"h2\",\"http/1.1\"],\"allowInsecure\":false,\"fingerprint\":\"chrome\"},\"realitySettings\":{\"dest\":\"1.cybevo.cn:8863\",\"xver\":0,\"serverNames\":[\"1.cybevo.cn\"],\"fingerprint\":\"chrome\",\"privateKey\":\"GCRTXDZm1zuBdsQSM3Up9awTqxuzNwF6yXr5kxVT11w\",\"shortIds\":[\"c6b6b5bf30c98f05\"],\"spiderX\":\"/SCalpsSw\"},\"wsSettings\":{\"path\":\"/trojan-panel-websocket-path\",\"headers\":{\"Host\":\"\"}}}",
-   "xrayTag": "user",
-   "xraySniffing": "",
-   "xrayAllocate": "",
-   "trojanGoSni": "",
-   "trojanGoMuxEnable": 1,
-   "trojanGoWebsocketEnable": 0,
-   "trojanGoWebsocketPath": "/trojan-panel-websocket-path",
-   "trojanGoWebsocketHost": "",
-   "trojanGoSsEnable": 0,
-   "trojanGoSsMethod": "AES-128-GCM",
-   "trojanGoSsPassword": "",
-   "hysteriaProtocol": "udp",
-   "hysteriaObfs": "",
-   "hysteriaUpMbps": 100,
-   "hysteriaDownMbps": 100,
-   "hysteriaServerName": "",
-   "hysteriaInsecure": 0,
-   "hysteriaFastOpen": 0
+  "nodeServerId": 1,
+  "nodeTypeId": 1,
+  "name": "vless-reality",
+  "domain": "trojanpanel.github.io",
+  "port": 443,
+  "priority": 100,
+  "xrayProtocol": "vless",
+  "xrayFlow": "xtls-rprx-vision",
+  "xraySSMethod": "aes-256-gcm",
+  "realityPbk": "JraCqHw8lrQ-YdgrBSpBVTA4fhqHLfTUpZiP45x5gRI",
+  "xraySettings": "{\"clients\":[],\"fallbacks\":[{\"name\":\"\",\"alpn\":\"\",\"dest\":\"80\",\"xver\":0}],\"network\":\"tcp\",\"decryption\":\"none\"}",
+  "xrayStreamSettings": "{\"network\":\"tcp\",\"security\":\"reality\",\"tlsSettings\":{\"serverName\":\"\",\"alpn\":[\"h2\",\"http/1.1\"],\"allowInsecure\":false,\"fingerprint\":\"chrome\"},\"realitySettings\":{\"dest\":\"1.cybevo.cn:8863\",\"xver\":0,\"serverNames\":[\"1.cybevo.cn\"],\"fingerprint\":\"chrome\",\"privateKey\":\"GCRTXDZm1zuBdsQSM3Up9awTqxuzNwF6yXr5kxVT11w\",\"shortIds\":[\"c6b6b5bf30c98f05\"],\"spiderX\":\"/SCalpsSw\"},\"wsSettings\":{\"path\":\"/trojan-panel-websocket-path\",\"headers\":{\"Host\":\"\"}}}",
+  "xrayTag": "user",
+  "xraySniffing": "",
+  "xrayAllocate": "",
+  "trojanGoSni": "",
+  "trojanGoMuxEnable": 1,
+  "trojanGoWebsocketEnable": 0,
+  "trojanGoWebsocketPath": "/trojan-panel-websocket-path",
+  "trojanGoWebsocketHost": "",
+  "trojanGoSsEnable": 0,
+  "trojanGoSsMethod": "AES-128-GCM",
+  "trojanGoSsPassword": "",
+  "hysteriaProtocol": "udp",
+  "hysteriaObfs": "",
+  "hysteriaUpMbps": 100,
+  "hysteriaDownMbps": 100,
+  "hysteriaServerName": "",
+  "hysteriaInsecure": 0,
+  "hysteriaFastOpen": 0
 }
 ```
 
@@ -1688,14 +1688,27 @@ cover: 1
 请求示例:
 
 ```json
-
+{
+  "id": 1
+}
 ```
 
 参数说明:
 
+| 参数  | 必须  | 说明  |
+|-----|-----|-----|
+| id  | 是   | 主键  |
+
 返回示例:
 
-参数说明:
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
 ### 更新节点
 
@@ -1706,14 +1719,89 @@ cover: 1
 请求示例:
 
 ```json
-
+{
+  "id": 1,
+  "nodeServerId": 2,
+  "nodeSubId": 1,
+  "nodeTypeId": 1,
+  "name": "vless-reality",
+  "domain": "1.cybevo.cn",
+  "port": 450,
+  "priority": 100,
+  "xrayProtocol": "vless",
+  "xrayFlow": "xtls-rprx-vision",
+  "xraySSMethod": "aes-256-gcm",
+  "realityPbk": "JraCqHw8lrQ-YdgrBSpBVTA4fhqHLfTUpZiP45x5gRI",
+  "xraySettings": "{\"clients\":[],\"fallbacks\":[{\"name\":\"\",\"alpn\":\"\",\"path\":null,\"dest\":\"80\",\"xver\":0}],\"network\":\"tcp\",\"decryption\":\"none\"}",
+  "xrayStreamSettings": "{\"network\":\"tcp\",\"security\":\"reality\",\"tlsSettings\":{\"serverName\":\"\",\"alpn\":[\"h2\",\"http/1.1\"],\"allowInsecure\":false,\"fingerprint\":\"chrome\"},\"realitySettings\":{\"dest\":\"1.cybevo.cn:8863\",\"xver\":0,\"serverNames\":[\"1.cybevo.cn\"],\"fingerprint\":\"chrome\",\"privateKey\":\"GCRTXDZm1zuBdsQSM3Up9awTqxuzNwF6yXr5kxVT11w\",\"shortIds\":[\"c6b6b5bf30c98f05\"],\"spiderX\":\"/SCalpsSw\"},\"wsSettings\":{\"path\":\"/trojan-panel-websocket-path\",\"headers\":{\"Host\":\"\"}}}",
+  "xrayTag": "user",
+  "xraySniffing": "",
+  "xrayAllocate": "",
+  "trojanGoSni": "",
+  "trojanGoMuxEnable": 1,
+  "trojanGoWebsocketEnable": 0,
+  "trojanGoWebsocketPath": "/trojan-panel-websocket-path",
+  "trojanGoWebsocketHost": "",
+  "trojanGoSsEnable": 0,
+  "trojanGoSsMethod": "AES-128-GCM",
+  "trojanGoSsPassword": "",
+  "hysteriaProtocol": "udp",
+  "hysteriaObfs": "",
+  "hysteriaUpMbps": 100,
+  "hysteriaDownMbps": 100,
+  "hysteriaServerName": "",
+  "hysteriaInsecure": 0,
+  "hysteriaFastOpen": 0
+}
 ```
 
 参数说明:
 
+| 参数                      | 必须  | 说明                               |
+|-------------------------|-----|----------------------------------|
+| id                      | 是   | 主键                               |
+| nodeServerId            | 是   | 服务器id                            |
+| nodeSubId               | 是   | 节点分表id                           |
+| nodeTypeId              | 是   | 节点类型id                           |
+| name                    | 是   | 名称                               |
+| domain                  | 是   | 域名/IP                            |
+| port                    | 是   | 端口                               |
+| priority                | 是   | 优先级                              |
+| xrayProtocol            | 否   | Xray 协议名称                        |
+| xrayFlow                | 否   | Xray 流控                          |
+| xraySSMethod            | 否   | Xray Shadowsocks加密方式             |
+| realityPbk              | 否   | Xray reality的公钥                  |
+| xraySettings            | 否   | Xray settings                    |
+| xrayStreamSettings      | 否   | Xray streamSettings              |
+| xrayTag                 | 否   | Xray tag                         |
+| xraySniffing            | 否   | Xray sniffing                    |
+| xrayAllocate            | 否   | Xray allocate                    |
+| trojanGoSni             | 否   | TrojanGo sni                     |
+| trojanGoMuxEnable       | 是   | TrojanGo 是否开启多路复用 0/关闭 1/开启      |
+| trojanGoWebsocketEnable | 是   | TrojanGo 是否开启websocket 0/否 1/是   |
+| trojanGoWebsocketPath   | 否   | TrojanGo websocket路径             |
+| trojanGoWebsocketHost   | 否   | TrojanGo websocket host          |
+| trojanGoSsEnable        | 是   | TrojanGo 是否开启ss加密 0/否 1/是        |
+| trojanGoSsMethod        | 否   | TrojanGo ss加密方式                  |
+| trojanGoSsPassword      | 否   | TrojanGo ss密码                    |
+| hysteriaProtocol        | 否   | Hysteria 协议名称 udp/faketcp        |
+| hysteriaObfs            | 否   | Hysteria 混淆密码                    |
+| hysteriaUpMbps          | 是   | Hysteria 单客户端最大上传速度 单位:Mbps      |
+| hysteriaDownMbps        | 是   | Hysteria 单客户端最大下载速度 单位:Mbps      |
+| hysteriaServerName      | 否   | Hysteria 用于验证服务端证书的 hostname     |
+| hysteriaInsecure        | 否   | Hysteria 忽略一切证书错误                |
+| hysteriaFastOpen        | 否   | Hysteria 启用 Fast Open (降低连接建立延迟) |
+
 返回示例:
 
-参数说明:
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
 ### 获取节点二维码
 
@@ -1724,14 +1812,33 @@ cover: 1
 请求示例:
 
 ```json
-
+{
+  "id": 1
+}
 ```
 
 参数说明:
 
+| 参数  | 必须  | 说明  |
+|-----|-----|-----|
+| id  | 是   | 主键  |
+
 返回示例:
 
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": "iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAABlBMVEX///8AAABVwtN+AAAEvElEQVR42uyZMY77rhPFB1HQhQtE5hopLHGllO6go8yVkFzkGlh7gUlHgXh/DZvsbp/Yxf/3pdiV1p+VkJn3eDOmf+u/tRSAGCyar4bU1ijwo5+JDAPIBwGFdAx2Il8N204+Bp7II3EhfRSwYU0RE+m8WLU1A5wc8hJ4w/pBAIyvdjFQnTyi2opHPRqIdnJrDWSBe7zaThqgA4FCOrHdir5Ha4uu4aY2tGWhP4e1NwAg3ex0ni8LP7b1nm6n6Twvy9+ifQ+QZSKjkAHZojNZW846Gv4jv50BtYn0uOhRD0AOrFAoJH7u8RCgzWSt+8oezJMIkB3WKrXxKQDrCljXfDaWVDbVqqKByjQ9j/sIoC1XVmW+GEtuRbW2n2cy5PpRABFpsGi9BpykOPjRSVeDol4luT/g83K1W6FLsKyQTZR6ILLj5ycAhawB2102kRSaSTipMgeMfz0MmOlqi8a9gl2mELtDJmPRX5vcGyDVfCVMrl0Cn9RazY1U8XVhcmv+CKC2TAGEr2aqBdanuk2ynWY6COgaNVA560xspfjjA8XHRTw4HwQUnQ1jGx77/W6G+SxWFX8QIMqrooHZJJJNjmqcF4PiftT/HqD6TMuVim4e9jT5ulwfKBqRfs5if0Ckd8N09tmMCy6xhWQYyBs6CJBfV6IzmUSnSfJDn87z68knACK9Jtgi/s2kMgVW2xfqwpNaDwJGJgrsykwLussXuvKkxfKwNToKaLoS4Xt1nw2IXFsWfjntAUCRv0mA8pFJrYhk0WaTfrX5LjDyIiSq+WgtUAOUlH0CNhwEKKzZ3ECkc8BDUnGk6UwLSaSgg4Di13QTBV4WthKbge2rhcrbz5t8FwCyYd4KmThS8RK6azqB1Ss/7A6Qk6ZXWgEkq4Bq+FF0DhX4boIOABSa5AfJMBW2+xxGVEuJp1fv/zawrStu1hWPyKdJ32tQRY+zeN6b+wPk2rxcbXHyNlSXu7tPLtMC95Te/oBsMkWWFwVrsebFjiYI1m2ZDgK6zoFR5MbhR58vdKWJdCRM6mPA7OuVJ9d8tCj6Xq+i+CSuOh8G+BbAkzQJjK2ZSuMsxnWXjwJIp5tFIyPJfM1BgsNag32NON4Him+BIS4XxtCMrt9mzhO9jHRvQFrMaMeEbCG7rXK7yLkEbC8L2h0Qp10sF7dmY22ZTWJ8D5jcrxXvDBB5JLEgfU90UisQx2wtcXHPUc/bgLS5oOLWujC67EFJcUQ8U/EBgCrkwfS9L5JmENjKbOqfwd3eAE26BR5bjfaBdiFCd2J8T+l9AKDZJ6Do9krFkPYPsO41uNsdGKEwQMJ4YNlkiH0ijYhfbe4NjLh4o63oOxhoBhLYGi3c1W+e3BeQuLhcGW2WY5LgOnpeE3/aqA8ATddgpQEJdjy6PTp5qbzDgNFjspThuF+1RLV+FqdV35faAcD4CkPcdb4YVtuKdBtqBG/b72ea94BCEoG7yz5ZyaImorhm8Bv+9wfEuZm6Qx3zk2qg8LVKE/Tn88QRAHcthttdo8DoI1S9avIgADxpORk5phgeKL6anwzzPjC+qUF9SSKVBoSu3YnI+aWLAwDpfiLccLnTRCaNHIUK91u0OwP/1v/P+l8AAAD//4gWpbFrY3nEAAAAAElFTkSuQmCC"
+}
+```
+
 参数说明:
+
+| 参数   | 必须  | 说明        |
+|------|-----|-----------|
+| data | 是   | 二维码Base64 |
 
 ### 复制URL
 
@@ -1742,14 +1849,33 @@ cover: 1
 请求示例:
 
 ```json
-
+{
+  "id": 1
+}
 ```
 
 参数说明:
 
+| 参数  | 必须  | 说明  |
+|-----|-----|-----|
+| id  | 是   | 主键  |
+
 返回示例:
 
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": "vless://7a57ec2e-bb05-5544-9c30-05814b376eba@trojanpanel.github.io:443?type=tcp\u0026security=reality\u0026flow=xtls-rprx-vision\u0026pbk=JraCqHw8lrQ-YdgrBSpBVTA4fhqHLfTUpZiP45x5gRI\u0026fp=chrome\u0026spx=%2FSCalpsSw\u0026sid=c6b6b5bf30c98f05\u0026sni=trojanpanel.github.io#vless-reality"
+}
+```
+
 参数说明:
+
+| 参数   | 必须  | 说明   |
+|------|-----|------|
+| data | 是   | 分享链接 |
 
 ### 节点部分属性的默认值
 
