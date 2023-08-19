@@ -26,14 +26,14 @@ module.exports = {
                 text: '使用教程', link: '/tutorial/using-tutorials'
             }]
         },
-        //     {
-        //     text: '开发文档', items: [{text: 'API文档', link: '/api/api'}, {text: 'Core SDK', link: '/sdk/sdk'}]
-        // },
             {
-            text: 'FAQ', link: '/faq/faq'
-        }, {text: '更新日志', link: '/change/change-log'}, {
-            text: 'GitHub', link: 'https://github.com/trojanpanel'
-        }],
+                text: '开发文档', items: [{text: 'API文档', link: '/api/api'}, {text: 'Core SDK', link: '/sdk/sdk'}]
+            },
+            {
+                text: 'FAQ', link: '/faq/faq'
+            }, {text: '更新日志', link: '/change/change-log'}, {
+                text: 'GitHub', link: 'https://github.com/trojanpanel'
+            }],
         sidebar: {
             '/start/': ['introduce', 'system-structure'],
             '/tutorial/': ['using-tutorials', 'des-of-related-doc', 'common-problem', 'using-cdn', 'client-config', 'recommend-tool', 'performance-tuning', 'performance-testing'],
