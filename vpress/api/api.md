@@ -947,7 +947,7 @@ cover: 1
 
 ```json
 {
-  "ip": "1.cybevo.cn",
+  "ip": "trojanpanel.github.io",
   "name": "测试服务器",
   "grpcPort": 8100
 }
@@ -1005,7 +1005,7 @@ cover: 1
       {
         "id": 1,
         "name": "测试服务器",
-        "ip": "1.cybevo.cn",
+        "ip": "trojanpanel.github.io",
         "grpcPort": 8100,
         "createTime": "2023-08-19T01:24:22+08:00",
         "status": 1,
@@ -1428,10 +1428,10 @@ cover: 1
         "fingerprint": "chrome"
       },
       "realitySettings": {
-        "dest": "1.cybevo.cn:8863",
+        "dest": "trojanpanel.github.io:8863",
         "xver": 0,
         "serverNames": [
-          "1.cybevo.cn"
+          "trojanpanel.github.io"
         ],
         "fingerprint": "chrome",
         "privateKey": "GCRTXDZm1zuBdsQSM3Up9awTqxuzNwF6yXr5kxVT11w",
@@ -1533,7 +1533,7 @@ cover: 1
   "xraySSMethod": "aes-256-gcm",
   "realityPbk": "JraCqHw8lrQ-YdgrBSpBVTA4fhqHLfTUpZiP45x5gRI",
   "xraySettings": "{\"clients\":[],\"fallbacks\":[{\"name\":\"\",\"alpn\":\"\",\"dest\":\"80\",\"xver\":0}],\"network\":\"tcp\",\"decryption\":\"none\"}",
-  "xrayStreamSettings": "{\"network\":\"tcp\",\"security\":\"reality\",\"tlsSettings\":{\"serverName\":\"\",\"alpn\":[\"h2\",\"http/1.1\"],\"allowInsecure\":false,\"fingerprint\":\"chrome\"},\"realitySettings\":{\"dest\":\"1.cybevo.cn:8863\",\"xver\":0,\"serverNames\":[\"1.cybevo.cn\"],\"fingerprint\":\"chrome\",\"privateKey\":\"GCRTXDZm1zuBdsQSM3Up9awTqxuzNwF6yXr5kxVT11w\",\"shortIds\":[\"c6b6b5bf30c98f05\"],\"spiderX\":\"/SCalpsSw\"},\"wsSettings\":{\"path\":\"/trojan-panel-websocket-path\",\"headers\":{\"Host\":\"\"}}}",
+  "xrayStreamSettings": "{\"network\":\"tcp\",\"security\":\"reality\",\"tlsSettings\":{\"serverName\":\"\",\"alpn\":[\"h2\",\"http/1.1\"],\"allowInsecure\":false,\"fingerprint\":\"chrome\"},\"realitySettings\":{\"dest\":\"trojanpanel.github.io:8863\",\"xver\":0,\"serverNames\":[\"trojanpanel.github.io\"],\"fingerprint\":\"chrome\",\"privateKey\":\"GCRTXDZm1zuBdsQSM3Up9awTqxuzNwF6yXr5kxVT11w\",\"shortIds\":[\"c6b6b5bf30c98f05\"],\"spiderX\":\"/SCalpsSw\"},\"wsSettings\":{\"path\":\"/trojan-panel-websocket-path\",\"headers\":{\"Host\":\"\"}}}",
   "xrayTag": "user",
   "xraySniffing": "",
   "xrayAllocate": "",
@@ -1637,8 +1637,8 @@ cover: 1
         "nodeSubId": 1,
         "nodeTypeId": 1,
         "name": "vless-reality",
-        "domain": "1.cybevo.cn",
-        "port": 450,
+        "domain": "trojanpanel.github.io",
+        "port": 443,
         "priority": 100,
         "createTime": "2023-08-19T23:20:27+08:00",
         "status": 1
@@ -1715,15 +1715,15 @@ cover: 1
   "nodeSubId": 1,
   "nodeTypeId": 1,
   "name": "vless-reality",
-  "domain": "1.cybevo.cn",
-  "port": 450,
+  "domain": "trojanpanel.github.io",
+  "port": 443,
   "priority": 100,
   "xrayProtocol": "vless",
   "xrayFlow": "xtls-rprx-vision",
   "xraySSMethod": "aes-256-gcm",
   "realityPbk": "JraCqHw8lrQ-YdgrBSpBVTA4fhqHLfTUpZiP45x5gRI",
   "xraySettings": "{\"clients\":[],\"fallbacks\":[{\"name\":\"\",\"alpn\":\"\",\"path\":null,\"dest\":\"80\",\"xver\":0}],\"network\":\"tcp\",\"decryption\":\"none\"}",
-  "xrayStreamSettings": "{\"network\":\"tcp\",\"security\":\"reality\",\"tlsSettings\":{\"serverName\":\"\",\"alpn\":[\"h2\",\"http/1.1\"],\"allowInsecure\":false,\"fingerprint\":\"chrome\"},\"realitySettings\":{\"dest\":\"1.cybevo.cn:8863\",\"xver\":0,\"serverNames\":[\"1.cybevo.cn\"],\"fingerprint\":\"chrome\",\"privateKey\":\"GCRTXDZm1zuBdsQSM3Up9awTqxuzNwF6yXr5kxVT11w\",\"shortIds\":[\"c6b6b5bf30c98f05\"],\"spiderX\":\"/SCalpsSw\"},\"wsSettings\":{\"path\":\"/trojan-panel-websocket-path\",\"headers\":{\"Host\":\"\"}}}",
+  "xrayStreamSettings": "{\"network\":\"tcp\",\"security\":\"reality\",\"tlsSettings\":{\"serverName\":\"\",\"alpn\":[\"h2\",\"http/1.1\"],\"allowInsecure\":false,\"fingerprint\":\"chrome\"},\"realitySettings\":{\"dest\":\"trojanpanel.github.io:8863\",\"xver\":0,\"serverNames\":[\"trojanpanel.github.io\"],\"fingerprint\":\"chrome\",\"privateKey\":\"GCRTXDZm1zuBdsQSM3Up9awTqxuzNwF6yXr5kxVT11w\",\"shortIds\":[\"c6b6b5bf30c98f05\"],\"spiderX\":\"/SCalpsSw\"},\"wsSettings\":{\"path\":\"/trojan-panel-websocket-path\",\"headers\":{\"Host\":\"\"}}}",
   "xrayTag": "user",
   "xraySniffing": "",
   "xrayAllocate": "",
