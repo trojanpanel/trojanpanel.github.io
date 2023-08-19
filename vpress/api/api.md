@@ -202,19 +202,11 @@
 
 接口地址: `/api/image/logo`
 
-请求方式: `POST`
-
-请求示例:
-
-```json
-
-```
-
-参数说明:
+请求方式: `GET`
 
 返回示例:
 
-参数说明:
+Content-Type: application/octet-stream
 
 ## 首页
 
@@ -298,17 +290,16 @@
 
 请求方式: `POST`
 
-请求示例:
-
-```json
-
-```
-
-参数说明:
-
 返回示例:
 
-参数说明:
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
 ### 查询单个账户
 
@@ -1063,10 +1054,10 @@
 
 ```json
 {
-   "code": 20000,
-   "type": "success",
-   "message": "",
-   "data": null
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
 }
 ```
 
@@ -1798,11 +1789,33 @@ Content-Type: application/octet-stream
 请求示例:
 
 ```json
-
+{
+  "id": 1
+}
 ```
 
 参数说明:
 
+| 参数  | 必须  | 说明  |
+|-----|-----|-----|
+| id  | 是   | 主键  |
+
 返回示例:
 
+```json
+[
+  {
+    "grpc_port": 8100,
+    "ip": "127.0.0.1",
+    "name": "example"
+  }
+]
+```
+
 参数说明:
+
+| 参数        | 必须  | 说明    |
+|-----------|-----|-------|
+| ip        | 是   | 服务器IP |
+| name      | 是   | 服务器名称 |
+| grpc_port | 是   | API端口 |
