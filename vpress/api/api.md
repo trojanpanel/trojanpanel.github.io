@@ -305,19 +305,60 @@ Content-Type: application/octet-stream
 
 接口地址: `/api/account/selectAccountById`
 
-请求方式: `POST`
+请求方式: `GET`
 
 请求示例:
 
 ```json
-
+{
+  "id": 1
+}
 ```
 
 参数说明:
 
+| 参数  | 必须  | 说明  |
+|-----|-----|-----|
+| id  | 是   | 主键  |
+
 返回示例:
 
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": {
+    "id": 1,
+    "username": "sysadmin",
+    "roleId": 1,
+    "email": "123@gmail.com",
+    "presetExpire": 7,
+    "presetQuota": 1073741824,
+    "expireTime": 1692519522967,
+    "deleted": 0,
+    "quota": -1,
+    "download": 0,
+    "upload": 0
+  }
+}
+```
+
 参数说明:
+
+| 参数           | 必须  | 说明                  |
+|--------------|-----|---------------------|
+| id           | 是   | 主键                  |
+| username     | 是   | 登录用户名               |
+| roleId       | 是   | 角色id 1/系统管理员 3/普通用户 |
+| email        | 是   | 邮箱                  |
+| presetExpire | 是   | 预设过期时长 单位/天         |
+| presetQuota  | 是   | 预设配额 单位/byte        |
+| expireTime   | 是   | 过期时间                |
+| deleted      | 是   | 是否禁用 0/正常 1/禁用      |
+| quota        | 是   | 配额 单位/byte          |
+| download     | 是   | 下载 单位/byte          |
+| upload       | 是   | 上传 单位/byte          |
 
 ### 创建账户
 
@@ -328,14 +369,39 @@ Content-Type: application/octet-stream
 请求示例:
 
 ```json
-
+{
+  "quota": 1024,
+  "username": "123456",
+  "pass": "123456",
+  "email": "123@gmail.com",
+  "roleId": 3,
+  "deleted": 0,
+  "expireTime": 1693061885000
+}
 ```
 
 参数说明:
 
+| 参数         | 必须  | 说明                  |
+|------------|-----|---------------------|
+| quota      | 是   | 配额 单位/MB            |
+| username   | 是   | 登录用户名               |
+| pass       | 是   | 登录密码                |
+| email      | 否   | 邮箱                  |
+| roleId     | 是   | 角色id 1/系统管理员 3/普通用户 |
+| deleted    | 是   | 是否禁用 0/正常 1/禁用      |
+| expireTime | 是   | 过期时间                |
+
 返回示例:
 
-参数说明:
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
 ### 获取当前账户信息
 
@@ -604,19 +670,24 @@ Content-Type: application/octet-stream
 
 接口地址: `/api/account/clashSubscribe`
 
-请求方式: `POST`
+请求方式: `GET`
 
-请求示例:
+返回示例:
 
 ```json
-
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": "/api/auth/subscribe/b0dBQVh1b1FlOEtLdUZPeWRZMGZYdGJuMC1UNWppSktOdm1aTEhlcU5ocVRuOG55"
+}
 ```
 
 参数说明:
 
-返回示例:
-
-参数说明:
+| 参数   | 必须  | 说明   |
+|------|-----|------|
+| data | 是   | 订阅地址 |
 
 ### 获取指定账户的Clash订阅地址
 
@@ -690,17 +761,16 @@ Content-Type: application/octet-stream
 
 请求方式: `POST`
 
-请求示例:
-
-```json
-
-```
-
-参数说明:
-
 返回示例:
 
-参数说明:
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
 ### 导入账户
 
@@ -710,17 +780,32 @@ Content-Type: application/octet-stream
 
 请求示例:
 
-```json
+Form Data
 
+```
+file: (binary)
+cover: 1
 ```
 
 参数说明:
 
+| 参数    | 必须  | 说明                |
+|-------|-----|-------------------|
+| file  | 是   | 文件二进制             |
+| cover | 是   | 是否根据用户名覆盖 0/否 1/是 |
+
 返回示例:
 
-参数说明:
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
-### 批量生成账户
+### 批量创建账户
 
 接口地址: `/api/account/createAccountBatch`
 
@@ -729,14 +814,31 @@ Content-Type: application/octet-stream
 请求示例:
 
 ```json
-
+{
+  "num": 5,
+  "presetQuota": 1024,
+  "presetExpire": 7
+}
 ```
 
 参数说明:
 
+| 参数           | 必须  | 说明          |
+|--------------|-----|-------------|
+| num          | 是   | 数量          |
+| presetQuota  | 是   | 预设配额 单位/MB  |
+| presetExpire | 是   | 预设过期时长 单位/天 |
+
 返回示例:
 
-参数说明:
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
 ### 导出未使用的账户
 
@@ -744,17 +846,16 @@ Content-Type: application/octet-stream
 
 请求方式: `POST`
 
-请求示例:
-
-```json
-
-```
-
-参数说明:
-
 返回示例:
 
-参数说明:
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
 ## 角色
 
@@ -805,19 +906,46 @@ Content-Type: application/octet-stream
 
 接口地址: `/api/nodeServer/selectNodeServerById`
 
-请求方式: `POST`
+请求方式: `GET`
 
 请求示例:
 
 ```json
-
+{
+  "id": 1
+}
 ```
 
 参数说明:
 
+| 参数  | 必须  | 说明  |
+|-----|-----|-----|
+| id  | 是   | 主键  |
+
 返回示例:
 
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": {
+    "id": 1,
+    "name": "测试服务器",
+    "grpcPort": 8100,
+    "createTime": "2023-08-19T01:24:22+08:00"
+  }
+}
+```
+
 参数说明:
+
+| 参数         | 必须  | 说明    |
+|------------|-----|-------|
+| id         | 是   | 主键    |
+| name       | 是   | 服务器名称 |
+| grpcPort   | 是   | API端口 |
+| createTime | 是   | 创建时间  |
 
 ### 创建服务器
 
@@ -926,14 +1054,27 @@ Content-Type: application/octet-stream
 请求示例:
 
 ```json
-
+{
+  "id": 1
+}
 ```
 
 参数说明:
 
+| 参数  | 必须  | 说明  |
+|-----|-----|-----|
+| id  | 是   | 主键  |
+
 返回示例:
 
-参数说明:
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
 ### 更新服务器
 
@@ -1067,17 +1208,16 @@ Content-Type: application/octet-stream
 
 请求方式: `POST`
 
-请求示例:
-
-```json
-
-```
-
-参数说明:
-
 返回示例:
 
-参数说明:
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
 ## 节点
 
@@ -1715,12 +1855,27 @@ file: (binary)
 请求示例:
 
 ```json
-
+{
+  "id": 1
+}
 ```
 
 参数说明:
 
+| 参数  | 必须  | 说明  |
+|-----|-----|-----|
+| id  | 是   | 主键  |
+
 返回示例:
+
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
 参数说明:
 
@@ -1790,7 +1945,7 @@ Content-Type: application/octet-stream
 
 ```json
 {
-  "id": 1
+   "id": 1
 }
 ```
 
