@@ -1388,19 +1388,53 @@ file: (binary)
 
 接口地址: `/api/emailRecord/selectEmailRecordPage`
 
-请求方式: `POST`
+请求方式: `GET`
 
 请求示例:
 
-```json
-
+```
+/api/emailRecord/selectEmailRecordPage?pageNum=1&pageSize=20&toEmail=123&state=1
 ```
 
 参数说明:
 
+| 参数       | 必须  | 说明  |
+|----------|-----|-----|
+| pageNum  | 是   | 页号  |
+| pageSize | 是   | 页大小 |
+| toEmail  | 否   | 收件人 |
+| state    | 否   | 状态  |
+
 返回示例:
 
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": {
+    "emailRecords": [],
+    "pageNum": 1,
+    "pageSize": 20,
+    "total": 1
+  }
+}
+```
+
 参数说明:
+
+| 参数           | 必须  | 说明                      |
+|--------------|-----|-------------------------|
+| pageNum      | 是   | 页号                      |
+| pageSize     | 是   | 页大小                     |
+| total        | 是   | 总数                      |
+| emailRecords | 否   | 发送记录                    |
+| id           | 否   | 主键                      |
+| toEmail      | 否   | 收件人邮箱                   |
+| subject      | 否   | 主题                      |
+| content      | 否   | 内容'                     |
+| state        | 否   | 状态 0/未发送 1/发送成功 -1/发送失败 |
+| createTime   | 否   | 创建时间                    |
 
 ## 文件任务
 
@@ -1408,19 +1442,63 @@ file: (binary)
 
 接口地址: `/api/fileTask/selectFileTaskPage`
 
-请求方式: `POST`
+请求方式: `GET`
 
 请求示例:
 
-```json
-
+```
+/api/fileTask/selectFileTaskPage?pageNum=1&pageSize=20&accountUsername=sysadmin
 ```
 
 参数说明:
 
+| 参数              | 必须  | 说明  |
+|-----------------|-----|-----|
+| pageNum         | 是   | 页号  |
+| pageSize        | 是   | 页大小 |
+| accountUsername | 否   | 创建人 |
+
 返回示例:
 
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": {
+    "fileTasks": [
+      {
+        "id": 1,
+        "name": "batchCreateAccountExport-20230819161912.json",
+        "type": 1,
+        "status": 2,
+        "errMsg": "",
+        "accountUsername": "sysadmin",
+        "createTime": "2023-08-19T16:19:12+08:00"
+      }
+    ],
+    "pageNum": 1,
+    "pageSize": 20,
+    "total": 1
+  }
+}
+```
+
 参数说明:
+
+| 参数              | 必须  | 说明                               |
+|-----------------|-----|----------------------------------|
+| pageNum         | 是   | 页号                               |
+| pageSize        | 是   | 页大小                              |
+| total           | 是   | 总数                               |
+| fileTasks       | 否   | 文件任务                             |
+| id              | 否   | 主键                               |
+| name            | 否   | 文件名称                             |
+| type            | 否   | 类型 1/用户导入 2/服务器导入 3/用户导出 4/服务器导出 |
+| status          | 否   | 状态 -1/失败 0/等待 1/正在执行 2/成功        |
+| errMsg          | 否   | 错误信息                             |
+| accountUsername | 否   | 账户登录用户名                          |
+| createTime      | 否   | 创建时间                             |
 
 ### 删除文件任务
 
@@ -1449,14 +1527,52 @@ file: (binary)
 请求示例:
 
 ```json
-
+{
+  "id": 1
+}
 ```
 
 参数说明:
 
+| 参数  | 必须  | 说明  |
+|-----|-----|-----|
+| id  | 是   | 主键  |
+
 返回示例:
 
+Content-Type: application/octet-stream
+
+```
+[
+    {
+        "username": "83tBsbt6dJ0j",
+        "pass": "83tBsbt6dJ0j"
+    },
+    {
+        "username": "BxjLbz4rQyYd",
+        "pass": "BxjLbz4rQyYd"
+    },
+    {
+        "username": "XLtcPBGHMEJz",
+        "pass": "XLtcPBGHMEJz"
+    },
+    {
+        "username": "foxXLpN0KQkp",
+        "pass": "foxXLpN0KQkp"
+    },
+    {
+        "username": "bX3pahuM7Lma",
+        "pass": "bX3pahuM7Lma"
+    }
+]
+```
+
 参数说明:
+
+| 参数       | 必须  | 说明    |
+|----------|-----|-------|
+| username | 是   | 登录用户名 |
+| pass     | 是   | 登录密码  |
 
 ### 获取文件模板
 
