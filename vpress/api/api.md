@@ -1225,37 +1225,302 @@ cover: 1
 
 接口地址: `/api/node/selectNodeById`
 
-请求方式: `POST`
+请求方式: `GET`
 
 请求示例:
 
-```json
-
+```
+/api/node/selectNodeById?id=1
 ```
 
 参数说明:
 
+| 参数  | 必须  | 说明  |
+|-----|-----|-----|
+| id  | 是   | 主键  |
+
 返回示例:
 
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": {
+    "id": 1,
+    "nodeServerId": 1,
+    "nodeSubId": 1,
+    "nodeTypeId": 1,
+    "name": "vless-reality",
+    "domain": "trojanpanel.github.io",
+    "port": 443,
+    "priority": 100,
+    "createTime": "2023-08-19T23:20:27+08:00",
+    "uuid": "",
+    "alterId": 0,
+    "xrayProtocol": "vless",
+    "xrayFlow": "xtls-rprx-vision",
+    "xraySSMethod": "aes-256-gcm",
+    "realityPbk": "JraCqHw8lrQ-YdgrBSpBVTA4fhqHLfTUpZiP45x5gRI",
+    "xraySettings": "",
+    "xraySettingsEntity": {
+      "fallbacks": [
+        {
+          "name": "",
+          "alpn": "",
+          "path": null,
+          "dest": "80",
+          "xver": 0
+        }
+      ],
+      "network": "tcp"
+    },
+    "xrayStreamSettingsEntity": {
+      "network": "tcp",
+      "security": "reality",
+      "tlsSettings": {
+        "serverName": "",
+        "alpn": [
+          "h2",
+          "http/1.1"
+        ],
+        "allowInsecure": false,
+        "fingerprint": "chrome"
+      },
+      "realitySettings": {
+        "dest": "trojanpanel.github.io:8863",
+        "xver": 0,
+        "serverNames": [
+          "trojanpanel.github.io"
+        ],
+        "fingerprint": "chrome",
+        "privateKey": "GCRTXDZm1zuBdsQSM3Up9awTqxuzNwF6yXr5kxVT11w",
+        "shortIds": [
+          "c6b6b5bf30c98f05"
+        ],
+        "spiderX": "/SCalpsSw"
+      },
+      "wsSettings": {
+        "path": "/trojan-panel-websocket-path",
+        "headers": {
+          "Host": ""
+        }
+      }
+    },
+    "xrayTag": "user",
+    "xraySniffing": "",
+    "xrayAllocate": "",
+    "trojanGoSni": "",
+    "trojanGoMuxEnable": 0,
+    "trojanGoWebsocketEnable": 0,
+    "trojanGoWebsocketPath": "",
+    "trojanGoWebsocketHost": "",
+    "trojanGoSsEnable": 0,
+    "trojanGoSsMethod": "",
+    "trojanGoSsPassword": "",
+    "hysteriaProtocol": "",
+    "hysteriaObfs": "",
+    "hysteriaUpMbps": 0,
+    "hysteriaDownMbps": 0,
+    "hysteriaServerName": "",
+    "hysteriaInsecure": 0,
+    "hysteriaFastOpen": 0,
+    "naiveProxyUsername": ""
+  }
+}
+```
+
 参数说明:
+
+| 参数                       | 必须  | 说明                               |
+|--------------------------|-----|----------------------------------|
+| id                       | 是   | 主键                               |
+| nodeServerId             | 是   | 服务器id                            |
+| nodeSubId                | 是   | 节点分表id                           |
+| nodeTypeId               | 是   | 节点类型id                           |
+| name                     | 是   | 名称                               |
+| domain                   | 是   | 域名/IP                            |
+| port                     | 是   | 端口                               |
+| priority                 | 是   | 优先级                              |
+| createTime               | 是   | 创建时间                             |
+| uuid                     | 是   | UUID                             |
+| alterId                  | 是   | Alter ID                         |
+| xrayProtocol             | 是   | Xray 协议名称                        |
+| xrayFlow                 | 是   | Xray 流控                          |
+| xraySSMethod             | 是   | Xray Shadowsocks加密方式             |
+| realityPbk               | 是   | Xray reality的公钥                  |
+| xraySettingsEntity       | 是   | Xray settings 参考Xray文档           |
+| xrayStreamSettingsEntity | 是   | Xray streamSettings  参考Xray文档    |
+| xrayTag                  | 是   | Xray tag                         |
+| xraySniffing             | 是   | Xray sniffing                    |
+| xrayAllocate             | 是   | Xray allocate                    |
+| trojanGoSni              | 是   | TrojanGo sni                     |
+| trojanGoMuxEnable        | 是   | TrojanGo 是否开启多路复用 0/关闭 1/开启      |
+| trojanGoWebsocketEnable  | 是   | TrojanGo 是否开启websocket 0/否 1/是   |
+| trojanGoWebsocketPath    | 是   | TrojanGo websocket路径             |
+| trojanGoWebsocketHost    | 是   | TrojanGo websocket host          |
+| trojanGoSsEnable         | 是   | TrojanGo 是否开启ss加密 0/否 1/是        |
+| trojanGoSsMethod         | 是   | TrojanGo ss加密方式                  |
+| trojanGoSsPassword       | 是   | TrojanGo ss密码                    |
+| hysteriaProtocol         | 是   | Hysteria 协议名称 udp/faketcp        |
+| hysteriaObfs             | 是   | Hysteria 混淆密码                    |
+| hysteriaUpMbps           | 是   | Hysteria 单客户端最大上传速度 单位:Mbps      |
+| hysteriaDownMbps         | 是   | Hysteria 单客户端最大下载速度 单位:Mbps      |
+| hysteriaServerName       | 是   | Hysteria 用于验证服务端证书的 hostname     |
+| hysteriaInsecure         | 是   | Hysteria 忽略一切证书错误                |
+| hysteriaFastOpen         | 是   | Hysteria 启用 Fast Open (降低连接建立延迟) |
+| naiveProxyUsername       | 是   | NaiveProxy用户名                    |
 
 ### 查询节点连接信息
 
 接口地址: `/api/node/selectNodeInfo`
 
-请求方式: `POST`
+请求方式: `GET`
 
 请求示例:
 
-```json
-
+```
+/api/node/selectNodeInfo?id=1
 ```
 
 参数说明:
 
+| 参数  | 必须  | 说明  |
+|-----|-----|-----|
+| id  | 是   | 主键  |
+
 返回示例:
 
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": {
+    "id": 1,
+    "nodeServerId": 1,
+    "nodeSubId": 1,
+    "nodeTypeId": 1,
+    "name": "vless-reality",
+    "domain": "trojanpanel.github.io",
+    "port": 443,
+    "priority": 100,
+    "createTime": "2023-08-19T23:20:27+08:00",
+    "password": "oGAAXuoQe8KKuFOydY0fXtbn0-T5jiJKNvmZLHeqNhqTn8ny",
+    "uuid": "7a57ec2e-bb05-5544-9c30-05814b376eba",
+    "alterId": 0,
+    "xrayProtocol": "vless",
+    "xrayFlow": "xtls-rprx-vision",
+    "xraySSMethod": "aes-256-gcm",
+    "realityPbk": "JraCqHw8lrQ-YdgrBSpBVTA4fhqHLfTUpZiP45x5gRI",
+    "xraySettingsEntity": {
+      "fallbacks": [
+        {
+          "name": "",
+          "alpn": "",
+          "path": null,
+          "dest": "80",
+          "xver": 0
+        }
+      ],
+      "network": "tcp"
+    },
+    "xrayStreamSettingsEntity": {
+      "network": "tcp",
+      "security": "reality",
+      "tlsSettings": {
+        "serverName": "",
+        "alpn": [
+          "h2",
+          "http/1.1"
+        ],
+        "allowInsecure": false,
+        "fingerprint": "chrome"
+      },
+      "realitySettings": {
+        "dest": "1.cybevo.cn:8863",
+        "xver": 0,
+        "serverNames": [
+          "1.cybevo.cn"
+        ],
+        "fingerprint": "chrome",
+        "privateKey": "GCRTXDZm1zuBdsQSM3Up9awTqxuzNwF6yXr5kxVT11w",
+        "shortIds": [
+          "c6b6b5bf30c98f05"
+        ],
+        "spiderX": "/SCalpsSw"
+      },
+      "wsSettings": {
+        "path": "/trojan-panel-websocket-path",
+        "headers": {
+          "Host": ""
+        }
+      }
+    },
+    "xrayTag": "user",
+    "xraySniffing": "",
+    "xrayAllocate": "",
+    "trojanGoSni": "",
+    "trojanGoMuxEnable": 0,
+    "trojanGoWebsocketEnable": 0,
+    "trojanGoWebsocketPath": "",
+    "trojanGoWebsocketHost": "",
+    "trojanGoSsEnable": 0,
+    "trojanGoSsMethod": "",
+    "trojanGoSsPassword": "",
+    "hysteriaProtocol": "",
+    "hysteriaObfs": "",
+    "hysteriaUpMbps": 0,
+    "hysteriaDownMbps": 0,
+    "hysteriaServerName": "",
+    "hysteriaInsecure": 0,
+    "hysteriaFastOpen": 0,
+    "naiveProxyUsername": ""
+  }
+}
+```
+
 参数说明:
+
+| 参数                       | 必须  | 说明                               |
+|--------------------------|-----|----------------------------------|
+| id                       | 是   | 主键                               |
+| nodeServerId             | 是   | 服务器id                            |
+| nodeSubId                | 是   | 节点分表id                           |
+| nodeTypeId               | 是   | 节点类型id                           |
+| name                     | 是   | 名称                               |
+| domain                   | 是   | 域名/IP                            |
+| port                     | 是   | 端口                               |
+| priority                 | 是   | 优先级                              |
+| createTime               | 是   | 创建时间                             |
+| password                 | 是   | 连接密码                             |
+| uuid                     | 是   | UUID                             |
+| alterId                  | 是   | Alter ID                         |
+| xrayProtocol             | 是   | Xray 协议名称                        |
+| xrayFlow                 | 是   | Xray 流控                          |
+| xraySSMethod             | 是   | Xray Shadowsocks加密方式             |
+| realityPbk               | 是   | Xray reality的公钥                  |
+| xraySettingsEntity       | 是   | Xray settings 参考Xray文档           |
+| xrayStreamSettingsEntity | 是   | Xray streamSettings  参考Xray文档    |
+| xrayTag                  | 是   | Xray tag                         |
+| xraySniffing             | 是   | Xray sniffing                    |
+| xrayAllocate             | 是   | Xray allocate                    |
+| trojanGoSni              | 是   | TrojanGo sni                     |
+| trojanGoMuxEnable        | 是   | TrojanGo 是否开启多路复用 0/关闭 1/开启      |
+| trojanGoWebsocketEnable  | 是   | TrojanGo 是否开启websocket 0/否 1/是   |
+| trojanGoWebsocketPath    | 是   | TrojanGo websocket路径             |
+| trojanGoWebsocketHost    | 是   | TrojanGo websocket host          |
+| trojanGoSsEnable         | 是   | TrojanGo 是否开启ss加密 0/否 1/是        |
+| trojanGoSsMethod         | 是   | TrojanGo ss加密方式                  |
+| trojanGoSsPassword       | 是   | TrojanGo ss密码                    |
+| hysteriaProtocol         | 是   | Hysteria 协议名称 udp/faketcp        |
+| hysteriaObfs             | 是   | Hysteria 混淆密码                    |
+| hysteriaUpMbps           | 是   | Hysteria 单客户端最大上传速度 单位:Mbps      |
+| hysteriaDownMbps         | 是   | Hysteria 单客户端最大下载速度 单位:Mbps      |
+| hysteriaServerName       | 是   | Hysteria 用于验证服务端证书的 hostname     |
+| hysteriaInsecure         | 是   | Hysteria 忽略一切证书错误                |
+| hysteriaFastOpen         | 是   | Hysteria 启用 Fast Open (降低连接建立延迟) |
+| naiveProxyUsername       | 是   | NaiveProxy用户名                    |
 
 ### 创建节点
 
@@ -1266,32 +1531,153 @@ cover: 1
 请求示例:
 
 ```json
-
+{
+   "nodeServerId": 1,
+   "nodeTypeId": 1,
+   "name": "vless-reality",
+   "domain": "trojanpanel.github.io",
+   "port": 443,
+   "priority": 100,
+   "xrayProtocol": "vless",
+   "xrayFlow": "xtls-rprx-vision",
+   "xraySSMethod": "aes-256-gcm",
+   "realityPbk": "JraCqHw8lrQ-YdgrBSpBVTA4fhqHLfTUpZiP45x5gRI",
+   "xraySettings": "{\"clients\":[],\"fallbacks\":[{\"name\":\"\",\"alpn\":\"\",\"dest\":\"80\",\"xver\":0}],\"network\":\"tcp\",\"decryption\":\"none\"}",
+   "xrayStreamSettings": "{\"network\":\"tcp\",\"security\":\"reality\",\"tlsSettings\":{\"serverName\":\"\",\"alpn\":[\"h2\",\"http/1.1\"],\"allowInsecure\":false,\"fingerprint\":\"chrome\"},\"realitySettings\":{\"dest\":\"1.cybevo.cn:8863\",\"xver\":0,\"serverNames\":[\"1.cybevo.cn\"],\"fingerprint\":\"chrome\",\"privateKey\":\"GCRTXDZm1zuBdsQSM3Up9awTqxuzNwF6yXr5kxVT11w\",\"shortIds\":[\"c6b6b5bf30c98f05\"],\"spiderX\":\"/SCalpsSw\"},\"wsSettings\":{\"path\":\"/trojan-panel-websocket-path\",\"headers\":{\"Host\":\"\"}}}",
+   "xrayTag": "user",
+   "xraySniffing": "",
+   "xrayAllocate": "",
+   "trojanGoSni": "",
+   "trojanGoMuxEnable": 1,
+   "trojanGoWebsocketEnable": 0,
+   "trojanGoWebsocketPath": "/trojan-panel-websocket-path",
+   "trojanGoWebsocketHost": "",
+   "trojanGoSsEnable": 0,
+   "trojanGoSsMethod": "AES-128-GCM",
+   "trojanGoSsPassword": "",
+   "hysteriaProtocol": "udp",
+   "hysteriaObfs": "",
+   "hysteriaUpMbps": 100,
+   "hysteriaDownMbps": 100,
+   "hysteriaServerName": "",
+   "hysteriaInsecure": 0,
+   "hysteriaFastOpen": 0
+}
 ```
 
 参数说明:
 
+| 参数                      | 必须  | 说明                               |
+|-------------------------|-----|----------------------------------|
+| nodeServerId            | 是   | 服务器id                            |
+| nodeTypeId              | 是   | 节点类型id                           |
+| name                    | 是   | 名称                               |
+| domain                  | 是   | 域名/IP                            |
+| port                    | 是   | 端口                               |
+| priority                | 是   | 优先级                              |
+| xrayProtocol            | 否   | Xray 协议名称                        |
+| xrayFlow                | 否   | Xray 流控                          |
+| xraySSMethod            | 否   | Xray Shadowsocks加密方式             |
+| realityPbk              | 否   | Xray reality的公钥                  |
+| xraySettings            | 否   | Xray settings                    |
+| xrayStreamSettings      | 否   | Xray streamSettings              |
+| xrayTag                 | 否   | Xray tag                         |
+| xraySniffing            | 否   | Xray sniffing                    |
+| xrayAllocate            | 否   | Xray allocate                    |
+| trojanGoSni             | 否   | TrojanGo sni                     |
+| trojanGoMuxEnable       | 是   | TrojanGo 是否开启多路复用 0/关闭 1/开启      |
+| trojanGoWebsocketEnable | 是   | TrojanGo 是否开启websocket 0/否 1/是   |
+| trojanGoWebsocketPath   | 否   | TrojanGo websocket路径             |
+| trojanGoWebsocketHost   | 否   | TrojanGo websocket host          |
+| trojanGoSsEnable        | 是   | TrojanGo 是否开启ss加密 0/否 1/是        |
+| trojanGoSsMethod        | 否   | TrojanGo ss加密方式                  |
+| trojanGoSsPassword      | 否   | TrojanGo ss密码                    |
+| hysteriaProtocol        | 否   | Hysteria 协议名称 udp/faketcp        |
+| hysteriaObfs            | 否   | Hysteria 混淆密码                    |
+| hysteriaUpMbps          | 是   | Hysteria 单客户端最大上传速度 单位:Mbps      |
+| hysteriaDownMbps        | 是   | Hysteria 单客户端最大下载速度 单位:Mbps      |
+| hysteriaServerName      | 否   | Hysteria 用于验证服务端证书的 hostname     |
+| hysteriaInsecure        | 否   | Hysteria 忽略一切证书错误                |
+| hysteriaFastOpen        | 否   | Hysteria 启用 Fast Open (降低连接建立延迟) |
+
 返回示例:
 
-参数说明:
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
 ### 分页查询节点
 
 接口地址: `/api/node/selectNodePage`
 
-请求方式: `POST`
+请求方式: `GET`
 
 请求示例:
 
-```json
-
+```
+/api/node/selectNodePage?pageNum=1&pageSize=20&name=vless-reality&nodeServerId=1
 ```
 
 参数说明:
 
+| 参数           | 必须  | 说明    |
+|--------------|-----|-------|
+| pageNum      | 是   | 页号    |
+| pageSize     | 是   | 页大小   |
+| name         | 否   | 名称    |
+| nodeServerId | 否   | 服务器id |
+
 返回示例:
 
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": {
+    "nodes": [
+      {
+        "id": 1,
+        "nodeServerId": 2,
+        "nodeSubId": 1,
+        "nodeTypeId": 1,
+        "name": "vless-reality",
+        "domain": "1.cybevo.cn",
+        "port": 450,
+        "priority": 100,
+        "createTime": "2023-08-19T23:20:27+08:00",
+        "status": 1
+      }
+    ],
+    "pageNum": 1,
+    "pageSize": 20,
+    "total": 1
+  }
+}
+```
+
 参数说明:
+
+| 参数           | 必须  | 说明           |
+|--------------|-----|--------------|
+| pageNum      | 是   | 页号           |
+| pageSize     | 是   | 页大小          |
+| total        | 是   | 总数           |
+| nodes        | 否   | 节点           |
+| id           | 否   | 主键           |
+| nodeServerId | 否   | 服务器id        |
+| nodeSubId    | 否   | 节点分表id       |
+| nodeTypeId   | 否   | 节点类型id       |
+| name         | 否   | 名称           |
+| domain       | 否   | 域名/IP        |
+| port         | 否   | 端口           |
+| createTime   | 否   | 创建时间         |
+| status       | 否   | 状态 0/异常 1/正常 |
 
 ### 删除节点
 
@@ -1369,19 +1755,32 @@ cover: 1
 
 接口地址: `/api/node/nodeDefault`
 
-请求方式: `POST`
+请求方式: `GET`
 
-请求示例:
+返回示例:
 
 ```json
-
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": {
+    "publicKey": "JraCqHw8lrQ-YdgrBSpBVTA4fhqHLfTUpZiP45x5gRI",
+    "privateKey": "GCRTXDZm1zuBdsQSM3Up9awTqxuzNwF6yXr5kxVT11w",
+    "shortId": "c6b6b5bf30c98f05",
+    "spiderX": "/SCalpsSw"
+  }
+}
 ```
 
 参数说明:
 
-返回示例:
-
-参数说明:
+| 参数         | 必须  | 说明                   |
+|------------|-----|----------------------|
+| publicKey  | 是   | Xray reality公钥       |
+| privateKey | 是   | Xray reality私钥       |
+| shortId    | 是   | Xray reality shortId |
+| spiderX    | 是   | Xray reality spiderX |
 
 ## 节点类型
 
@@ -1945,7 +2344,7 @@ Content-Type: application/octet-stream
 
 ```json
 {
-   "id": 1
+  "id": 1
 }
 ```
 
