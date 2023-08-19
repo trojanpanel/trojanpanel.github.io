@@ -1105,7 +1105,7 @@ cover: 1
 
 参数说明:
 
-### 更新服务器列表
+### 查询服务器列表
 
 接口地址: `/api/nodeServer/selectNodeServerList`
 
@@ -1197,6 +1197,20 @@ cover: 1
 接口地址: `/api/nodeServer/importNodeServer`
 
 请求方式: `POST`
+
+请求参数:
+
+```
+file: (binary)
+cover: 1
+```
+
+参数说明:
+
+| 参数    | 必须  | 说明                |
+|-------|-----|-------------------|
+| file  | 是   | 文件二进制             |
+| cover | 是   | 是否根据用户名覆盖 0/否 1/是 |
 
 返回示例:
 
@@ -2391,8 +2405,6 @@ file: (binary)
   "data": null
 }
 ```
-
-参数说明:
 
 ### 下载文件任务的文件
 
