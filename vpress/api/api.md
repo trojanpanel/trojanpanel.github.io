@@ -79,8 +79,8 @@
 
 | 参数          | 必须  | 说明    |
 |-------------|-----|-------|
-| username    | 是   | 用户名   |
-| pass        | 是   | 密码    |
+| username    | 是   | 登录用户名 |
+| pass        | 是   | 登录密码  |
 | captchaId   | 否   | 验证码id |
 | captchaCode | 否   | 验证码值  |
 
@@ -124,8 +124,8 @@
 
 | 参数          | 必须  | 说明    |
 |-------------|-----|-------|
-| username    | 是   | 用户名   |
-| pass        | 是   | 密码    |
+| username    | 是   | 登录用户名 |
+| pass        | 是   | 登录密码  |
 | captchaId   | 否   | 验证码id |
 | captchaCode | 否   | 验证码值  |
 
@@ -310,7 +310,7 @@
 
 参数说明:
 
-### 获取当前用户信息
+### 获取当前账户信息
 
 接口地址: `/api/account/getAccountInfo`
 
@@ -345,29 +345,89 @@
 
 参数说明:
 
-| 参数       | 必须  | 说明  |
-|----------|-----|-----|
-| id       | 是   | 主键  |
-| username | 是   | 用户名 |
-| roles    | 是   | 角色  |
+| 参数       | 必须  | 说明    |
+|----------|-----|-------|
+| id       | 是   | 主键    |
+| username | 是   | 登录用户名 |
+| roles    | 是   | 角色    |
 
 ### 分页查询账户
 
 接口地址: `/api/account/selectAccountPage`
 
-请求方式: `POST`
+请求方式: `GET`
 
 请求示例:
 
-```json
-
+```
+/api/account/selectAccountPage?pageNum=1&pageSize=20&username=admin&deleted=0&orderFields=role_id,create_time&orderBy=desc&lastLoginTime=1
 ```
 
 参数说明:
 
+| 参数            | 必须  | 说明                                                                                                |
+|---------------|-----|---------------------------------------------------------------------------------------------------|
+| pageNum       | 是   | 页号                                                                                                |
+| pageSize      | 是   | 页大小                                                                                               |
+| username      | 否   | 登录用户名                                                                                             |
+| deleted       | 否   | 是否禁用 0/正常 1/禁用                                                                                    |
+| orderFields   | 否   | 排序字段 quota/总流量 role_id/角色 last_login_time/最后一次登录时间 expire_time/到期时间 deleted/是否禁用 create_time/创建时间 |
+| orderBy       | 否   | 排序方式 asc/正序 desc/倒序                                                                               |
+| lastLoginTime | 否   | 是否使用过 0/未使用过 1/使用过                                                                                |
+
 返回示例:
 
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": {
+    "pageNum": 1,
+    "pageSize": 20,
+    "total": 1,
+    "accounts": [
+      {
+        "id": 1,
+        "quota": -1,
+        "download": 0,
+        "upload": 0,
+        "username": "sysadmin",
+        "email": "",
+        "roleId": 1,
+        "deleted": 0,
+        "presetExpire": 0,
+        "presetQuota": 0,
+        "lastLoginTime": 1692430857369,
+        "expireTime": 4078656000000,
+        "createTime": "2022-04-01T00:00:00+08:00"
+      }
+    ]
+  }
+}
+```
+
 参数说明:
+
+| 参数            | 必须  | 说明                  |
+|---------------|-----|---------------------|
+| pageNum       | 是   | 页号                  |
+| pageSize      | 是   | 页大小                 |
+| total         | 是   | 总数                  |
+| accounts      | 否   | 账户                  |
+| id            | 否   | 主键                  |
+| quota         | 否   | 配额 单位/byte          |
+| download      | 否   | 下载 单位/byte          |
+| upload        | 否   | 上传 单位/byte          |
+| username      | 否   | 登录用户名               |
+| email         | 否   | 邮箱                  |
+| roleId        | 否   | 角色id 1/系统管理员 3/普通用户 |
+| deleted       | 否   | 是否禁用 0/正常 1/禁用      |
+| presetExpire  | 否   | 预设过期时长 单位/天         |
+| presetQuota   | 否   | 预设配额 单位/byte        |
+| lastLoginTime | 否   | 最后一次登录时间            |
+| expireTime    | 否   | 过期时间                |
+| createTime    | 否   | 创建时间                |
 
 ### 通过id删除账户
 
@@ -495,7 +555,7 @@
 
 参数说明:
 
-### 导出用户
+### 导出账户
 
 接口地址: `/api/account/exportAccount`
 
@@ -513,7 +573,7 @@
 
 参数说明:
 
-### 导入用户
+### 导入账户
 
 接口地址: `/api/account/importAccount`
 
@@ -573,19 +633,42 @@
 
 接口地址: `/api/role/selectRoleList`
 
-请求方式: `POST`
+请求方式: `GET`
 
-请求示例:
+返回示例:
 
 ```json
-
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": [
+    {
+      "id": 1,
+      "name": "sysadmin",
+      "desc": "System Admin"
+    },
+    {
+      "id": 2,
+      "name": "admin",
+      "desc": "Admin"
+    },
+    {
+      "id": 3,
+      "name": "user",
+      "desc": "User"
+    }
+  ]
+}
 ```
 
 参数说明:
 
-返回示例:
-
-参数说明:
+| 参数   | 必须  | 说明  |
+|------|-----|-----|
+| id   | 是   | 主键  |
+| name | 是   | 名称  |
+| desc | 是   | 描述  |
 
 ## 服务器
 
