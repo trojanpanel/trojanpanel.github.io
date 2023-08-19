@@ -222,37 +222,73 @@
 
 接口地址: `/api/dashboard/panelGroup`
 
-请求方式: `POST`
+请求方式: `GET`
 
-请求示例:
+返回示例:
 
 ```json
-
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": {
+    "quota": -1,
+    "residualFlow": -1,
+    "nodeCount": 0,
+    "expireTime": 4078656000000,
+    "accountCount": 8,
+    "cpuUsed": 1,
+    "memUsed": 32.9,
+    "diskUsed": 32.3
+  }
+}
 ```
 
 参数说明:
 
-返回示例:
-
-参数说明:
+| 参数           | 必须  | 说明     |
+|--------------|-----|--------|
+| quota        | 是   | 配额     |
+| residualFlow | 是   | 剩余流量   |
+| nodeCount    | 是   | 节点总数   |
+| expireTime   | 是   | 到期时间   |
+| accountCount | 是   | 用户总数   |
+| cpuUsed      | 是   | CPU使用率 |
+| memUsed      | 是   | 内存使用率  |
+| diskUsed     | 是   | 磁盘使用率  |
 
 ### 流量排行榜
 
 接口地址: `/api/dashboard/trafficRank`
 
-请求方式: `POST`
+请求方式: `GET`
 
-请求示例:
+返回示例:
 
 ```json
-
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": [
+    {
+      "username": "23****34",
+      "trafficUsed": "0"
+    },
+    {
+      "username": "12****23",
+      "trafficUsed": "0"
+    }
+  ]
+}
 ```
 
 参数说明:
 
-返回示例:
-
-参数说明:
+| 参数          | 必须  | 说明   |
+|-------------|-----|------|
+| username    | 是   | 用户名  |
+| trafficUsed | 是   | 已用流量 |
 
 ## 账户
 
@@ -469,14 +505,29 @@
 请求示例:
 
 ```json
-
+{
+  "oldPass": "123456",
+  "newPass": "123123"
+}
 ```
 
 参数说明:
 
+| 参数      | 必须  | 说明  |
+|---------|-----|-----|
+| oldPass | 是   | 原密码 |
+| newPass | 是   | 新密码 |
+
 返回示例:
 
-参数说明:
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
 ### 修改用户名或者邮箱
 
@@ -487,14 +538,31 @@
 请求示例:
 
 ```json
-
+{
+  "email": "123456@gmail.com",
+  "username": "sysadmin",
+  "pass": "123456"
+}
 ```
 
 参数说明:
 
+| 参数       | 必须  | 说明    |
+|----------|-----|-------|
+| email    | 否   | 邮箱    |
+| username | 否   | 登录用户名 |
+| pass     | 是   | 登录密码  |
+
 返回示例:
 
-参数说明:
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
 ### 修改账户
 
@@ -898,19 +966,30 @@
 
 接口地址: `/api/nodeServer/selectNodeServerList`
 
-请求方式: `POST`
+请求方式: `GET`
 
-请求示例:
+返回示例:
 
 ```json
-
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": [
+    {
+      "id": 1,
+      "name": "测试服务器"
+    }
+  ]
+}
 ```
 
 参数说明:
 
-返回示例:
-
-参数说明:
+| 参数   | 必须  | 说明  |
+|------|-----|-----|
+| id   | 是   | 主键  |
+| name | 是   | 名称  |
 
 ### 查询服务器状态
 
