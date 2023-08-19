@@ -519,23 +519,40 @@
 
 参数说明:
 
-### 获取指定人的Clash订阅地址
+### 获取指定账户的Clash订阅地址
 
 接口地址: `/api/account/clashSubscribeForSb`
 
-请求方式: `POST`
+请求方式: `GET`
 
 请求示例:
 
-```json
-
+```
+/api/account/clashSubscribeForSb?id=1
 ```
 
 参数说明:
 
+| 参数  | 必须  | 说明  |
+|-----|-----|-----|
+| id  | 是   | 主键  |
+
 返回示例:
 
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": "/api/auth/subscribe/SkxhejNnQkQtbWZDb2owbUNDVjFsQWwzUzNsOWVxeGprME9qWHNfOGc4R0dMdUZP"
+}
+```
+
 参数说明:
+
+| 参数   | 必须  | 说明   |
+|------|-----|------|
+| data | 是   | 订阅地址 |
 
 ### 重设下载和上传流量
 
@@ -846,19 +863,42 @@
 
 接口地址: `/api/nodeServer/nodeServerState`
 
-请求方式: `POST`
+请求方式: `GET`
 
 请求示例:
 
-```json
-
+```
+/api/nodeServer/nodeServerState?id=1
 ```
 
 参数说明:
 
+| 参数  | 必须  | 说明  |
+|-----|-----|-----|
+| id  | 是   | 主键  |
+
 返回示例:
 
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": {
+    "cpuUsed": 1,
+    "memUsed": 32.8,
+    "diskUsed": 32.3
+  }
+}
+```
+
 参数说明:
+
+| 参数       | 必须  | 说明     |
+|----------|-----|--------|
+| cpuUsed  | 是   | CPU使用率 |
+| memUsed  | 是   | 内存使用率  |
+| diskUsed | 是   | 磁盘使用率  |
 
 ### 导出服务器
 
