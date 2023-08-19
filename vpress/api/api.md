@@ -1160,19 +1160,55 @@
 
 接口地址: `/api/blackList/selectBlackListPage`
 
-请求方式: `POST`
+请求方式: `GET`
 
 请求示例:
 
-```json
-
+```
+/api/blackList/selectBlackListPage?pageNum=1&pageSize=20&ip=143.201.86.91
 ```
 
 参数说明:
 
+| 参数       | 必须  | 说明   |
+|----------|-----|------|
+| pageNum  | 是   | 页号   |
+| pageSize | 是   | 页大小  |
+| ip       | 否   | IP地址 |
+
 返回示例:
 
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": {
+    "pageNum": 1,
+    "pageSize": 20,
+    "total": 1,
+    "blackLists": [
+      {
+        "id": 1,
+        "ip": "143.201.86.91",
+        "createTime": "2023-08-19T16:24:58+08:00"
+      }
+    ]
+  }
+}
+```
+
 参数说明:
+
+| 参数         | 必须  | 说明   |
+|------------|-----|------|
+| pageNum    | 是   | 页号   |
+| pageSize   | 是   | 页大小  |
+| total      | 是   | 总数   |
+| blackLists | 否   | 黑名单  |
+| id         | 否   | 主键   |
+| ip         | 否   | IP地址 |
+| createTime | 否   | 创建时间 |
 
 ### 删除黑名单
 
@@ -1183,14 +1219,27 @@
 请求示例:
 
 ```json
-
+{
+  "ip": "143.201.86.91"
+}
 ```
 
 参数说明:
 
+| 参数  | 必须  | 说明   |
+|-----|-----|------|
+| IP  | 是   | IP地址 |
+
 返回示例:
 
-参数说明:
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
 ### 创建黑名单
 
@@ -1201,14 +1250,27 @@
 请求示例:
 
 ```json
-
+{
+  "ip": "143.201.86.91"
+}
 ```
 
 参数说明:
 
+| 参数  | 必须  | 说明   |
+|-----|-----|------|
+| ip  | 是   | IP地址 |
+
 返回示例:
 
-参数说明:
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
 ## 邮件
 
