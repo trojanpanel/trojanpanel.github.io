@@ -1086,19 +1086,58 @@
 
 接口地址: `/api/system/selectSystemByName`
 
-请求方式: `POST`
+请求方式: `GET`
 
-请求示例:
+返回示例:
 
 ```json
-
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": {
+    "id": 1,
+    "registerEnable": 1,
+    "registerQuota": 1024,
+    "registerExpireDays": 1,
+    "resetDownloadAndUploadMonth": 0,
+    "trafficRankEnable": 1,
+    "captchaEnable": 1,
+    "expireWarnEnable": 0,
+    "expireWarnDay": 0,
+    "emailEnable": 0,
+    "emailHost": "",
+    "emailPort": 0,
+    "emailUsername": "",
+    "emailPassword": "",
+    "systemName": "Trojan Panel",
+    "clashRule": "rules:\n  - RULE-SET,applications,DIRECT\n  - DOMAIN,clash.razord.top,DIRECT\n  - DOMAIN,yacd.haishan.me,DIRECT\n  - RULE-SET,private,DIRECT\n  - RULE-SET,reject,REJECT\n  - RULE-SET,icloud,DIRECT\n  - RULE-SET,apple,DIRECT\n  - RULE-SET,google,DIRECT\n  - RULE-SET,proxy,PROXY\n  - RULE-SET,direct,DIRECT\n  - RULE-SET,lancidr,DIRECT\n  - RULE-SET,cncidr,DIRECT\n  - RULE-SET,telegramcidr,PROXY\n  - GEOIP,,DIRECT\n  - GEOIP,CN,DIRECT\n  - MATCH,PROXY\n\nrule-providers:\n  reject:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt\"\n    path: ./ruleset/reject.yaml\n    interval: 86400\n\n  icloud:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt\"\n    path: ./ruleset/icloud.yaml\n    interval: 86400\n\n  apple:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt\"\n    path: ./ruleset/apple.yaml\n    interval: 86400\n\n  google:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt\"\n    path: ./ruleset/google.yaml\n    interval: 86400\n\n  proxy:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt\"\n    path: ./ruleset/proxy.yaml\n    interval: 86400\n\n  direct:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt\"\n    path: ./ruleset/direct.yaml\n    interval: 86400\n\n  private:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt\"\n    path: ./ruleset/private.yaml\n    interval: 86400\n\n  gfw:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt\"\n    path: ./ruleset/gfw.yaml\n    interval: 86400\n\n  greatfire:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt\"\n    path: ./ruleset/greatfire.yaml\n    interval: 86400\n\n  tld-not-cn:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt\"\n    path: ./ruleset/tld-not-cn.yaml\n    interval: 86400\n\n  telegramcidr:\n    type: http\n    behavior: ipcidr\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt\"\n    path: ./ruleset/telegramcidr.yaml\n    interval: 86400\n\n  cncidr:\n    type: http\n    behavior: ipcidr\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt\"\n    path: ./ruleset/cncidr.yaml\n    interval: 86400\n\n  lancidr:\n    type: http\n    behavior: ipcidr\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt\"\n    path: ./ruleset/lancidr.yaml\n    interval: 86400\n\n  applications:\n    type: http\n    behavior: classical\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt\"\n    path: ./ruleset/applications.yaml\n    interval: 86400",
+    "xrayTemplate": "{\n    \"log\": {\n        \"loglevel\": \"warning\"\n    },\n    \"api\": {\n        \"tag\": \"api\",\n        \"services\": [\n            \"HandlerService\",\n            \"LoggerService\",\n            \"StatsService\"\n        ]\n    },\n    \"dns\": null,\n    \"routing\": {\n        \"rules\": [\n            {\n                \"inboundTag\": [\n                    \"api\"\n                ],\n                \"outboundTag\": \"api\",\n                \"type\": \"field\"\n            }\n        ]\n    },\n    \"policy\": {\n        \"levels\": {\n            \"0\": {\n                \"statsUserUplink\": true,\n                \"statsUserDownlink\": true\n            }\n        },\n        \"system\": {\n            \"statsInboundUplink\": true,\n            \"statsInboundDownlink\": true\n        }\n    },\n    \"inbounds\": [],\n    \"outbounds\": [\n        {\n            \"protocol\": \"freedom\"\n        }\n    ],\n    \"transport\": null,\n    \"stats\": {},\n    \"reverse\": null,\n    \"fakeDns\": null\n}"
+  }
+}
 ```
 
 参数说明:
 
-返回示例:
-
-参数说明:
+| 参数                          | 必须  | 说明                |
+|-----------------------------|-----|-------------------|
+| id                          | 是   | 主键                |
+| registerEnable              | 是   | 是否开放注册 0/否 1/是    |
+| registerQuota               | 是   | 注册用户默认配额 单位/MB    |
+| registerExpireDays          | 是   | 注册用户过期天数 单位/天     |
+| resetDownloadAndUploadMonth | 是   | 是否每月重设下载和上传流量     |
+| trafficRankEnable           | 是   | 是否开启流量排行 0/否 1/是  |
+| captchaEnable               | 是   | 是否开启验证码登录 0/否 1/是 |
+| expireWarnEnable            | 是   | 是否开启到期警告 0/否 1/是  |
+| expireWarnDay               | 是   | 到期警告 单位/天         |
+| emailEnable                 | 是   | 是否开启邮箱功能 0/否 1/是  |
+| emailHost                   | 是   | 系统邮箱设置 host       |
+| emailPort                   | 是   | 系统邮箱设置 port       |
+| emailUsername               | 是   | 系统邮箱设置 username   |
+| emailPassword               | 是   | 系统邮箱设置 password   |
+| systemName                  | 是   | 系统名称              |
+| clashRule                   | 是   | Clash模板           |
+| xrayTemplate                | 是   | Xray模板            |
 
 ### 更新系统配置
 
@@ -1109,14 +1148,59 @@
 请求示例:
 
 ```json
-
+{
+  "id": 1,
+  "registerEnable": 0,
+  "registerQuota": 1024,
+  "registerExpireDays": 1,
+  "resetDownloadAndUploadMonth": 0,
+  "trafficRankEnable": 1,
+  "captchaEnable": 1,
+  "expireWarnEnable": 0,
+  "expireWarnDay": 0,
+  "emailEnable": 0,
+  "emailHost": "",
+  "emailPort": 0,
+  "emailUsername": "",
+  "emailPassword": "",
+  "systemName": "Trojan Panel",
+  "clashRule": "rules:\n  - RULE-SET,applications,DIRECT\n  - DOMAIN,clash.razord.top,DIRECT\n  - DOMAIN,yacd.haishan.me,DIRECT\n  - RULE-SET,private,DIRECT\n  - RULE-SET,reject,REJECT\n  - RULE-SET,icloud,DIRECT\n  - RULE-SET,apple,DIRECT\n  - RULE-SET,google,DIRECT\n  - RULE-SET,proxy,PROXY\n  - RULE-SET,direct,DIRECT\n  - RULE-SET,lancidr,DIRECT\n  - RULE-SET,cncidr,DIRECT\n  - RULE-SET,telegramcidr,PROXY\n  - GEOIP,,DIRECT\n  - GEOIP,CN,DIRECT\n  - MATCH,PROXY\n\nrule-providers:\n  reject:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt\"\n    path: ./ruleset/reject.yaml\n    interval: 86400\n\n  icloud:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt\"\n    path: ./ruleset/icloud.yaml\n    interval: 86400\n\n  apple:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt\"\n    path: ./ruleset/apple.yaml\n    interval: 86400\n\n  google:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt\"\n    path: ./ruleset/google.yaml\n    interval: 86400\n\n  proxy:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt\"\n    path: ./ruleset/proxy.yaml\n    interval: 86400\n\n  direct:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt\"\n    path: ./ruleset/direct.yaml\n    interval: 86400\n\n  private:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt\"\n    path: ./ruleset/private.yaml\n    interval: 86400\n\n  gfw:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt\"\n    path: ./ruleset/gfw.yaml\n    interval: 86400\n\n  greatfire:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt\"\n    path: ./ruleset/greatfire.yaml\n    interval: 86400\n\n  tld-not-cn:\n    type: http\n    behavior: domain\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt\"\n    path: ./ruleset/tld-not-cn.yaml\n    interval: 86400\n\n  telegramcidr:\n    type: http\n    behavior: ipcidr\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt\"\n    path: ./ruleset/telegramcidr.yaml\n    interval: 86400\n\n  cncidr:\n    type: http\n    behavior: ipcidr\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt\"\n    path: ./ruleset/cncidr.yaml\n    interval: 86400\n\n  lancidr:\n    type: http\n    behavior: ipcidr\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt\"\n    path: ./ruleset/lancidr.yaml\n    interval: 86400\n\n  applications:\n    type: http\n    behavior: classical\n    url: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt\"\n    path: ./ruleset/applications.yaml\n    interval: 86400",
+  "xrayTemplate": "{\n    \"log\": {\n        \"loglevel\": \"warning\"\n    },\n    \"api\": {\n        \"tag\": \"api\",\n        \"services\": [\n            \"HandlerService\",\n            \"LoggerService\",\n            \"StatsService\"\n        ]\n    },\n    \"dns\": null,\n    \"routing\": {\n        \"rules\": [\n            {\n                \"inboundTag\": [\n                    \"api\"\n                ],\n                \"outboundTag\": \"api\",\n                \"type\": \"field\"\n            }\n        ]\n    },\n    \"policy\": {\n        \"levels\": {\n            \"0\": {\n                \"statsUserUplink\": true,\n                \"statsUserDownlink\": true\n            }\n        },\n        \"system\": {\n            \"statsInboundUplink\": true,\n            \"statsInboundDownlink\": true\n        }\n    },\n    \"inbounds\": [],\n    \"outbounds\": [\n        {\n            \"protocol\": \"freedom\"\n        }\n    ],\n    \"transport\": null,\n    \"stats\": {},\n    \"reverse\": null,\n    \"fakeDns\": null\n}"
+}
 ```
 
 参数说明:
 
+| 参数                          | 必须  | 说明                |
+|-----------------------------|-----|-------------------|
+| id                          | 是   | 主键                |
+| registerEnable              | 是   | 是否开放注册 0/否 1/是    |
+| registerQuota               | 是   | 注册用户默认配额 单位/MB    |
+| registerExpireDays          | 是   | 注册用户过期天数 单位/天     |
+| resetDownloadAndUploadMonth | 是   | 是否每月重设下载和上传流量     |
+| trafficRankEnable           | 是   | 是否开启流量排行 0/否 1/是  |
+| captchaEnable               | 是   | 是否开启验证码登录 0/否 1/是 |
+| expireWarnEnable            | 是   | 是否开启到期警告 0/否 1/是  |
+| expireWarnDay               | 是   | 到期警告 单位/天         |
+| emailEnable                 | 是   | 是否开启邮箱功能 0/否 1/是  |
+| emailHost                   | 是   | 系统邮箱设置 host       |
+| emailPort                   | 是   | 系统邮箱设置 port       |
+| emailUsername               | 是   | 系统邮箱设置 username   |
+| emailPassword               | 是   | 系统邮箱设置 password   |
+| systemName                  | 是   | 系统名称              |
+| clashRule                   | 是   | Clash模板           |
+| xrayTemplate                | 是   | Xray模板            |
+
 返回示例:
 
-参数说明:
+```json
+{
+  "code": 20000,
+  "type": "success",
+  "message": "",
+  "data": null
+}
+```
 
 ### 上传静态网站文件
 
