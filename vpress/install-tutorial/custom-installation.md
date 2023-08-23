@@ -395,7 +395,7 @@ Caddy配置举例
 - `redis-server --requirepass "${redis_pass}" --port ${redis_port}`：设置Redis密码为`${redis_pass}`
   设置Redis端口为`${redis_port}`（默认:6378）
 
-## 安装Trojan Panel
+## 安装Trojan Panel Backend
 
 > Docker Hub：https://hub.docker.com/r/jonssonyan/trojan-panel
 
@@ -445,7 +445,7 @@ Caddy配置举例
 - `-e "redis_port=${redis_port}"`：`${redis_port}`为 Redis 的端口(默认:本机 Redis 端口)
 - `-e "redis_pass=${redis_pass}"`：`${redis_pass}`为 Redis 的密码(必填)
 
-## 安装Trojan Panel UI
+## 安装Trojan Panel Frontend
 
 > Docker Hub：https://hub.docker.com/r/jonssonyan/trojan-panel-ui
 
