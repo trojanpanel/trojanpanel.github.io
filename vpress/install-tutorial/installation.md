@@ -4,11 +4,11 @@
 
 #### 系统要求
 
-系统支持: CentOS 7+/Ubuntu 18+/Debian 10+
+系统:: CentOS 7+ / Ubuntu 18+ / Debian 10+
 
-处理器架构: `linux/386` `linux/amd64` `liunx/v6` `linux/v7` `linux/arm64` `linux/ppc64le` `linux/s390x`
+CPU: linux/amd64 / linux/arm/v6 / linux/arm/v7 / linux/arm64 / linux/s390x / linux/ppc64le / linux/386
 
-内存要求: ≥1G
+内存: ≥ 1G
 
 #### 相关端口
 
@@ -19,15 +19,15 @@
 | 8888 | Trojan Panel前端          |
 | 8081 | Trojan Panel后端          |
 | 8082 | Trojan Panel Core       |
+| 8100 | Trojan Panel Core API端口 |
 | 9507 | MariaDB                 |
 | 6378 | Redis                   |
-| 8100 | Trojan Panel Core API端口 |
 
-Trojan Panel服务器需开放以下端口: `80` `8863` `8888`，Trojan Panel Core服务器需要开放：`8100`。
+提示:
 
-如果使用的服务器控制面板有防火墙设置需要自己在控制面板自行开放以上端口。
+1. 如果使用的服务器控制面板有防火墙设置需要自己在控制面板自行开放以上端口。
 
-如果没有没有远程节点，尽量不要开放`9507`和`6378`端口。
+2. 如果没有没有远程节点，尽量关闭`9507`和`6378`端口。
 
 #### 注意
 
@@ -35,32 +35,33 @@ Trojan Panel服务器需开放以下端口: `80` `8863` `8888`，Trojan Panel Co
 
 2. 提前准备一个解析到服务的**二级域名**。
 
-3. **数据库和Redis的密码尽量设置复杂**（数字+大小写字母+特殊字符），否则假如开放了对应端口，则存在被撞库的安全风险。
+3. 数据库和Redis的密码**尽量设置复杂**（数据库密码不支持部分特殊字符），否则存在被撞库的安全风险。
 
-4. 建议的安装顺序: [安装网络加速](../tutorial/performance-tuning.md#网络加速) > 安装Trojan Panel > 安装Trojan Panel Core
+4. 建议的安装顺序: [网络加速](../tutorial/performance-tuning.md#网络加速) > Trojan Panel Frontend > Trojan Panel
+   Backend -> Trojan Panel Core
 
-   建议在脚本运行中需要手动输入的部分，如果没有特殊需求或者不知道这个选项是干什么的，**除数据库密码和Redis密码自定义以外，其他默认即可
-   **。
+   建议在脚本运行中需要手动输入的部分，如果没有特殊需求或者不知道这个选项是干什么的，
+   **除数据库密码和Redis密码自定义以外，其他默认即可**。
 
-5. 如果是远程多节点的情况，**节点服务器只需要安装一次Trojan Panel Core**，在面板界面才可以操作远程服务器从而远程自动化管理节点。
+5. 如果是远程多节点的情况，节点服务器**只需要安装一次**Trojan Panel Core，在面板界面才可以操作远程服务器从而远程自动化管理节点。
 
-6. 如果使用Caddy自动申请/续签证书，**需要开放Caddy端口（默认80）并且保证Caddy端口没有被其他进程占用**。
+6. 如果使用Caddy2自动申请/续签证书，需要开放Caddy端口（默认80）并且**保证Caddy端口没有被其他进程占用**。
 
 ## 一键安装脚本
 
 1. 联机版（推荐）
 
-```shell
-source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_script.sh)
-```
+   ```shell
+   source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_script.sh)
+   ```
 
 2. 单机版
 
-```shell
-source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_script_standalone.sh)
-```
+   ```shell
+   source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_script_standalone.sh)
+   ```
 
-3. [安装旧版](https://github.com/trojanpanel/install-script/tree/main/archive)
+3. [安装旧版](https://github.com/trojanpanel/install-script/blob/main/README_ARCHIVE.md)
 
 ## 安装Trojan Panel
 

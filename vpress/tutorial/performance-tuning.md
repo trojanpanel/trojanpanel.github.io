@@ -11,6 +11,6 @@
 ## 网络加速
 
 1. [Chikage0o0/Linux-NetSpeed](https://github.com/Chikage0o0/Linux-NetSpeed)
-1. [ylx2016/Linux-NetSpeed](https://github.com/ylx2016/Linux-NetSpeed)
+2. [ylx2016/Linux-NetSpeed](https://github.com/ylx2016/Linux-NetSpeed)
 3. [teddysun/across#bbrsh](https://github.com/teddysun/across#bbrsh)
-2. [cx9208/bbrplus（archive）](https://github.com/cx9208/bbrplus)
+4. [cx9208/bbrplus（archive）](https://github.com/cx9208/bbrplus)
