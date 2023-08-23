@@ -37,8 +37,8 @@ CPU: linux/amd64 / linux/arm/v6 / linux/arm/v7 / linux/arm64 / linux/s390x / lin
 
 3. 数据库和Redis的密码**尽量设置复杂**（数据库密码不支持部分特殊字符），否则存在被撞库的安全风险。
 
-4. 建议的安装顺序: [网络加速](../tutorial/performance-tuning.md#网络加速) > Trojan Panel Frontend > Trojan Panel
-   Backend -> Trojan Panel Core
+4. 建议的安装顺序: [网络加速](../tutorial/performance-tuning.md#网络加速) > Trojan Panel Backend > Trojan Panel
+   Frontend -> Trojan Panel Core
 
    建议在脚本运行中需要手动输入的部分，如果没有特殊需求或者不知道这个选项是干什么的，
    **除数据库密码和Redis密码自定义以外，其他默认即可**。
