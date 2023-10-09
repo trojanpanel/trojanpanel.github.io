@@ -1,5 +1,18 @@
 # 更新日志
 
+## 2023.10.09 犼<Badge type="tip" text="v2.2" vertical="top" />
+
+1. feat: 升级Xray至v1.8.4
+2. fix: 将英语作为第一支持的的语言
+3. fix: 修复修改用户名重复的Bug
+4. pref: 优化反代软件和证书的安装逻辑
+
+#### 版本对应关系
+
+| Install Script | Trojan Panel UI | Trojan Panel | Trojan Panel Core | Core SDK |  Xray  | Trojan Go | Hysteria | Caddy（NaiveProxy） |
+|:--------------:|:---------------:|:------------:|:-----------------:|:--------:|:------:|:---------:|:--------:|:-----------------:|
+|     v2.2.1     |     v2.1.6      |    v2.2.0    |      v2.2.1       |  v0.0.1  | v1.8.4 |  v0.10.6  |  v1.3.4  |      v2.6.4       |
+
 ## 2023.07.08 帝江<Badge type="tip" text="v2.1" vertical="top" />
 
 1. 新增Nginx反代
