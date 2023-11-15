@@ -32,21 +32,21 @@ footer: Copyright © 2021-2023 Trojan Panel
 
 ## 🚀 安装
 
-1. 联机（推荐）
+- 联机（推荐）
 
     ```shell
     source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_script.sh)
     ```
 
-2. 单机
+- 单机
 
     ```shell
     source <(curl -L https://github.com/trojanpanel/install-script/raw/main/install_script_standalone.sh)
     ```
 
-3. [安装旧版本](https://github.com/trojanpanel/install-script/tree/main/README_ZH.md)
+- [安装旧版本](https://github.com/trojanpanel/install-script/tree/main/README_ZH.md)
 
-## ✨ Community
+## ✨ 社区
 
 Telegram 频道: [Trojan Panel](https://t.me/TrojanPanel)
 
