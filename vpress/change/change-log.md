@@ -1,5 +1,20 @@
 # 更新日志
 
+## 2023.12.31 烛龙<Badge type="tip" text="v2.3" vertical="top" />
+
+1. feat: 支持Hysteria2
+2. fix: 修复SQL注入
+3. fix: 将token有效期更改为12小时
+4. 忘记密码功能会重设账户状态
+5. 支持Xray Socks5
+6. 禁止禁用系统管理员账户
+
+#### 版本对应关系
+
+| Install Script | Trojan Panel UI | Trojan Panel | Trojan Panel Core | Core SDK |  Xray  | Trojan Go | Hysteria | Hysteria2 | Caddy（NaiveProxy） |
+|:--------------:|:---------------:|:------------:|:-----------------:|:--------:|:------:|:---------:|:--------:|:---------:|:-----------------:|
+|     v2.3.2     |     v2.3.0      |    v2.3.1    |      v2.3.1       |  v0.0.1  | v1.8.4 |  v0.10.6  |  v1.3.4  |  v2.0.4   |      v2.6.4       |
+
 ## 2023.10.09 犼<Badge type="tip" text="v2.2" vertical="top" />
 
 1. feat: 升级Xray至v1.8.4
