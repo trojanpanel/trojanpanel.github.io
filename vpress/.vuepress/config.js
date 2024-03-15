@@ -38,8 +38,8 @@ module.exports = {
             '/start/': ['introduce', 'system-structure'],
             '/tutorial/': ['using-tutorials', 'des-of-related-doc', 'using-cdn', 'client-config', 'recommend-tool', 'performance-tuning', 'performance-testing'],
             '/install-tutorial/': ['installation', 'custom-installation', 'docker-compose'],
-            '/api/': ['api'],
-            '/sdk/': ['sdk'],
+            '/api/': ['api', 'v3.0.0'],
+            '/sdk/': ['sdk', 'v0.0.1'],
             '/faq/': ['faq'],
             '/change/': ['change-log']
         },
