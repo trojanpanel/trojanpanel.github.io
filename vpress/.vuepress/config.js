@@ -36,7 +36,7 @@ module.exports = {
             }],
         sidebar: {
             '/start/': ['introduce', 'system-structure'],
-            '/tutorial/': ['using-tutorials', 'des-of-related-doc', 'common-problem', 'using-cdn', 'client-config', 'recommend-tool', 'performance-tuning', 'performance-testing'],
+            '/tutorial/': ['using-tutorials', 'des-of-related-doc', 'using-cdn', 'client-config', 'recommend-tool', 'performance-tuning', 'performance-testing'],
             '/install-tutorial/': ['installation', 'custom-installation', 'docker-compose'],
             '/api/': ['api'],
             '/sdk/': ['sdk'],
